@@ -1,0 +1,186 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" fill="none">
+  <defs>
+    <linearGradient id="fpBgGrad" x1="0" y1="0" x2="1200" y2="680" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#090D16"/>
+      <stop offset="1" stop-color="#020408"/>
+    </linearGradient>
+    <linearGradient id="fpCardGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#1E293B" stop-opacity="0.8"/>
+      <stop offset="1" stop-color="#0F172A" stop-opacity="0.9"/>
+    </linearGradient>
+    <linearGradient id="emeraldGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#10B981"/>
+      <stop offset="1" stop-color="#06B6D4"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="680" rx="16" fill="url(#fpBgGrad)"/>
+  <rect x="1" y="1" width="1198" height="678" rx="15" stroke="#1E293B" stroke-width="1.5"/>
+
+  <!-- Desktop App Window Bar -->
+  <rect x="0" y="0" width="1200" height="42" rx="16" fill="#0F172A"/>
+  <rect x="0" y="26" width="1200" height="16" fill="#0F172A"/>
+  <line x1="0" y1="42" x2="1200" y2="42" stroke="#1E293B"/>
+  
+  <!-- Window buttons -->
+  <circle cx="24" cy="21" r="6" fill="#EF4444"/>
+  <circle cx="44" cy="21" r="6" fill="#F59E0B"/>
+  <circle cx="64" cy="21" r="6" fill="#10B981"/>
+
+  <text x="600" y="26" fill="#94A3B8" font-family="Segoe UI, sans-serif" font-size="12" font-weight="500" text-anchor="middle">FacturaPro DZ — Application Desktop de Facturation Conforme (Electron / SQLite)</text>
+
+  <!-- SIDEBAR (LEFT) -->
+  <rect x="0" y="42" width="220" height="638" fill="#0A0F1D"/>
+  <line x1="220" y1="42" x2="220" y2="680" stroke="#1E293B"/>
+
+  <!-- App Logo in Sidebar -->
+  <rect x="24" y="66" width="36" height="36" rx="8" fill="url(#emeraldGrad)"/>
+  <text x="42" y="90" fill="#FFFFFF" font-family="Segoe UI, sans-serif" font-size="18" font-weight="900" text-anchor="middle">FP</text>
+  <text x="70" y="84" fill="#F8FAFC" font-family="Segoe UI, sans-serif" font-size="15" font-weight="800">FacturaPro <tspan fill="#10B981">DZ</tspan></text>
+  <text x="70" y="98" fill="#64748B" font-family="Segoe UI, sans-serif" font-size="10">v1.0 · Offline First</text>
+
+  <!-- Sidebar Nav Items -->
+  <g transform="translate(16, 130)">
+    <!-- Active Item: Tableau de bord -->
+    <rect x="0" y="0" width="188" height="40" rx="8" fill="#1E293B" stroke="#334155"/>
+    <rect x="0" y="8" width="4" height="24" rx="2" fill="#10B981"/>
+    <text x="44" y="25" fill="#34D399" font-family="Segoe UI, sans-serif" font-size="13" font-weight="600">📊 Tableau de bord</text>
+
+    <!-- Inactive Items -->
+    <text x="44" y="70" fill="#94A3B8" font-family="Segoe UI, sans-serif" font-size="13">🧾 Factures (NIF/RC)</text>
+    <text x="44" y="115" fill="#94A3B8" font-family="Segoe UI, sans-serif" font-size="13">👥 Fichier Clients</text>
+    <text x="44" y="160" fill="#94A3B8" font-family="Segoe UI, sans-serif" font-size="13">📦 Produits &amp; Stocks</text>
+    <text x="44" y="205" fill="#94A3B8" font-family="Segoe UI, sans-serif" font-size="13">⚙️ Paramètres / i18n</text>
+  </g>
+
+  <!-- Sidebar Bottom Langue FR/AR -->
+  <rect x="20" y="605" width="180" height="42" rx="8" fill="#1E293B" stroke="#334155"/>
+  <text x="36" y="631" fill="#CBD5E1" font-family="Segoe UI, sans-serif" font-size="12">🌐 Langue : Français / العربية</text>
+
+  <!-- MAIN CONTENT AREA -->
+  <!-- Top bar -->
+  <g transform="translate(244, 62)">
+    <text x="0" y="26" fill="#F8FAFC" font-family="Segoe UI, sans-serif" font-size="22" font-weight="800">Tableau de bord de Facturation</text>
+    <text x="0" y="46" fill="#94A3B8" font-family="Segoe UI, sans-serif" font-size="12">Conforme Réglementation Fiscale Algérienne (Droit de timbre 1% &amp; TVA 19%, 9%, 0%)</text>
+  </g>
+
+  <!-- 4 STAT CARDS -->
+  <!-- Stat 1: Ventes du Jour -->
+  <g transform="translate(244, 130)">
+    <rect width="215" height="96" rx="10" fill="url(#fpCardGrad)" stroke="#1E293B"/>
+    <text x="16" y="28" fill="#94A3B8" font-family="Segoe UI, sans-serif" font-size="11" font-weight="600">VENTES DU JOUR</text>
+    <text x="16" y="64" fill="#34D399" font-family="Segoe UI, sans-serif" font-size="24" font-weight="800">425 000 <tspan font-size="14">DA</tspan></text>
+    <text x="16" y="84" fill="#64748B" font-family="Segoe UI, sans-serif" font-size="10">8 factures émises</text>
+  </g>
+
+  <!-- Stat 2: Total Mensuel -->
+  <g transform="translate(480, 130)">
+    <rect width="215" height="96" rx="10" fill="url(#fpCardGrad)" stroke="#1E293B"/>
+    <text x="16" y="28" fill="#94A3B8" font-family="Segoe UI, sans-serif" font-size="11" font-weight="600">CHIFFRE D'AFFAIRES MOIS</text>
+    <text x="16" y="64" fill="#38BDF8" font-family="Segoe UI, sans-serif" font-size="24" font-weight="800">6 840 500 <tspan font-size="14">DA</tspan></text>
+    <text x="16" y="84" fill="#64748B" font-family="Segoe UI, sans-serif" font-size="10">100% encaissé</text>
+  </g>
+
+  <!-- Stat 3: Timbre & TVA calculés -->
+  <g transform="translate(716, 130)">
+    <rect width="215" height="96" rx="10" fill="url(#fpCardGrad)" stroke="#1E293B"/>
+    <text x="16" y="28" fill="#94A3B8" font-family="Segoe UI, sans-serif" font-size="11" font-weight="600">TVA &amp; TIMBRE FISCAL</text>
+    <text x="16" y="64" fill="#F59E0B" font-family="Segoe UI, sans-serif" font-size="24" font-weight="800">1 299 695 <tspan font-size="14">DA</tspan></text>
+    <text x="16" y="84" fill="#64748B" font-family="Segoe UI, sans-serif" font-size="10">Prêt pour déclaration G50</text>
+  </g>
+
+  <!-- Stat 4: Clients Actifs -->
+  <g transform="translate(952, 130)">
+    <rect width="215" height="96" rx="10" fill="url(#fpCardGrad)" stroke="#1E293B"/>
+    <text x="16" y="28" fill="#94A3B8" font-family="Segoe UI, sans-serif" font-size="11" font-weight="600">RÉPERTOIRE CLIENTS</text>
+    <text x="16" y="64" fill="#A78BFA" font-family="Segoe UI, sans-serif" font-size="24" font-weight="800">142 <tspan font-size="14">entreprises</tspan></text>
+    <text x="16" y="84" fill="#64748B" font-family="Segoe UI, sans-serif" font-size="10">Avec NIF / RC / NIS / AI</text>
+  </g>
+
+  <!-- INVOICE LIST & PREVIEW -->
+  <!-- Left: Invoices Table -->
+  <g transform="translate(244, 250)">
+    <rect width="580" height="395" rx="12" fill="url(#fpCardGrad)" stroke="#1E293B"/>
+    <text x="20" y="32" fill="#F8FAFC" font-family="Segoe UI, sans-serif" font-size="15" font-weight="700">Dernières Factures Émises</text>
+
+    <!-- Table Header -->
+    <rect x="16" y="50" width="548" height="32" rx="6" fill="#0B0F19"/>
+    <text x="32" y="70" fill="#64748B" font-family="Segoe UI, sans-serif" font-size="11" font-weight="600">N° FACTURE</text>
+    <text x="140" y="70" fill="#64748B" font-family="Segoe UI, sans-serif" font-size="11" font-weight="600">CLIENT / NIF</text>
+    <text x="320" y="70" fill="#64748B" font-family="Segoe UI, sans-serif" font-size="11" font-weight="600">MONTANT TTC</text>
+    <text x="470" y="70" fill="#64748B" font-family="Segoe UI, sans-serif" font-size="11" font-weight="600">STATUT</text>
+
+    <!-- Row 1 -->
+    <text x="32" y="112" fill="#38BDF8" font-family="Segoe UI, sans-serif" font-size="12" font-weight="600">2026-0042</text>
+    <text x="140" y="106" fill="#F1F5F9" font-family="Segoe UI, sans-serif" font-size="12" font-weight="600">SARL Agro Equipement</text>
+    <text x="140" y="122" fill="#64748B" font-family="Segoe UI, sans-serif" font-size="10">NIF: 000216001234567</text>
+    <text x="320" y="112" fill="#F8FAFC" font-family="Segoe UI, sans-serif" font-size="12" font-weight="700">184 450 DA</text>
+    <rect x="470" y="98" width="70" height="20" rx="10" fill="#064E3B"/>
+    <text x="484" y="112" fill="#34D399" font-family="Segoe UI, sans-serif" font-size="10" font-weight="700">Validée</text>
+    <line x1="20" y1="135" x2="560" y2="135" stroke="#1E293B"/>
+
+    <!-- Row 2 -->
+    <text x="32" y="162" fill="#38BDF8" font-family="Segoe UI, sans-serif" font-size="12" font-weight="600">2026-0041</text>
+    <text x="140" y="156" fill="#F1F5F9" font-family="Segoe UI, sans-serif" font-size="12" font-weight="600">EURL Logistique Express</text>
+    <text x="140" y="172" fill="#64748B" font-family="Segoe UI, sans-serif" font-size="10">NIF: 099815049382101</text>
+    <text x="320" y="162" fill="#F8FAFC" font-family="Segoe UI, sans-serif" font-size="12" font-weight="700">92 100 DA</text>
+    <rect x="470" y="148" width="70" height="20" rx="10" fill="#064E3B"/>
+    <text x="484" y="162" fill="#34D399" font-family="Segoe UI, sans-serif" font-size="10" font-weight="700">Validée</text>
+    <line x1="20" y1="185" x2="560" y2="185" stroke="#1E293B"/>
+
+    <!-- Row 3 -->
+    <text x="32" y="212" fill="#38BDF8" font-family="Segoe UI, sans-serif" font-size="12" font-weight="600">2026-0040</text>
+    <text x="140" y="206" fill="#F1F5F9" font-family="Segoe UI, sans-serif" font-size="12" font-weight="600">SNC Travaux du Sahel</text>
+    <text x="140" y="222" fill="#64748B" font-family="Segoe UI, sans-serif" font-size="10">NIF: 001923847291038</text>
+    <text x="320" y="212" fill="#F8FAFC" font-family="Segoe UI, sans-serif" font-size="12" font-weight="700">315 800 DA</text>
+    <rect x="470" y="198" width="70" height="20" rx="10" fill="#064E3B"/>
+    <text x="484" y="212" fill="#34D399" font-family="Segoe UI, sans-serif" font-size="10" font-weight="700">Validée</text>
+    <line x1="20" y1="235" x2="560" y2="235" stroke="#1E293B"/>
+
+    <!-- Row 4 -->
+    <text x="32" y="262" fill="#38BDF8" font-family="Segoe UI, sans-serif" font-size="12" font-weight="600">2026-0039</text>
+    <text x="140" y="256" fill="#F1F5F9" font-family="Segoe UI, sans-serif" font-size="12" font-weight="600">Boucherie &amp; Distribution</text>
+    <text x="140" y="272" fill="#64748B" font-family="Segoe UI, sans-serif" font-size="10">NIF: 098172635410928</text>
+    <text x="320" y="262" fill="#F8FAFC" font-family="Segoe UI, sans-serif" font-size="12" font-weight="700">54 000 DA</text>
+    <rect x="470" y="248" width="70" height="20" rx="10" fill="#064E3B"/>
+    <text x="484" y="262" fill="#34D399" font-family="Segoe UI, sans-serif" font-size="10" font-weight="700">Validée</text>
+
+    <!-- Bottom summary -->
+    <rect x="20" y="325" width="540" height="50" rx="8" fill="#0F172A" stroke="#334155"/>
+    <text x="36" y="355" fill="#34D399" font-family="Segoe UI, sans-serif" font-size="12" font-weight="600">✓ Moteur SQLite local</text>
+    <text x="195" y="355" fill="#94A3B8" font-family="Segoe UI, sans-serif" font-size="12">| Sauvegarde automatique &amp; Génération PDF haute définition</text>
+  </g>
+
+  <!-- Right: Fiscal Calculator Preview Box -->
+  <g transform="translate(840, 250)">
+    <rect width="327" height="395" rx="12" fill="url(#fpCardGrad)" stroke="#1E293B"/>
+    <text x="20" y="32" fill="#F8FAFC" font-family="Segoe UI, sans-serif" font-size="15" font-weight="700">Calculateur Fiscal Automatisé</text>
+    <text x="20" y="50" fill="#94A3B8" font-family="Segoe UI, sans-serif" font-size="11">Règles fiscales de la DGI Algérie</text>
+
+    <!-- Breakdown items -->
+    <g transform="translate(20, 80)">
+      <text x="0" y="0" fill="#94A3B8" font-family="Segoe UI, sans-serif" font-size="12">Total Brut HT :</text>
+      <text x="280" y="0" fill="#F8FAFC" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700" text-anchor="end">155 000,00 DA</text>
+
+      <text x="0" y="35" fill="#94A3B8" font-family="Segoe UI, sans-serif" font-size="12">TVA Standard (19%) :</text>
+      <text x="280" y="35" fill="#38BDF8" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700" text-anchor="end">+ 29 450,00 DA</text>
+
+      <text x="0" y="70" fill="#94A3B8" font-family="Segoe UI, sans-serif" font-size="12">TVA Réduite (9%) :</text>
+      <text x="280" y="70" fill="#38BDF8" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700" text-anchor="end">0,00 DA</text>
+
+      <line x1="0" y1="95" x2="280" y2="95" stroke="#334155"/>
+
+      <text x="0" y="125" fill="#CBD5E1" font-family="Segoe UI, sans-serif" font-size="12">Total TVA :</text>
+      <text x="280" y="125" fill="#F8FAFC" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700" text-anchor="end">29 450,00 DA</text>
+
+      <text x="0" y="160" fill="#F59E0B" font-family="Segoe UI, sans-serif" font-size="12" font-weight="600">Droit de Timbre (1%) :</text>
+      <text x="280" y="160" fill="#F59E0B" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700" text-anchor="end">+ 1 844,50 DA</text>
+      <text x="0" y="178" fill="#64748B" font-family="Segoe UI, sans-serif" font-size="10">(Plafond légal 2 500 DA respecté)</text>
+
+      <rect x="-4" y="200" width="290" height="48" rx="8" fill="#064E3B" stroke="#059669"/>
+      <text x="12" y="230" fill="#A7F3D0" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700">NET À PAYER TTC :</text>
+      <text x="274" y="230" fill="#FFFFFF" font-family="Segoe UI, sans-serif" font-size="15" font-weight="900" text-anchor="end">186 294,50 DA</text>
+    </g>
+  </g>
+</svg>
