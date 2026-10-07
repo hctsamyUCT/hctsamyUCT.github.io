@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV Samy Houchat — Data Analyst &amp; Tableaux de bord</title>
+  
+  <!-- Méta ATS & SEO -->
+  <meta name="author" content="Samy Houchat">
+  <meta name="description" content="CV de Samy Houchat - Étudiant en Science des données, recherche de stage de plus de 8 semaines dès avril 2027 pour créer des tableaux de bord et des outils simples pour les entreprises.">
+  <meta name="keywords" content="Samy Houchat, CV, Data Analyst, tableaux de bord, Power BI, DAX, Python, SQL, Développement Web, React, PHP, Stage Data 2027, France entière, Aurillac">
+
+  <!-- Google Fonts : Inter & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       VARIABLES DE DESIGN & TOKENS ATS-COMPATIBLES
+       ========================================================================== */
+    :root {
+      --primary: #0f172a;        /* Noir ardoise / Navy profond */
+      --primary-light: #1e293b;  /* Ardoise sombre */
+      --accent: #1d4ed8;         /* Bleu cobalt vif / Corporate */
+      --accent-subtle: #eff6ff;  /* Fond bleu très doux */
+      --accent-border: #bfdbfe;  /* Bordure bleue subtile */
+      --text-main: #1e293b;      /* Texte principal ultra lisible */
+      --text-muted: #475569;     /* Texte secondaire */
+      --text-light: #64748b;     /* Texte tertiaire */
+      --border-color: #cbd5e1;   /* Séparateurs nets */
+      --border-subtle: #e2e8f0;  /* Lignes douces */
+      --bg-card: #f8fafc;        /* Cartouche sobre */
+      --success: #15803d;        /* Vert succès */
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      --font-heading: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    /* Reset strict */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      font-family: var(--font-body);
+      color: var(--text-main);
+      background-color: #e2e8f0;
+      line-height: 1.32;
+      font-size: 9.2pt;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Barre d'action d'impression (écran uniquement) */
+    .top-toolbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 52px;
+      background: #0f172a;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      z-index: 9999;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+      font-size: 13px;
+    }
+
+    .toolbar-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .badge-ats {
+      background: #22c55e;
+      color: #064e3b;
+      font-weight: 700;
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      letter-spacing: 0.03em;
+    }
+
+    .toolbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-print {
+      background: #2563eb;
+      color: #fff;
+      border: none;
+      padding: 7px 16px;
+      font-size: 12px;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.15s ease;
+      text-decoration: none;
+    }
+
+    .btn-print:hover {
+      background: #1d4ed8;
+    }
+
+    .btn-back {
+      background: transparent;
+      color: #cbd5e1;
+      border: 1px solid #475569;
+      padding: 6px 12px;
+      font-size: 12px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+
+    .btn-back:hover {
+      color: #fff;
+      border-color: #94a3b8;
+    }
+
+    /* ==========================================================================
+       PAGE A4 EXACTE (210mm x 297mm)
+       ========================================================================== */
+    .page-wrapper {
+      padding: 70px 0 30px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .cv-page {
+      width: 210mm;
+      height: 297mm;
+      max-height: 297mm;
+      background: #ffffff;
+      margin: 0 auto;
+      padding: 9.5mm 10.5mm 8mm 10.5mm;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+
+    /* Liens propres */
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* ==========================================================================
+       1. EN-TÊTE DU CV (HEADER ATS HAUTE VISIBILITÉ)
+       ========================================================================== */
+    .cv-header {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 14px;
+      align-items: center;
+      padding-bottom: 7px;
+      border-bottom: 2px solid var(--primary);
+    }
+
+    /* Photo de profil */
+    .photo-container {
+      width: 82px;
+      height: 98px;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1.5px solid var(--border-color);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      background: #f1f5f9;
+      flex-shrink: 0;
+    }
+
+    .photo-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    /* Informations du candidat */
+    .header-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5px;
+    }
+
+    .candidate-name {
+      font-family: var(--font-heading);
+      font-size: 21pt;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      text-transform: none;
+    }
+
+    .candidate-role {
+      font-family: var(--font-heading);
+      font-size: 11pt;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.2;
+    }
+
+    .candidate-objective {
+      font-size: 8.8pt;
+      font-weight: 600;
+      color: var(--text-main);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--accent-subtle);
+      border: 1px solid var(--accent-border);
+      padding: 2.5px 7px;
+      border-radius: 4px;
+      margin-top: 1px;
+      width: fit-content;
+    }
+
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--success);
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    /* Coordonnées en grille claire */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: auto auto;
+      gap: 4px 14px;
+      font-size: 8.3pt;
+      color: var(--text-muted);
+      margin-top: 3px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      white-space: nowrap;
+    }
+
+    .contact-item svg {
+      width: 11px;
+      height: 11px;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .contact-item a {
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    /* QR Code interactif vers portfolio */
+    .qr-badge {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      padding: 4px;
+      border-radius: 6px;
+      width: 72px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .qr-badge img {
+      width: 52px;
+      height: 52px;
+      display: block;
+    }
+
+    .qr-label {
+      font-size: 5.8pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+      margin-top: 2px;
+    }
+
+    /* ==========================================================================
+       2. ACCROCHE BUSINESS & VALEUR AJOUTÉE (HOOK RECRUTEUR)
+       ========================================================================== */
+    .business-pitch {
+      background: #f8fafc;
+      border-left: 3.5px solid var(--accent);
+      padding: 7px 11px;
+      margin-top: 6px;
+      margin-bottom: 7px;
+      border-radius: 0 5px 5px 0;
+    }
+
+    .pitch-title {
+      font-size: 8.8pt;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 2.5px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pitch-text {
+      font-size: 8.8pt;
+      color: var(--text-muted);
+      line-height: 1.4;
+      text-align: justify;
+    }
+
+    .pitch-highlight {
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    /* ==========================================================================
+       3. CORPS DU CV EN 2 COLONNES (DOM SÉMANTIQUE PUR)
+       ========================================================================== */
+    .cv-body {
+      display: grid;
+      grid-template-columns: 125mm 1fr;
+      gap: 6.5mm;
+      flex: 1;
+      margin-top: 2px;
+      margin-bottom: 2px;
+    }
+
+    .col-left, .col-right {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    /* Titres de sections (ATS Standard H2) */
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 10pt;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--primary);
+      letter-spacing: 0.04em;
+      padding-bottom: 2.5px;
+      border-bottom: 1.5px solid var(--accent);
+      margin-bottom: 4.5px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .section-title-tag {
+      font-size: 7.2pt;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: none;
+      letter-spacing: normal;
+    }
+
+    /* Entrées d'expériences & projets */
+    .entry-card {
+      margin-bottom: 5px;
+    }
+
+    .entry-header {
+      display: flex;
+      justify-content: flex-start;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 1.5px;
+    }
+
+    .entry-role {
+      font-family: var(--font-heading);
+      font-size: 9.4pt;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .entry-date {
+      font-size: 8.2pt;
+      font-weight: 600;
+      color: var(--accent);
+      white-space: nowrap;
+      order: -1;
+    }
+
+    .entry-company-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 8.5pt;
+      color: var(--text-muted);
+      margin-bottom: 2.5px;
+    }
+
+    .entry-company {
+      font-weight: 600;
+      color: var(--primary-light);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .company-logo {
+      width: 24px;
+      height: 16px;
+      object-fit: cover;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    .entry-location {
+      font-size: 7.6pt;
+      color: var(--text-light);
+    }
+
+    .entry-mission-tag {
+      display: inline-block;
+      font-size: 8pt;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-subtle);
+      border: 0.5px solid var(--accent-border);
+      padding: 1px 5px;
+      border-radius: 3px;
+      margin-bottom: 2.5px;
+    }
+
+    /* Puces d'actions orientées résultats & ROI */
+    .bullet-list {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 2.5px;
+    }
+
+    .bullet-list li {
+      position: relative;
+      padding-left: 10px;
+      font-size: 8.7pt;
+      color: var(--text-main);
+      line-height: 1.35;
+      margin-bottom: 2px;
+    }
+
+    .bullet-list li::before {
+      content: "▪";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 8pt;
+      line-height: 1.35;
+    }
+
+    .bullet-list strong {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    /* Tags techniques sous expériences/projets */
+    .tech-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3.5px;
+      margin-top: 3px;
+    }
+
+    .tech-pill {
+      font-size: 7.1pt;
+      background: #f1f5f9;
+      color: #334155;
+      padding: 1px 5px;
+      border-radius: 3px;
+      font-weight: 500;
+      border: 0.5px solid #e2e8f0;
+    }
+
+    /* Savoir-faire & savoir-être */
+    .qualities-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 7px;
+      margin-top: 2px;
+    }
+
+    .quality-block {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 4px;
+      padding: 5px 7px;
+    }
+
+    .quality-title {
+      font-size: 8.5pt;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 2px;
+    }
+
+    .quality-list {
+      list-style: none;
+      font-size: 8.2pt;
+      color: var(--text-muted);
+      line-height: 1.35;
+    }
+
+    .quality-list li::before {
+      content: "▪";
+      color: var(--accent);
+      margin-right: 4px;
+    }
+
+    /* ==========================================================================
+       4. COLONNE DROITE : COMPÉTENCES, FORMATION, LANGUES
+       ========================================================================== */
+    .skill-block {
+      background: #ffffff;
+      border: 1px solid var(--border-subtle);
+      border-radius: 4px;
+      padding: 5px 7px;
+      margin-bottom: 4.5px;
+    }
+
+    .skill-block-title {
+      font-size: 8.2pt;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 2.5px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .skill-block-title span {
+      color: var(--accent);
+      font-size: 7.1pt;
+      font-weight: 600;
+    }
+
+    .skill-items {
+      font-size: 7.7pt;
+      color: var(--text-muted);
+      line-height: 1.34;
+    }
+
+    .skill-items strong {
+      color: var(--primary-light);
+      font-weight: 600;
+    }
+
+    /* Bloc Formation */
+    .edu-item {
+      margin-bottom: 4.5px;
+      padding-bottom: 3.5px;
+      border-bottom: 0.5px dashed var(--border-subtle);
+    }
+
+    .edu-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .edu-degree {
+      font-family: var(--font-heading);
+      font-size: 8.3pt;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.25;
+    }
+
+    .edu-major-tag {
+      display: inline-block;
+      font-size: 7pt;
+      font-weight: 700;
+      color: #b45309;
+      background: #fef3c7;
+      border: 0.5px solid #fde68a;
+      padding: 0.5px 4px;
+      border-radius: 3px;
+      margin-left: 3px;
+    }
+
+    .edu-school {
+      font-size: 7.6pt;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    .edu-date {
+      font-size: 7.3pt;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    /* Bloc Langues & Atouts */
+    .lang-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3px;
+      font-size: 7.8pt;
+    }
+
+    .lang-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #f8fafc;
+      padding: 2.5px 6px;
+      border-radius: 3px;
+      border: 0.5px solid var(--border-subtle);
+    }
+
+    .lang-name {
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .lang-level {
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 7.4pt;
+    }
+
+    /* Bandeau bas / Note légale & disponibilité */
+    .cv-footer {
+      border-top: 1px solid var(--border-color);
+      padding-top: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 7.2pt;
+      color: var(--text-light);
+    }
+
+    .footer-highlight {
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    /* ==========================================================================
+       STYLE D'IMPRESSION STRICTEMENT SUR 1 PAGE A4
+       ========================================================================== */
+    @page {
+      size: A4 portrait;
+      margin: 0;
+    }
+
+    @media print {
+      html, body {
+        background: #ffffff !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        font-size: 8.6pt !important;
+      }
+
+      .top-toolbar {
+        display: none !important;
+      }
+
+      .page-wrapper {
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+
+      .cv-page {
+        width: 210mm !important;
+        height: 297mm !important;
+        max-height: 297mm !important;
+        padding: 8.5mm 10mm 7mm 10mm !important;
+        box-shadow: none !important;
+        margin: 0 !important;
+        page-break-after: avoid !important;
+        page-break-inside: avoid !important;
+        overflow: hidden !important;
+      }
+
+      /* Force background graphics printing */
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BARRE D'OUTILS SUPÉRIEURE (Affichée sur écran, masquée à l'impression) -->
+  <aside class="top-toolbar" aria-label="Contrôles d'impression du CV">
+    <div class="toolbar-info">
+      <span class="badge-ats">✓ CV</span>
+      <span>Samy HOUCHAT — Data Analyst 2027</span>
+    </div>
+    <div class="toolbar-actions">
+      <a href="index.html" class="btn-back">← Retour au Portfolio</a>
+      <button type="button" class="btn-print" onclick="window.print()" id="btn-print-cv">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>
+        <span>Imprimer / Enregistrer en PDF</span>
+      </button>
+    </div>
+  </aside>
+
+  <div class="page-wrapper">
+    <main class="cv-page" id="cv-content">
+
+      <!-- ====================================================================
+           1. EN-TÊTE : IDENTITÉ, PHOTO, CONTACT & TITRE CIBLE (PARSING ATS 100%)
+           ==================================================================== -->
+      <header class="cv-header">
+        
+        <!-- Photo professionnelle -->
+        <div class="photo-container">
+          <img src="assets/img/photo_opt.jpg" alt="Photo professionnelle de Samy Houchat" width="110" height="135">
+        </div>
+
+        <!-- Coordonnées & Titre structuré pour les moteurs de parsing -->
+        <div class="header-info">
+          <h1 class="candidate-name">Samy HOUCHAT</h1>
+          
+          <div class="candidate-role">
+            Data Analyst · Tableaux de bord &amp; outils métier
+          </div>
+
+          <div class="candidate-objective">
+            <span class="badge-dot"></span>
+            <strong>Recherche :</strong> stage de plus de 8 semaines dès le <strong>1er avril 2027</strong> · Mobilité France entière
+          </div>
+
+          <!-- Coordonnées directes (Mots-clés géographiques & coordonnées universelles) -->
+          <div class="contact-grid">
+            <div class="contact-item">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.61 21 3 13.39 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+              <a href="tel:+33746156657">07 46 15 66 57</a>
+            </div>
+
+            <div class="contact-item">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              <a href="mailto:samyhctpro@gmail.com">samyhctpro@gmail.com</a>
+            </div>
+
+            <div class="contact-item">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              <span>Aurillac, France · <strong>24 ans</strong> · Permis B · Non véhiculé</span>
+            </div>
+
+            <div class="contact-item">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              <a href="https://www.linkedin.com/in/samyhouchat" target="_blank" rel="noopener">linkedin.com/in/samyhouchat</a>
+            </div>
+
+            <div class="contact-item">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+              <a href="https://github.com/HouchatSamy" target="_blank" rel="noopener">github.com/HouchatSamy</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- QR Code Portfolio en ligne -->
+        <div class="qr-badge">
+          <img src="assets/img/qr-portfolio-cv.svg" alt="QR Code Portfolio Samy Houchat" width="52" height="52">
+          <span class="qr-label">Portfolio Web</span>
+        </div>
+
+      </header>
+
+      <!-- ====================================================================
+           2. PROFIL PROFESSIONNEL : SUIVI D'ACTIVITÉ & AIDE À LA DÉCISION
+           ==================================================================== -->
+      <section class="business-pitch" aria-label="Profil professionnel">
+        <div class="pitch-title">
+          <span>Profil</span>
+        </div>
+        <p class="pitch-text">
+          Étudiant en <strong>Science des Données</strong>, responsable et travailleur, j'aide les entreprises à mieux suivre leur activité. Je transforme les ventes, les stocks, les commandes ou les factures en <strong>tableaux de bord simples et utiles</strong>. Je m'investis dans mes projets et je les mène jusqu'à leur réalisation.
+        </p>
+      </section>
+
+      <!-- ====================================================================
+           3. CORPS EN DEUX COLONNES STRUCTURÉES (100% SÉMANTIQUE & ATS)
+           ==================================================================== -->
+      <div class="cv-body">
+
+        <!-- COLONNE GAUCHE (128mm) : EXPÉRIENCES & PROJETS À IMPACT BUSINESS -->
+        <div class="col-left">
+
+          <!-- SECTION EXPÉRIENCES -->
+          <section aria-labelledby="sec-exp">
+            <h2 class="section-title" id="sec-exp">
+              <span>Expérience Professionnelle</span>
+              <span class="section-title-tag"></span>
+            </h2>
+
+            <!-- Expérience 1 : Layer Data -->
+            <article class="entry-card">
+              <div class="entry-header">
+                <span class="entry-role">Analyste de données / Développeur web</span>
+                <span class="entry-date">02/2026 – 08/2026</span>
+              </div>
+              <div class="entry-company-line">
+                <span class="entry-company">
+                  <img class="company-logo" src="assets/img/layer_data_logo_opt.png" alt="Logo Layer Data" width="24" height="16">
+                  <span>Layer Data</span>
+                </span>
+                <span class="entry-location">Akbou, Algérie</span>
+              </div>
+
+              <span class="entry-mission-tag">Mission Data &amp; BI — Client AGRANA Fruit</span>
+              <ul class="bullet-list">
+                <li>
+                  <strong>Données et Data Warehouse (ETL) :</strong> préparer, nettoyer et transformer les données avec Python.
+                </li>
+                <li>
+                  <strong>Modèle de données :</strong> relier les informations dans Power BI pour les analyser facilement.
+                </li>
+                <li>
+                  <strong>Tableaux de bord Power BI :</strong> suivre les commandes, les livraisons, les prévisions de vente et les reliquats.
+                </li>
+                <li>
+                  <strong>Indicateurs clés (KPIs) :</strong> mettre en place des indicateurs pour suivre l'activité.
+                </li>
+              </ul>
+
+              <span class="entry-mission-tag" style="margin-top:2px;">Mission développement web — SOGRAL (Gares routières d'Algérie)</span>
+              <ul class="bullet-list">
+                <li>
+                  <strong>Catalogue de locaux :</strong> concevoir et mettre en ligne une plateforme pour présenter les espaces disponibles.
+                </li>
+                <li>
+                  <strong>Fiches et disponibilité :</strong> afficher les informations des locaux et leur statut.
+                </li>
+                <li>
+                  <strong>Administration :</strong> permettre aux gestionnaires de mettre à jour les offres.
+                </li>
+                <li>
+                  <strong>Maintenance &amp; support :</strong> corriger, améliorer et suivre les performances du site.
+                </li>
+              </ul>
+            </article>
+
+            <!-- Expérience 2 : Cyber Café -->
+            <article class="entry-card">
+              <div class="entry-header">
+              <span class="entry-role">Technicien informatique / Gérant</span>
+                <span class="entry-date">09/2025 – 02/2026</span>
+              </div>
+              <div class="entry-company-line">
+                <span class="entry-company">Cyber Café Khatri Khelaf</span>
+                <span class="entry-location">El Kseur, Algérie</span>
+              </div>
+              <ul class="bullet-list">
+                <li>
+                  Suivre les recettes, les dépenses et les factures.
+                </li>
+                <li>
+                  Entretenir les ordinateurs et aider les utilisateurs.
+                </li>
+              </ul>
+            </article>
+          </section>
+
+          <!-- SECTION PROJETS CLÉS ORIENTÉS COMMERCE -->
+          <section aria-labelledby="sec-proj">
+            <h2 class="section-title" id="sec-proj">
+              <span>Projets</span>
+              <span class="section-title-tag"></span>
+            </h2>
+
+            <!-- Projet 1 : AVDA Auto -->
+            <article class="entry-card">
+              <div class="entry-header">
+                <span class="entry-role">AVDA Auto — Outil de gestion automobile</span>
+                <span class="entry-date">2026</span>
+              </div>
+              <div class="entry-company-line">
+                <span class="entry-company">Outil pour concessionnaires et vendeurs automobiles</span>
+              </div>
+              <ul class="bullet-list">
+                <li>
+                  Créer un outil pour suivre les véhicules, les stocks, les ventes et les marges.
+                </li>
+                <li>
+                  Gérer les clients et produire des devis et des factures.
+                </li>
+              </ul>
+            </article>
+
+            <!-- Projet 2 : FacturaPro DZ -->
+            <article class="entry-card">
+              <div class="entry-header">
+                <span class="entry-role">FacturaPro DZ — Logiciel de facturation</span>
+                <span class="entry-date">2026 · En cours</span>
+              </div>
+              <div class="entry-company-line">
+                <span class="entry-company">Projet personnel</span>
+                <span class="entry-location">En autonomie</span>
+              </div>
+              <ul class="bullet-list">
+                <li>
+                  Créer un logiciel simple pour gérer les ventes et les factures.
+                </li>
+                <li>
+                  Ajouter un tableau de bord pour suivre l'activité et le chiffre d'affaires.
+                </li>
+              </ul>
+            </article>
+
+          </section>
+
+          <!-- SECTION COMPÉTENCES & QUALITÉS -->
+          <section aria-labelledby="sec-qualities">
+            <h2 class="section-title" id="sec-qualities">
+              <span>Compétences &amp; qualités</span>
+              <span class="section-title-tag"></span>
+            </h2>
+            <div class="qualities-grid">
+              <div class="quality-block">
+                <div class="quality-title">Compétences professionnelles</div>
+                <ul class="quality-list">
+                  <li>Analyser des données</li>
+                  <li>Créer des tableaux de bord</li>
+                  <li>Développer des outils métier</li>
+                  <li>Suivre une activité</li>
+                </ul>
+              </div>
+              <div class="quality-block">
+                <div class="quality-title">Qualités personnelles</div>
+                <ul class="quality-list">
+                  <li>Curieux</li>
+                  <li>Persévérant</li>
+                  <li>Esprit d'adaptation</li>
+                  <li>Communication claire</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- SECTION POURQUOI ME CHOISIR -->
+          <section aria-labelledby="sec-why">
+            <h2 class="section-title" id="sec-why">
+              <span>Pourquoi me choisir ?</span>
+              <span class="section-title-tag"></span>
+            </h2>
+            <ul class="bullet-list" style="margin-bottom:0;">
+              <li><strong>Expérience concrète :</strong> déjà travaillé en entreprise sur des missions data et web.</li>
+              <li><strong>Sens des responsabilités :</strong> autonome, sérieux et capable de mener un projet jusqu'au bout.</li>
+              <li><strong>Esprit d'équipe :</strong> sociable, à l'écoute et motivé pour apprendre et progresser.</li>
+            </ul>
+          </section>
+
+        </div>
+
+        <!-- COLONNE DROITE : COMPÉTENCES ATS, FORMATION, LANGUES -->
+        <div class="col-right">
+
+          <!-- SECTION COMPÉTENCES TECHNIQUES (ATS KEYWORDS MAXIMISÉS) -->
+          <section aria-labelledby="sec-skills">
+            <h2 class="section-title" id="sec-skills">
+              <span>Compétences</span>
+            </h2>
+
+            <!-- Bloc 1 : Data & BI -->
+            <div class="skill-block">
+              <div class="skill-block-title">
+                <strong>Analyse de données</strong>
+                <span></span>
+              </div>
+              <div class="skill-items">
+                • <strong>Power BI</strong>, DAX, Power Query<br>
+                • <strong>Python</strong>, Pandas, NumPy<br>
+                • Indicateurs de suivi et analyse des résultats
+              </div>
+            </div>
+
+            <!-- Bloc 2 : Bases de données -->
+            <div class="skill-block">
+              <div class="skill-block-title">
+                <strong>Bases de Données</strong>
+                <span></span>
+              </div>
+              <div class="skill-items">
+                • <strong>SQL</strong> : requêtes et jointures<br>
+                • <strong>Bases de données :</strong> MySQL, PostgreSQL, SQLite<br>
+                • <strong>Outils :</strong> DBeaver, Microsoft Access
+              </div>
+            </div>
+
+            <!-- Bloc 3 : Développement Web & Logiciel -->
+            <div class="skill-block">
+              <div class="skill-block-title">
+                <strong>Développement Web &amp; Outils</strong>
+                <span></span>
+              </div>
+              <div class="skill-items">
+                • <strong>Web :</strong> HTML, CSS, JavaScript, PHP<br>
+                • <strong>Frameworks :</strong> React, Vite, Electron<br>
+                • <strong>Applications :</strong> outils web et logiciels de gestion
+              </div>
+            </div>
+
+            <!-- Bloc 4 : Outils de gestion & Méthodes -->
+            <div class="skill-block">
+              <div class="skill-block-title">
+                <strong>Outils</strong>
+              </div>
+              <div class="skill-items">
+                • <strong>Excel :</strong> formules et tableaux de suivi<br>
+                • <strong>Git</strong>, GitHub, GitLab<br>
+                • <strong>Windows</strong>, Linux, dépannage informatique
+              </div>
+            </div>
+          </section>
+
+          <!-- SECTION FORMATION & DIPLÔMES -->
+          <section aria-labelledby="sec-edu">
+            <h2 class="section-title" id="sec-edu">
+              <span>Formation</span>
+              <span class="section-title-tag"></span>
+            </h2>
+
+            <!-- BUT Science des Données -->
+            <div class="edu-item">
+              <div class="edu-degree">BUT Science des Données</div>
+              <div style="font-size:7.6pt; color:var(--text-main); font-weight:600;">Parcours Science des données</div>
+              <div class="edu-school">IUT Clermont Auvergne (Aurillac)</div>
+              <div class="edu-date">09/2026 – En cours</div>
+            </div>
+
+            <!-- BTS Informatique Major -->
+            <div class="edu-item">
+              <div class="edu-degree">
+                BTS Informatique
+                <span class="edu-major-tag">★ Major de promotion</span>
+              </div>
+              <div style="font-size:7.6pt; color:var(--text-main); font-weight:600;">Informatique, bases de données et systèmes</div>
+              <div class="edu-school">Institut Int. de Management Béjaïa</div>
+              <div class="edu-date">10/2022 – 01/2026</div>
+            </div>
+
+            <!-- Baccalauréat -->
+            <div class="edu-item">
+              <div class="edu-degree">Baccalauréat Mathématiques</div>
+              <div class="edu-school">Béjaïa, Algérie</div>
+              <div class="edu-date">2021</div>
+            </div>
+          </section>
+
+          <!-- SECTION LANGUES -->
+          <section aria-labelledby="sec-lang">
+            <h2 class="section-title" id="sec-lang">
+              <span>Langues</span>
+              <span class="section-title-tag"></span>
+            </h2>
+            <div class="lang-grid">
+              <div class="lang-row">
+                <span class="lang-name">Français</span>
+                <span class="lang-level">Bilingue / Langue maternelle</span>
+              </div>
+              <div class="lang-row">
+                <span class="lang-name">Arabe</span>
+                <span class="lang-level">Bilingue / Langue maternelle</span>
+              </div>
+              <div class="lang-row">
+                <span class="lang-name">Anglais</span>
+                <span class="lang-level">Niveau B2</span>
+              </div>
+            </div>
+          </section>
+
+          <!-- SECTION CENTRES D'INTÉRÊT -->
+          <section aria-labelledby="sec-interests">
+            <h2 class="section-title" id="sec-interests">
+              <span>Centres d'intérêt</span>
+              <span class="section-title-tag"></span>
+            </h2>
+            <div class="lang-grid">
+              <div class="lang-row">
+                <span class="lang-name">Basket-ball</span>
+                <span class="lang-level">Loisir</span>
+              </div>
+              <div class="lang-row">
+                <span class="lang-name">Formule 1</span>
+                <span class="lang-level">Passion</span>
+              </div>
+            </div>
+          </section>
+
+        </div>
+
+      </div>
+
+    </main>
+  </div>
+
+</body>
+</html>
