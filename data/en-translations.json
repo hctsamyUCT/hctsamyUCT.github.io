@@ -79,7 +79,6 @@
   "Technologies maîtrisées et mobilisées lors de mes projets d'ingénierie des données et de développement.": "Technologies used in my data engineering and software development projects.",
   "DAX Avancé": "Advanced DAX",
   "Modélisation en Étoile": "Star schema modelling",
-  "KPIs & Reporting (OTIF)": "KPIs & Reporting (OTIF)",
   "Bases de données & SGBD": "Databases & DBMS",
   "Développement & Outils Data": "Development & Data Tools",
   "Outils & Versioning": "Tools & Version Control",
@@ -87,7 +86,6 @@
   "Suite Office": "Microsoft Office",
   "Systèmes & Support Informatique": "Systems & IT Support",
   "Support & Maintenance": "Support & Maintenance",
-  "Dépannage réseau": "Network troubleshooting",
   "Parcours Professionnel": "Professional background",
   "Expérience en Entreprise": "Professional Experience",
   "Missions concrètes menées en entreprise : traitement de données, modélisation relationnelle, développement web et support technique.": "Work carried out in a business setting: data processing, relational modelling, web development and technical support.",
@@ -215,5 +213,6 @@
   "Basé à Aurillac avec mobilité France entière.": "Based in Aurillac and open to opportunities across France.",
   "Pipelines ETL": "ETL pipelines",
   "Des données brutes aux outils de décision : Python, SQL, Power BI et développement d'applications métiers. Avec une expérience Data et web chez Layer Data, je recherche un stage pour contribuer aux projets de votre équipe.": "From raw data to decision-making tools: Python, SQL, Power BI and business application development. With data and web experience at Layer Data, I am looking for an internship where I can contribute to your team’s projects.",
-  "Stage Data / BI · 10 semaines · dès le 1er avril 2027": "Data / BI internship · 10 weeks · from 1 April 2027"
+  "Stage Data / BI · 10 semaines · dès le 1er avril 2027": "Data / BI internship · 10 weeks · from 1 April 2027",
+  "KPIs & Reporting": "KPIs & Reporting"
 }

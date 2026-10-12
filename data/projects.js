@@ -171,7 +171,7 @@ export const siteConfig = {
     {
       name: "Data & Business Intelligence",
       icon: "chart-bar",
-      skills: ["Power BI", "DAX Avancé", "Pipelines ETL", "Modélisation en Étoile", "KPIs & Reporting (OTIF)", "Data Warehouse"]
+      skills: ["Power BI", "DAX Avancé", "Pipelines ETL", "Modélisation en Étoile", "KPIs & Reporting", "Data Warehouse"]
     },
     {
       name: "Bases de données & SGBD",
@@ -191,7 +191,7 @@ export const siteConfig = {
     {
       name: "Systèmes & Support Informatique",
       icon: "cpu",
-      skills: ["Windows", "Linux", "Support & Maintenance", "Dépannage réseau"]
+      skills: ["Windows", "Linux", "Support & Maintenance"]
     }
   ],
 
