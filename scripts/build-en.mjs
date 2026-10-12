@@ -14,7 +14,7 @@ const cvStart = html.indexOf('  <div class="cv-overlay-backdrop"');
 if (cvStart < 0) throw new Error('Missing French CV dialog boundary');
 html = html.slice(0, cvStart) + '\n</body>\n</html>\n';
 // The English portfolio links to the French CV; it does not embed its dialog or styles.
-html = html.replace(/\s*<link rel="stylesheet" href="\/css\/cv.css">/, '');
+html = html.replace(/\s*<link rel="stylesheet" href="\/css\/cv.css(?:\?v=[^"]+)?">/, '');
 html = html.replace('id="hero-cv-view-btn"', 'id="hero-cv-fr-link"');
 html = html.replace('<html lang="fr"', '<html lang="en"');
 

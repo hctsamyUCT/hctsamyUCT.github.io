@@ -1,10 +1,10 @@
 {
   "sources": {
-    "templates/cv.html": "9ab04f5118dc9f3d3c350e4e8ad02d4ea147046bf695de8e796a30cd04a67f6f",
-    "css/cv.css": "3e4cd00cf6d8e19d4e5bb4bc3026f5f22a57a586d74bdccbd598172ce53dbdf4",
-    "cv_samy_houchat.html": "ba85761b159a14c1bb778556981c8c96e3e344e95a1044d38ae2062afe339b67",
+    "templates/cv.html": "e407ca3b1edda9a76a30c4ef822975e8fd604b7bb4dfb79f8e3681235d04995e",
+    "css/cv.css": "e996aedd8c34af7ac0332d9f4c9c30e04a73769d80e8969db1cb1c7ad0c5539b",
+    "cv_samy_houchat.html": "10bd247d553c314f315181c8590900ae7146e28aa420b51b61b12eb5b90a1d46",
     "assets/img/photo_opt.jpg": "46c21402adf685dc2b30185e60ae9c09b3d291ec6cbc08b1ca4476ce48531ad0",
     "assets/img/qr-portfolio-cv.svg": "95389ba53f85fb190f2e8ce4390caf48d863d3f69381b43f7d7fb4e455450f99"
   },
-  "pdf_sha256": "467bad02bdd28dce4c3e23d069d6ef263b54a3d4668ee95c2aecef8ddc4350af"
+  "pdf_sha256": "c16bb67edea9ee2d0abc39dba74174835b89a4f30b49641ebe786fdf0e321eb7"
 }

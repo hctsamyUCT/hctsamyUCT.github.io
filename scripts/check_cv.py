@@ -87,6 +87,23 @@ try:
             bold = page.locator("#cv-content strong").all_text_contents()
             for word in ["Power BI", "Python", "SQL", "Major de promotion"]:
                 assert word in bold
+            download = page.locator("#cv-download-pdf").get_attribute("href")
+            assert download.startswith("/assets/cv/CV_Samy_Houchat.pdf?v=")
+            response = page.request.get(base + download)
+            assert response.status == 200 and response.body() == PDF.read_bytes()
+            settings = [
+                ("default", {}),
+                ("15mm", {"margin": {side: "15mm" for side in ["top", "bottom", "left", "right"]}}),
+                ("20mm", {"margin": {side: "20mm" for side in ["top", "bottom", "left", "right"]}}),
+                ("browser-headers", {"display_header_footer": True,
+                                     "margin": {side: "15mm" for side in ["top", "bottom", "left", "right"]}}),
+            ]
+            for label, options in settings:
+                printed = Path(directory) / f"cv-{width}-{label}.pdf"
+                page.pdf(path=str(printed), format="A4", prefer_css_page_size=False, scale=1, tagged=True, **options)
+                reader = PdfReader(printed)
+                assert len(reader.pages) == 1, f"A4 print spills to {len(reader.pages)} pages: {width}px / {label}"
+                assert exported_text in normalise(reader.pages[0].extract_text()), f"A4 print lost text: {label}"
             page.close()
         # Check the actual portfolio dialog and its print output as well as the standalone export.
         page = browser.new_page(viewport={"width": 1280, "height": 1000})
@@ -100,7 +117,7 @@ try:
         page.pdf(path=str(printed), prefer_css_page_size=True, tagged=True, outline=True)
         assert inspect_pdf(printed) == exported_text
         browser.close()
-    print("PASS: 1 A4 page, two ink colors, live source/PDF match, readable fonts, tagged selectable text, ordered sections, keywords, contacts and links; web/dialog/mobile checked.")
+    print("PASS: 1 A4 page in the downloadable PDF and 8 browser print scenarios; two ink colors, source/PDF match, readable fonts, searchable text, images, ordered sections, contacts and links; web/dialog/mobile checked.")
 finally:
     server.shutdown()
     server.server_close()

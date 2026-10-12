@@ -18,6 +18,10 @@ résultat chiffré ou outil utilisé en mission n'a été ajouté sans source.
 - L'option Bases de données figure directement dans le titre du BTS ; le parcours
   Exploration et Modélisation Statistique du BUT SD est mis en gras avec la mention
   explicite de formation actuellement en cours.
+- En-tête inspiré de la présentation initiale : photo encadrée à gauche, identité
+  et stage au centre, QR code à droite. Coordonnées avec pictogrammes monochromes
+  en deux colonnes, sans longues lignes de liens. Filet bleu sous l'en-tête et
+  repères verticaux bleus pour les rubriques ; le contenu garde une lecture linéaire.
 - « Compétences & qualités », « Pourquoi me choisir ? » et centres d'intérêt
   retirés pour privilégier les réalisations. Âge et statut de véhicule retirés
   de l'en-tête ; ville, mobilité et permis sont conservés.
@@ -55,3 +59,10 @@ La génération ne coupe jamais le texte pour respecter une page : elle échoue 
 le contenu déborde. Le manifeste permet de détecter un PDF qui n'a pas été mis
 à jour après une modification de ses sources. La CI contrôle le CV web, le PDF
 distribué et une impression de la fenêtre intégrée au portfolio.
+
+L'impression A4 à 100 % est également testée à deux largeurs de navigateur,
+avec les réglages par défaut, des marges de 15 et 20 mm et des en-têtes/pieds de
+page du navigateur. Le bouton « Télécharger le PDF — 1 page A4 » fournit le fichier
+déjà vérifié, sans dépendre des réglages d'impression de l'utilisateur. Les URLs
+du CSS et du PDF portent une version liée aux sources pour limiter les caches
+contenant une ancienne présentation.

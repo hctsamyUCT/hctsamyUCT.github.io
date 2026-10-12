@@ -43,6 +43,14 @@ HTML réellement publié sur GitHub Pages, pas seulement à un aperçu JavaScrip
   pour optimiser le CV sans demande explicite. Afficher l'option Bases de données
   dans le titre du BTS et le parcours Exploration et Modélisation Statistique du
   BUT Science des données (SD), avec son statut de formation actuellement en cours.
+- Préserver l'en-tête inspiré du CV initial : photo à gauche, identité et objectif
+  de stage empilés au centre, QR code à droite, coordonnées en grille de deux
+  colonnes sur A4. La présentation mobile peut empiler ces éléments. Ne pas
+  transformer les coordonnées en longues phrases horizontales. Conserver une
+  seule page A4 dans le PDF distribué et les scénarios d'impression contrôlés
+  à 100 %. Le bouton de téléchargement propose le PDF déjà validé, indépendamment
+  des paramètres du dialogue d'impression. Les CSS et liens PDF sont versionnés
+  par `build-cv.mjs` pour éviter de mélanger un ancien style et un nouveau contenu.
 - Après toute modification du contenu, des styles ou des métadonnées du CV,
   régénérer le PDF avec `python3 scripts/generate-cv.py` (Playwright 1.62.0,
   Chromium et pypdf 6.10.0). Inclure le PDF et son manifeste de construction dans

@@ -2152,7 +2152,7 @@ ul {
 }
 
 </style>
-  <link rel="stylesheet" href="/css/cv.css">
+  <link rel="stylesheet" href="/css/cv.css?v=7ed16a2f3bf1">
 </head>
 <body>
 
@@ -2253,7 +2253,7 @@ ul {
               <span>Échanger sur un stage</span>
             </a>
 
-            <a href="assets/cv/CV_Samy_Houchat.pdf" class="btn btn-secondary" id="hero-cv-btn" download="CV_Samy_Houchat.pdf">
+            <a href="assets/cv/CV_Samy_Houchat.pdf?v=7ed16a2f3bf1" class="btn btn-secondary" id="hero-cv-btn" download="CV_Samy_Houchat.pdf">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
               <span>Télécharger le CV (PDF)</span>
             </a>
@@ -2734,7 +2734,7 @@ const siteConfig = {
     linkedin: "https://www.linkedin.com/in/samyhouchat",
     githubUser: "https://github.com/HouchatSamy?tab=repositories",
     githubOrg: "https://github.com/AVDAdz/avdaAuto",
-    cvPdfPath: "assets/cv/CV_Samy_Houchat.pdf",
+    cvPdfPath: "assets/cv/CV_Samy_Houchat.pdf?v=7ed16a2f3bf1",
     photoPath: "assets/img/photo_opt.jpg"
   },
 
@@ -3811,7 +3811,8 @@ if (document.readyState === 'loading') {
       <span id="cv-dialog-title">CV — Samy Houchat</span>
       <div class="cv-toolbar-actions">
         <button type="button" id="btn-close-cv">Retour au portfolio</button>
-        <button type="button" onclick="window.print()" id="btn-print-cv">Imprimer / Enregistrer en PDF</button>
+        <a href="/assets/cv/CV_Samy_Houchat.pdf?v=7ed16a2f3bf1" download="CV_Samy_Houchat.pdf" class="cv-download" id="cv-download-pdf">Télécharger le PDF — 1 page A4</a>
+        <button type="button" onclick="window.print()" id="btn-print-cv">Imprimer</button>
       </div>
     </aside>
     <div class="cv-page-wrapper">
@@ -3823,9 +3824,12 @@ if (document.readyState === 'loading') {
   <p class="cv-target">Stage Data Analyst / Business Intelligence</p>
   <p class="cv-objective"><strong>10 semaines à partir du 1er avril 2027</strong> · Mobilité France entière</p>
   <address class="cv-contact">
-    <p><a href="tel:+33746156657">07 46 15 66 57</a> · <a href="mailto:samyhctpro@gmail.com">samyhctpro@gmail.com</a> · Aurillac, France · Permis B</p>
-    <p>Portfolio : <a href="https://hctsamyuct.github.io/">hctsamyuct.github.io</a> · LinkedIn : <a href="https://www.linkedin.com/in/samyhouchat" target="_blank" rel="noopener">linkedin.com/in/samyhouchat</a></p>
-    <p>GitHub : <a href="https://github.com/HouchatSamy" target="_blank" rel="noopener">github.com/HouchatSamy</a></p>
+    <div class="cv-contact-item"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.2c1.1.4 2.3.6 3.6.6a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.6 21 3 13.4 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.3.2 2.5.6 3.6a1 1 0 0 1-.2 1z"/></svg><a href="tel:+33746156657" aria-label="Téléphone : 07 46 15 66 57">07 46 15 66 57</a></div>
+    <div class="cv-contact-item"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5z"/></svg><a href="mailto:samyhctpro@gmail.com">samyhctpro@gmail.com</a></div>
+    <div class="cv-contact-item"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 2a8 8 0 0 0-8 8c0 6 8 12 8 12s8-6 8-12a8 8 0 0 0-8-8zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg><span>Aurillac, France · Permis B</span></div>
+    <div class="cv-contact-item"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 3a2 2 0 1 0 0 4 2 2 0 0 0 0-4zM2 9h4v12H2zm7 0h4v2c1-2 7-4 7 3v7h-4v-7c0-3-3-3-3 0v7H9z"/></svg><a href="https://www.linkedin.com/in/samyhouchat" target="_blank" rel="noopener">linkedin.com/in/samyhouchat</a></div>
+    <div class="cv-contact-item"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 7h10v10H7zM2 2h5v2H4v3H2zm15 0h5v5h-2V4h-3zM2 17h2v3h3v2H2zm18 0h2v5h-5v-2h3z"/></svg><a href="https://github.com/HouchatSamy" target="_blank" rel="noopener">github.com/HouchatSamy</a></div>
+    <div class="cv-contact-item"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M10 14a5 5 0 0 1 0-7l4-4a5 5 0 0 1 7 7l-3 3-2-2 3-3a2 2 0 0 0-3-3l-4 4a2 2 0 0 0 0 3zm4-4a5 5 0 0 1 0 7l-4 4a5 5 0 0 1-7-7l3-3 2 2-3 3a2 2 0 0 0 3 3l4-4a2 2 0 0 0 0-3z"/></svg><a href="https://hctsamyuct.github.io/">hctsamyuct.github.io</a></div>
   </address>
   </div>
   <a class="cv-qr" href="https://hctsamyuct.github.io/" aria-label="Ouvrir le portfolio de Samy Houchat">
