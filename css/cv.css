@@ -1,0 +1,118 @@
+/* Two inks on white paper, a single reading column, shared by the web CV and its dialog. */
+.cv-page {
+  --cv-ink: #000000;
+  --cv-accent: #1e40af;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 210mm;
+  margin: 0 auto;
+  padding: 12mm 14mm;
+  background: #ffffff;
+  color: var(--cv-ink);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10pt;
+  line-height: 1.35;
+  text-align: left;
+}
+.cv-page *, .cv-page *::before, .cv-page *::after { box-sizing: border-box; }
+.cv-page p, .cv-page h1, .cv-page h2, .cv-page h3, .cv-page ul { margin: 0; }
+.cv-page a { color: var(--cv-ink); text-decoration: underline; overflow-wrap: anywhere; }
+.cv-page strong { color: inherit; font-weight: 700; }
+.cv-page .cv-name { font-size: 24pt; line-height: 1.1; font-weight: 700; color: var(--cv-ink); }
+.cv-page .cv-target { margin-top: 2mm; font-size: 12pt; font-weight: 700; color: var(--cv-accent); }
+.cv-page .cv-objective { margin-top: 1.5mm; }
+.cv-page .cv-contact { margin-top: 2mm; font-size: 9pt; font-style: normal; line-height: 1.4; }
+.cv-page .cv-section { margin-top: 4mm; }
+.cv-page .cv-section h2 {
+  font-size: 11pt;
+  line-height: 1.2;
+  color: var(--cv-accent);
+  border-bottom: 1px solid var(--cv-accent);
+  padding-bottom: 1mm;
+  margin-bottom: 2mm;
+  font-weight: 700;
+  break-after: avoid;
+}
+.cv-page h3 { font-size: 10pt; font-weight: 700; color: var(--cv-ink); break-after: avoid; }
+.cv-page .cv-date { font-weight: 400; }
+.cv-page .cv-entry + .cv-entry { margin-top: 2.5mm; }
+.cv-page .cv-entry-context { margin-top: .5mm; margin-bottom: 1mm; }
+.cv-page ul { list-style: disc outside; padding-left: 4.5mm; margin-top: 1mm; }
+.cv-page li { padding-left: .3mm; margin-bottom: .7mm; }
+.cv-page .cv-skill-list { list-style: none; padding-left: 0; }
+.cv-page .cv-skill-list li { padding-left: 0; }
+
+.cv-document { margin: 0; background: #ffffff; color: #000000; }
+.cv-document .cv-page-wrapper { padding: 65px 12px 20px; }
+.cv-toolbar {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 100;
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 10px 20px;
+  background: #ffffff;
+  color: #000000;
+  border-bottom: 1px solid #1e40af;
+  font: 13px Arial, Helvetica, sans-serif;
+}
+.cv-toolbar-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.cv-toolbar a, .cv-toolbar button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 32px;
+  padding: 6px 10px;
+  border: 1px solid #1e40af;
+  background: #ffffff;
+  color: #1e40af;
+  text-decoration: none;
+  font: 700 12px Arial, Helvetica, sans-serif;
+  cursor: pointer;
+}
+.cv-toolbar a:focus-visible, .cv-toolbar button:focus-visible { outline: 2px solid #000000; outline-offset: 3px; }
+.cv-overlay-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 99990;
+  overflow-y: auto;
+  background: #ffffff;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .2s ease, visibility .2s ease;
+}
+.cv-overlay-backdrop.active { opacity: 1; visibility: visible; }
+.cv-overlay-backdrop .cv-page-wrapper { padding: 65px 12px 20px; }
+
+@media screen and (max-width: 600px) {
+  .cv-page { padding: 20px 8px; font-size: 14px; line-height: 1.5; }
+  .cv-page h3 { font-size: 14px; }
+  .cv-page .cv-contact { font-size: 12px; }
+  .cv-page .cv-date { display: block; }
+  .cv-toolbar { padding: 8px 12px; }
+  .cv-toolbar > span { display: none; }
+  .cv-toolbar-actions { gap: 8px; }
+}
+
+@page { size: A4 portrait; margin: 12mm 14mm; }
+@media print {
+  .cv-document { margin: 0; padding: 0; }
+  .cv-toolbar { display: none !important; }
+  .cv-document .cv-page-wrapper, .cv-overlay-backdrop .cv-page-wrapper { margin: 0; padding: 0; }
+  .cv-page { width: 100%; max-width: none; margin: 0; padding: 0; }
+  .cv-page .cv-entry { break-inside: avoid; }
+  .cv-overlay-backdrop:not(.active) { display: none !important; }
+  body:has(.cv-overlay-backdrop.active) > :not(.cv-overlay-backdrop) { display: none !important; }
+  .cv-overlay-backdrop.active {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    overflow: visible;
+    margin: 0;
+    padding: 0;
+  }
+}

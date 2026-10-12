@@ -67,3 +67,22 @@ français et identifié comme tel sur la page anglaise.
 Pour les contrôles responsive et interactifs : installer `playwright==1.62.0`
 et Chromium avec `python3 -m playwright install chromium`, puis lancer
 `python3 scripts/check_browser.py`. Ces contrôles sont aussi exécutés en CI.
+
+## CV web et PDF
+
+Le contenu commun du CV se modifie dans `templates/cv.html`, sa présentation dans
+`css/cv.css`. Il utilise une colonne, du texte noir, des titres bleus et des
+mots-clés en gras. Après une modification :
+
+```sh
+node scripts/build-cv.mjs
+node scripts/render-seo.mjs
+node scripts/build-en.mjs
+python3 scripts/generate-cv.py
+python3 scripts/check_cv.py
+```
+
+Les deux commandes Python nécessitent Playwright 1.62.0, Chromium et pypdf 6.10.0.
+Le PDF téléchargeable est généré depuis le CV web : texte sélectionnable, balises
+de structure, liens et une page A4. Le contrôle vérifie l'extraction du texte et
+sa cohérence avec la page ; il ne remplace pas un essai dans chaque logiciel ATS.

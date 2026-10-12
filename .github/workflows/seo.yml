@@ -15,6 +15,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Check shared CV content is current
+        run: node scripts/build-cv.mjs --check
       - name: Check static content is current
         run: node scripts/render-seo.mjs --check
       - name: Check English edition is current
@@ -23,7 +25,9 @@ jobs:
         run: python3 scripts/check_seo.py
       - name: Install browser test tools
         run: |
-          python3 -m pip install playwright==1.62.0
+          python3 -m pip install playwright==1.62.0 pypdf==6.10.0
           python3 -m playwright install --with-deps chromium
       - name: Check FR/EN layouts and interactions
         run: python3 scripts/check_browser.py
+      - name: Check CV PDF, text extraction and print layout
+        run: python3 scripts/check_cv.py

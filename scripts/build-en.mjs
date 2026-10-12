@@ -13,12 +13,8 @@ const translations = JSON.parse(readFileSync(new URL('data/en-translations.json'
 const cvStart = html.indexOf('  <div class="cv-overlay-backdrop"');
 if (cvStart < 0) throw new Error('Missing French CV dialog boundary');
 html = html.slice(0, cvStart) + '\n</body>\n</html>\n';
-// Keep CV-specific styles and print overrides out of the English portfolio.
-const cssMarker = html.indexOf('   CV OVERLAY PLEIN ÉCRAN');
-const cssStart = html.lastIndexOf('/*', cssMarker);
-const cssEnd = html.indexOf('/* Recruiter summary,', cssMarker);
-if (cssMarker < 0 || cssEnd < 0) throw new Error('Missing CV stylesheet boundary');
-html = html.slice(0, cssStart) + html.slice(cssEnd);
+// The English portfolio links to the French CV; it does not embed its dialog or styles.
+html = html.replace(/\s*<link rel="stylesheet" href="\/css\/cv.css">/, '');
 html = html.replace('id="hero-cv-view-btn"', 'id="hero-cv-fr-link"');
 html = html.replace('<html lang="fr"', '<html lang="en"');
 

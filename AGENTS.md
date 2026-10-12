@@ -30,6 +30,20 @@ HTML réellement publié sur GitHub Pages, pas seulement à un aperçu JavaScrip
 - Le script intégré à `index.html` est celui actuellement exécuté par le site.
   Les fichiers `data/projects.js` et `js/main.js` sont des sources modulaires
   historiques ; les modifier seuls ne modifie pas le portfolio publié.
+- Le CV a une seule source de contenu : `templates/cv.html`. Modifier ce fichier,
+  puis exécuter `node scripts/build-cv.mjs` pour synchroniser le CV web et la
+  fenêtre intégrée. Les styles sont dans `css/cv.css`, limités au CV. Conserver
+  une lecture sur une colonne, deux encres (noir et bleu de titres) sur papier
+  blanc, le texte sélectionnable et des mots-clés en gras. La formation précède
+  l'expérience et les compétences techniques. Ne pas réintroduire les étoiles,
+  couleurs de badges, listes de qualités génériques ou clients non anonymisés.
+- Après toute modification du contenu, des styles ou des métadonnées du CV,
+  régénérer le PDF avec `python3 scripts/generate-cv.py` (Playwright 1.62.0,
+  Chromium et pypdf 6.10.0). Inclure le PDF et son manifeste de construction dans
+  le commit. Exécuter `python3 scripts/check_cv.py` : une page A4 sans texte coupé,
+  ordre d'extraction, mots-clés, coordonnées, liens et cohérence web/PDF. Ne pas
+  réduire les caractères à l'excès ni masquer un débordement pour tenir sur une
+  page. Les tests d'extraction ne prouvent pas une compatibilité avec tous les ATS.
 - Conserver un titre H1 principal par page, des sections explicites, des liens
   descriptifs réellement explorables et des textes alternatifs utiles. Ne pas
   masquer du texte ni répéter artificiellement des mots-clés.
@@ -43,7 +57,7 @@ HTML réellement publié sur GitHub Pages, pas seulement à un aperçu JavaScrip
 - Maintenir `robots.txt` et `sitemap.xml`. Le sitemap contient seulement des URL
   canoniques publiques indexables. Modifier `lastmod` uniquement lors d'un vrai
   changement de contenu de la page concernée, avec la date réelle de ce changement.
-- Avant livraison : `node scripts/render-seo.mjs --check`,
+- Avant livraison : `node scripts/build-cv.mjs --check`, `node scripts/render-seo.mjs --check`,
   `node scripts/build-en.mjs --check`, `python3 scripts/check_seo.py`, puis
   `python3 scripts/check_browser.py` (Playwright 1.62.0 et Chromium nécessaires).
   Vérifier les onglets des captures à 320–1440 px : aucun texte tronqué, les trois
