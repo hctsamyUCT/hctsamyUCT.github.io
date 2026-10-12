@@ -2239,8 +2239,9 @@ ul {
 @media (max-width: 899px) {
   .education-languages-grid { grid-template-columns: minmax(0, 1fr); }
 }
-@media (min-width: 900px) { .stats-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-@media (max-width: 899px) and (min-width: 600px) { .stats-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (min-width: 1024px) { .stats-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (max-width: 1023px) and (min-width: 600px) { .stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 599px) { .stats-grid { grid-template-columns: minmax(0, 1fr); } }
 @media (max-width: 640px) {
   .featured-proofs-tabs { grid-template-columns: minmax(0, 1fr); }
   .preview-overlay-hint { font-size: .68rem; padding: .35rem .55rem; right: 6px; bottom: 6px; }
@@ -2397,6 +2398,13 @@ ul {
       <h3 class="stat-title">Power BI dashboards</h3>
       <p class="stat-subtitle">Track orders, compare forecasts and make indicators easy to understand.</p>
       <a class="stat-proof-link" href="#projets">Explore the dashboards <span aria-hidden="true">→</span></a>
+    </div>
+
+    <div class="stat-card" data-stat-id="dba-foundation">
+      <span class="stat-badge">Building solid databases</span>
+      <h3 class="stat-title">DBA Core (Database Admin)</h3>
+      <p class="stat-subtitle">Model robust databases, optimize SQL, and ensure data quality at the source.</p>
+      <a class="stat-proof-link" href="#formation">Explore my DBA background <span aria-hidden="true">→</span></a>
     </div>
 
     <div class="stat-card" data-stat-id="real-experience">
@@ -2870,6 +2878,13 @@ const siteConfig = {
       title: "Power BI dashboards",
       subtitle: "Track orders, compare forecasts and make indicators easy to understand.",
       href: "#projets", action: "Explore the dashboards"
+    },
+    {
+      id: "dba-foundation",
+      badge: "Building solid databases",
+      title: "DBA Core (Database Admin)",
+      subtitle: "Model robust databases, optimize SQL, and ensure data quality at the source.",
+      href: "#formation", action: "Explore my DBA background"
     },
     {
       id: "real-experience",

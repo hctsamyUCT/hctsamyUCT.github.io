@@ -56,7 +56,7 @@ try:
                 assert page.goto(base + path, wait_until="networkidle").status == 200
                 assert page.locator("html").get_attribute("lang") == language
                 assert page.locator("h1").count() == 1
-                assert page.locator("main .stat-card").count() == 3
+                assert page.locator("main .stat-card").count() == 4
                 assert page.locator("main .languages-card").count() == 0
                 assert page.locator(".project-card").count() == 1
                 assert page.locator(".proof-tab-btn").count() == 3

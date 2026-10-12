@@ -2239,8 +2239,9 @@ ul {
 @media (max-width: 899px) {
   .education-languages-grid { grid-template-columns: minmax(0, 1fr); }
 }
-@media (min-width: 900px) { .stats-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-@media (max-width: 899px) and (min-width: 600px) { .stats-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (min-width: 1024px) { .stats-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (max-width: 1023px) and (min-width: 600px) { .stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 599px) { .stats-grid { grid-template-columns: minmax(0, 1fr); } }
 @media (max-width: 640px) {
   .featured-proofs-tabs { grid-template-columns: minmax(0, 1fr); }
   .preview-overlay-hint { font-size: .68rem; padding: .35rem .55rem; right: 6px; bottom: 6px; }
@@ -2398,6 +2399,13 @@ ul {
       <h3 class="stat-title">Tableaux de bord Power BI</h3>
       <p class="stat-subtitle">Suivre les commandes, comparer les prévisions et rendre les indicateurs lisibles.</p>
       <a class="stat-proof-link" href="#projets">Explorer les tableaux de bord <span aria-hidden="true">→</span></a>
+    </div>
+
+    <div class="stat-card" data-stat-id="dba-foundation">
+      <span class="stat-badge">Concevoir des bases solides</span>
+      <h3 class="stat-title">Socle DBA (Administrateur BDD)</h3>
+      <p class="stat-subtitle">Modéliser des bases robustes, optimiser le SQL et garantir la qualité de la donnée à la source.</p>
+      <a class="stat-proof-link" href="#formation">Découvrir mon socle DBA <span aria-hidden="true">→</span></a>
     </div>
 
     <div class="stat-card" data-stat-id="real-experience">
@@ -2871,6 +2879,13 @@ const siteConfig = {
       title: "Tableaux de bord Power BI",
       subtitle: "Suivre les commandes, comparer les prévisions et rendre les indicateurs lisibles.",
       href: "#projets", action: "Explorer les tableaux de bord"
+    },
+    {
+      id: "dba-foundation",
+      badge: "Concevoir des bases solides",
+      title: "Socle DBA (Administrateur BDD)",
+      subtitle: "Modéliser des bases robustes, optimiser le SQL et garantir la qualité de la donnée à la source.",
+      href: "#formation", action: "Découvrir mon socle DBA"
     },
     {
       id: "real-experience",
