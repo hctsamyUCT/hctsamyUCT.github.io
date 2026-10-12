@@ -39,3 +39,21 @@ git branch -M main
 git remote add origin https://github.com/hctsamyUCT/hctsamyUCT.github.io.git
 git push -u origin main --force
 ```
+
+## Référencement et maintenance
+
+Le domaine canonique est **https://hctsamyuct.github.io/**. Les règles à respecter
+à chaque modification sont dans [AGENTS.md](AGENTS.md). La procédure de déclaration
+Google Search Console et Bing se trouve dans [docs/SEO.md](docs/SEO.md).
+
+Avant de publier une modification :
+
+```sh
+node scripts/render-seo.mjs
+node scripts/render-seo.mjs --check
+python3 scripts/check_seo.py
+```
+
+Le contenu principal est pré-rendu dans le HTML et reste lisible sans JavaScript.
+Le workflow GitHub Actions `SEO` vérifie les métadonnées, les liens, le sitemap et
+la cohérence du contenu à chaque push et pull request. Il ne déploie pas le site.
