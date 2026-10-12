@@ -210,14 +210,12 @@ export const siteConfig = {
             "Modélisation MPD dans Power BI : conception et implémentation du schéma relationnel en étoile reliant dimensions et tables de faits (relations 1-N).",
             "Tableaux de bord Supply Chain : pilotage complet des commandes, livraisons effectives, prévisions de vente et reliquats.",
             "KPIs métiers clés : calcul et monitoring du taux de service OTIF (On-Time In-Full), analyse des commandes à risque et retards de livraison par client/produit.",
-            "Automatisation des flux et actualisation des indicateurs de performance."
           ]
         },
         {
           title: "Mission Développement Web — Client : {sogral}",
           bullets: [
             "Conception et mise en ligne du module « Catalogue des Locaux Disponibles » pour la commercialisation des espaces commerciaux dans les gares routières nationales.",
-            "Développement de filtres multi-critères : sélection par gare (localisation), type d'activité, superficie (m²) et tarification/loyer.",
             "Interface d'administration pour la mise à jour des offres par les gestionnaires de gares routières et fiches détaillées en temps réel.",
             "Maintenance corrective et évolutive du site web."
           ]

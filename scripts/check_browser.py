@@ -13,6 +13,16 @@ from threading import Thread
 from playwright.sync_api import expect, sync_playwright
 
 ROOT = Path(__file__).resolve().parents[1]
+CONTRAST_CHECK = (ROOT / "scripts/contrast-check.js").read_text().rstrip().removesuffix(";")
+
+
+def check_contrast(page):
+    result = page.evaluate(CONTRAST_CHECK)
+    assert result["checked"] >= 80, "Contrast audit did not check the expected text elements"
+    assert not result["failures"], result["failures"]
+    if page.locator("html").get_attribute("data-theme") == "dark":
+        assert page.locator("body").evaluate("el => {const rgb=getComputedStyle(el).backgroundColor.match(/[\\d.]+/g).slice(0,3).map(Number); return Math.max(...rgb)-Math.min(...rgb)<=3}"), "Dark canvas should be neutral, not blue"
+    return result
 
 
 class QuietHandler(SimpleHTTPRequestHandler):
@@ -58,6 +68,7 @@ try:
                 for label in page.locator(".proof-tab-title, .proof-tab-sub").all():
                     assert label.evaluate("el => el.scrollWidth <= el.clientWidth+1 && el.scrollHeight <= el.clientHeight+1"), (language, width, "clipped label")
                 assert page.locator("#projets .section-title").evaluate("el => parseFloat(getComputedStyle(el).fontSize) >= 24"), "CV stylesheet overrides portfolio heading"
+                check_contrast(page)
                 if javascript:
                     first = page.locator(".proof-tab-btn").first
                     first.focus()
@@ -73,6 +84,7 @@ try:
                     page.locator(".btn-detail-trigger").click()
                     assert page.locator("#project-modal-overlay").get_attribute("aria-hidden") == "false"
                     expect(page.locator("#project-modal-body")).to_be_visible()
+                    check_contrast(page)
                     if language == "en":
                         details = page.locator("#project-modal-body").inner_text()
                         assert "Goal:" in details and "Key contributions" in details
@@ -81,9 +93,8 @@ try:
                     previous_theme = page.locator("html").get_attribute("data-theme")
                     page.locator("#theme-toggle-btn").click()
                     assert page.locator("html").get_attribute("data-theme") != previous_theme
-                    # Dark mode text must not inherit the light CV palette.
-                    if page.locator("html").get_attribute("data-theme") == "dark":
-                        assert page.locator(".featured-overview").evaluate("el => getComputedStyle(el).color") == "rgb(156, 163, 175)"
+                    page.wait_for_timeout(320)  # Wait for the theme's CSS color transitions.
+                    check_contrast(page)
                     if language == "fr":
                         page.locator("#hero-cv-view-btn").click()
                         assert page.locator("#cv-modal-overlay").get_attribute("aria-hidden") == "false"

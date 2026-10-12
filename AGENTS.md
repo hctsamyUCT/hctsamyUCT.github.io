@@ -49,7 +49,13 @@ HTML réellement publié sur GitHub Pages, pas seulement à un aperçu JavaScrip
   Vérifier les onglets des captures à 320–1440 px : aucun texte tronqué, les trois
   boutons restent dans leur colonne, sélection souris et clavier fonctionnelle.
   Conserver l'isolation des styles du CV dans `.cv-overlay-backdrop`, pour éviter
-  qu'ils modifient les titres ou les couleurs du portfolio. Le workflow CI SEO
+  qu'ils modifient les titres ou les couleurs du portfolio. Le thème sombre doit
+  garder un fond anthracite neutre et des textes secondaires lisibles. Le contrôle
+  navigateur mesure le contraste des textes et boutons sur leurs fonds composés
+  dans les deux thèmes : ratio minimal 4,5:1 pour les éléments contrôlés. Ce test
+  ne couvre pas les textes dans les captures d'écran ou sur des images/gradients.
+  Séparer la couleur des accents textuels de celle des boutons à texte blanc.
+  Le workflow CI SEO
   doit passer. Ne pas contourner les contrôles pour
   faire passer une modification qui casse le référencement.
 - Les bonnes pratiques évoluent : consulter les recommandations officielles

@@ -98,7 +98,7 @@
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
-  <meta name="theme-color" content="#0B0F19">
+  <meta name="theme-color" content="#121212">
 
   <!-- Google Fonts : Plus Jakarta Sans avec font-display: swap -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -118,33 +118,34 @@
    -------------------------------------------------------------------------- */
 :root {
   /* Palette Thème Sombre (Défaut) */
-  --bg-primary: #0b0f19;
-  --bg-secondary: #111827;
-  --bg-card: rgba(17, 24, 39, 0.85);
-  --bg-card-hover: rgba(31, 41, 55, 0.95);
-  --bg-glass: rgba(11, 15, 25, 0.85);
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-strong: rgba(255, 255, 255, 0.16);
+  --bg-primary: #121212;
+  --bg-secondary: #191919;
+  --bg-card: #1e1e1e;
+  --bg-card-hover: #292929;
+  --bg-glass: rgba(18, 18, 18, 0.96);
+  --border-subtle: rgba(255, 255, 255, 0.14);
+  --border-strong: rgba(255, 255, 255, 0.30);
 
   /* Couleurs de texte */
-  --text-main: #f9fafb;
-  --text-muted: #9ca3af;
-  --text-subtle: #6b7280;
+  --text-main: #f5f5f5;
+  --text-muted: #d4d4d4;
+  --text-subtle: #c2c2c2;
 
   /* Accents Data */
-  --accent-primary: #6366f1;       /* Indigo Royal */
-  --accent-primary-hover: #4f46e5;
-  --accent-cyan: #06b6d4;          /* Cyan Data Stream */
-  --accent-emerald: #10b981;       /* Vert Succès / Dispo */
+  --accent-primary: #c4b5fd;       /* Indigo Royal */
+  --accent-primary-hover: #ddd6fe;
+  --accent-fill: #4f46e5;
+  --accent-cyan: #67e8f9;          /* Cyan Data Stream */
+  --accent-emerald: #6ee7b7;       /* Vert Succès / Dispo */
   --accent-amber: #f59e0b;         /* Ambre Alerte */
-  --gradient-accent: linear-gradient(135deg, #6366f1 0%, #06b6d4 100%);
-  --gradient-glow: radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+  --gradient-accent: linear-gradient(135deg, #c4b5fd 0%, #67e8f9 100%);
+  --gradient-glow: none;
 
   /* Ombres & Élévation */
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
   --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.5);
-  --shadow-glow: 0 0 25px rgba(99, 102, 241, 0.25);
+  --shadow-glow: 0 0 25px rgba(0, 0, 0, 0.3);
 
   /* Typographie & Rayons */
   --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -171,12 +172,12 @@
 
   --text-main: #0f172a;
   --text-muted: #475569;
-  --text-subtle: #94a3b8;
+  --text-subtle: #596579;
 
   --accent-primary: #4f46e5;
   --accent-primary-hover: #4338ca;
-  --accent-cyan: #0284c7;
-  --accent-emerald: #059669;
+  --accent-cyan: #0369a1;
+  --accent-emerald: #047857;
   --accent-amber: #d97706;
   --gradient-accent: linear-gradient(135deg, #4f46e5 0%, #0284c7 100%);
   --gradient-glow: radial-gradient(circle at 50% 0%, rgba(79, 70, 229, 0.08) 0%, transparent 70%);
@@ -644,7 +645,7 @@ ul {
 }
 
 .btn-primary {
-  background: var(--gradient-accent);
+  background: var(--accent-fill);
   color: #ffffff;
   box-shadow: 0 4px 16px rgba(99, 102, 241, 0.35);
 }
@@ -836,7 +837,7 @@ ul {
   border-radius: var(--radius-lg);
   overflow: hidden;
   border: 1px solid var(--border-strong);
-  background-color: #020617;
+  background-color: var(--bg-secondary);
   cursor: pointer;
   box-shadow: var(--shadow-md);
 }
@@ -1256,7 +1257,7 @@ ul {
   position: absolute;
   top: 12px;
   left: 12px;
-  background: rgba(11, 15, 25, 0.85);
+  background: rgba(18, 18, 18, 0.9);
   backdrop-filter: blur(8px);
   border: 1px solid var(--border-strong);
   color: #ffffff;
@@ -2064,7 +2065,7 @@ ul {
 }
 
 .proof-tab-btn.active .proof-tab-num {
-  background: var(--accent-primary);
+  background: var(--accent-fill);
   color: #ffffff;
 }
 
@@ -2132,7 +2133,7 @@ ul {
 .stat-proof-link { margin-top: auto; padding-top: .8rem; color: var(--accent-primary); font-size: .85rem; font-weight: 700; }
 .language-switch { display: flex; gap: .25rem; padding: .2rem; border: 1px solid var(--border-subtle); border-radius: var(--radius-full); }
 .language-switch a { padding: .35rem .5rem; border-radius: var(--radius-full); font-size: .75rem; font-weight: 800; }
-.language-switch a[aria-current="page"] { color: #fff; background: var(--accent-primary); }
+.language-switch a[aria-current="page"] { color: #fff; background: var(--accent-fill); }
 .language-switch a:focus-visible, .proof-tab-btn:focus-visible, .stat-proof-link:focus-visible { outline: 3px solid var(--accent-cyan); outline-offset: 3px; }
 .featured-confidentiality-note { font-size: .78rem; line-height: 1.5; color: var(--text-muted); }
 .featured-preview-img { height: auto; aspect-ratio: auto; object-fit: contain; }
@@ -2567,14 +2568,14 @@ ul {
             <div class="timeline-mission-block">
               <h4 class="timeline-mission-title">Data & BI assignment — Client: Food industry client</h4>
               <ul class="timeline-bullets">
-                <li class="timeline-bullet">ETL pipeline & data warehouse: Python scripts to ingest, clean and transform raw data into the Bronze and Gold layers of a data warehouse.</li><li class="timeline-bullet">Power BI data modelling: design and implementation of a relational star schema connecting dimensions and fact tables through one-to-many relationships.</li><li class="timeline-bullet">Supply chain dashboards: tracking orders, actual deliveries, sales forecasts and backorders.</li><li class="timeline-bullet">Business KPIs: calculating and monitoring the OTIF (On-Time In-Full) service rate, at-risk orders and delivery delays by customer and product.</li><li class="timeline-bullet">Automated data flows and refreshed performance indicators.</li>
+                <li class="timeline-bullet">ETL pipeline & data warehouse: Python scripts to ingest, clean and transform raw data into the Bronze and Gold layers of a data warehouse.</li><li class="timeline-bullet">Power BI data modelling: design and implementation of a relational star schema connecting dimensions and fact tables through one-to-many relationships.</li><li class="timeline-bullet">Supply chain dashboards: tracking orders, actual deliveries, sales forecasts and backorders.</li><li class="timeline-bullet">Business KPIs: calculating and monitoring the OTIF (On-Time In-Full) service rate, at-risk orders and delivery delays by customer and product.</li>
               </ul>
             </div>
 
             <div class="timeline-mission-block">
               <h4 class="timeline-mission-title">Web development assignment — Client: Bus station management company</h4>
               <ul class="timeline-bullets">
-                <li class="timeline-bullet">Designed and launched a catalogue of available commercial spaces in national bus stations.</li><li class="timeline-bullet">Developed multi-criteria filters by station, business type, floor area (m²) and rent.</li><li class="timeline-bullet">Built an administration interface so station managers could update listings and their details.</li><li class="timeline-bullet">Corrective maintenance and website improvements.</li>
+                <li class="timeline-bullet">Designed and launched a catalogue of available commercial spaces in national bus stations.</li><li class="timeline-bullet">Built an administration interface so station managers could update listings and their details.</li><li class="timeline-bullet">Corrective maintenance and website improvements.</li>
               </ul>
             </div>
 
@@ -2924,14 +2925,12 @@ const siteConfig = {
             "Power BI data modelling: design and implementation of a relational star schema connecting dimensions and fact tables through one-to-many relationships.",
             "Supply chain dashboards: tracking orders, actual deliveries, sales forecasts and backorders.",
             "Business KPIs: calculating and monitoring the OTIF (On-Time In-Full) service rate, at-risk orders and delivery delays by customer and product.",
-            "Automated data flows and refreshed performance indicators."
           ]
         },
         {
           title: "Web development assignment — Client: {sogral}",
           bullets: [
             "Designed and launched a catalogue of available commercial spaces in national bus stations.",
-            "Developed multi-criteria filters by station, business type, floor area (m²) and rent.",
             "Built an administration interface so station managers could update listings and their details.",
             "Corrective maintenance and website improvements."
           ]

@@ -99,6 +99,12 @@ interactions à 320, 390, 768, 1024 et 1440 px. Ce contrôle optionnel en local,
 exécuté systématiquement en CI, utilise Playwright 1.62.0 et Chromium. Il ne
 mesure pas les Core Web Vitals en production. Le CV téléchargeable reste français.
 
+Le contrôle navigateur vérifie aussi un contraste de texte d'au moins 4,5:1 sur
+les fonds unis composés des éléments sélectionnés (paragraphes, dates, légendes,
+liens et boutons), dans les thèmes clair et sombre. Le fond sombre est anthracite.
+Ce contrôle ne remplace pas un audit d'accessibilité complet et n'analyse pas les
+textes des captures d'écran ni les fonds d'image ou les gradients.
+
 En cas de changement de domaine, régénérer aussi les QR codes web avec
 `scripts/update_qr.py` (dépendance optionnelle `qrcode==8.2`), et vérifier les
 éventuels QR codes déjà présents dans le PDF et les CV imprimés. Le PDF existant
