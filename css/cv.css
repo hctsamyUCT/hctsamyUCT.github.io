@@ -47,8 +47,8 @@
 .cv-page .cv-entry + .cv-entry { margin-top: 2mm; }
 .cv-page .cv-entry-context { margin-top: .5mm; margin-bottom: 1mm; }
 .cv-page .cv-employer-line { display: flex; align-items: center; justify-content: space-between; gap: 3mm; flex-wrap: wrap; break-inside: avoid; }
-.cv-page .cv-employer-name { display: flex; align-items: center; gap: 1.2mm; }
-.cv-page .cv-employer-logo { display: block; width: 7mm; height: auto; flex-shrink: 0; filter: grayscale(1) contrast(4); }
+.cv-page .cv-employer-name { display: flex; align-items: center; gap: 2mm; }
+.cv-page .cv-employer-logo { display: block; width: 14mm; height: auto; flex-shrink: 0; filter: grayscale(1) contrast(4); }
 .cv-page ul { list-style: disc outside; padding-left: 4.5mm; margin-top: 1mm; }
 .cv-page li { padding-left: .3mm; margin-bottom: .5mm; }
 .cv-page .cv-skill-list { list-style: none; padding-left: 0; }

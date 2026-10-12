@@ -18,7 +18,7 @@ export const siteConfig = {
     linkedin: "https://www.linkedin.com/in/samyhouchat",
     githubUser: "https://github.com/HouchatSamy?tab=repositories",
     githubOrg: "https://github.com/AVDAdz/avdaAuto",
-    cvPdfPath: "assets/cv/CV_Samy_Houchat.pdf?v=592a707f5f75",
+    cvPdfPath: "assets/cv/CV_Samy_Houchat.pdf?v=0f2571ad7d60",
     photoPath: "assets/img/photo.png"
   },
 

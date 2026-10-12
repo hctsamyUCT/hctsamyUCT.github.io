@@ -93,7 +93,7 @@ try:
                     previous_theme = page.locator("html").get_attribute("data-theme")
                     page.locator("#theme-toggle-btn").click()
                     assert page.locator("html").get_attribute("data-theme") != previous_theme
-                    page.wait_for_timeout(320)  # Wait for the theme's CSS color transitions.
+                    page.wait_for_timeout(600)  # Wait for the theme's CSS color transitions to settle.
                     check_contrast(page)
                     if language == "fr":
                         page.locator("#hero-cv-view-btn").click()

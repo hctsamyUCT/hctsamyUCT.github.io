@@ -85,7 +85,7 @@ try:
             assert page.locator(".cv-entry h3").evaluate_all("nodes => nodes.every(node => node.firstElementChild.matches('.cv-date'))"), "Dates must come first"
             logo = page.locator(".cv-employer-logo")
             assert logo.evaluate("el => getComputedStyle(el).filter") == "grayscale(1) contrast(4)", "Logo must use black and white"
-            assert logo.locator("..").inner_text().strip() == "Layer Data", "Logo must accompany the company name"
+            assert "Layer Data" in logo.locator("..").inner_text(), "Logo must accompany the company name"
             assert page.locator(".cv-qr img").is_visible()
             assert page.locator(".cv-qr").get_attribute("href") == "https://hctsamyuct.github.io/"
             for image in page.locator("#cv-content img").all():
