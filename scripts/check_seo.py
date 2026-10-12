@@ -39,7 +39,7 @@ class Page(HTMLParser):
         self.in_title = False
         self.in_style = False
         self.lang = None
-        self.feed(path.read_text())
+        self.feed(path.read_text(encoding="utf-8"))
 
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
@@ -164,7 +164,7 @@ for name, p in pages.items():
                 target = target / "index.html"
             require(target.is_file(), f"{name}: broken local link {link}")
 
-source = (ROOT / "index.html").read_text()
+source = (ROOT / "index.html").read_text(encoding="utf-8")
 for id in ["stats-grid", "featured-project-container", "other-projects-grid", "skills-categories-grid",
            "timeline-container", "education-list", "contact-search-desc"]:
     block = source.split(f"<!-- seo:{id}:start -->", 1)[1].split(f"<!-- seo:{id}:end -->", 1)[0]
@@ -189,7 +189,7 @@ require(set(locations) == set(INDEXABLE.values()) and len(locations) == len(INDE
         "Sitemap must list each canonical indexable page exactly once")
 for value in sitemap.findall("s:url/s:lastmod", ns):
     require(date.fromisoformat(value.text) <= date.today(), "Sitemap lastmod cannot be in the future")
-robots = (ROOT / "robots.txt").read_text()
+robots = (ROOT / "robots.txt").read_text(encoding="utf-8")
 require("User-agent: *" in robots and "Allow: /" in robots and "Disallow: /" not in robots,
         "Public crawling must remain allowed")
 require("Sitemap: " + BASE + "sitemap.xml" in robots, "robots.txt sitemap URL is incorrect")
@@ -204,7 +204,7 @@ with tempfile.TemporaryDirectory(prefix="portfolio-seo-") as directory:
         if attrs.get("type") == "application/ld+json" or attrs.get("src"):
             continue
         script = Path(directory) / f"inline-{i}.js"
-        script.write_text(body)
+        script.write_text(body, encoding="utf-8")
         subprocess.run(["node", "--check", str(script)], check=True)
 
 print("PASS: 4 HTML pages, FR/EN alternates, metadata, identity/schema, crawlable content, local links/assets, sitemap, robots and shipped JavaScript.")

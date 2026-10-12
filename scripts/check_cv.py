@@ -53,7 +53,7 @@ def inspect_pdf(path):
     return text
 
 
-manifest = json.loads((ROOT / "assets/cv/CV_Samy_Houchat.build.json").read_text())
+manifest = json.loads((ROOT / "assets/cv/CV_Samy_Houchat.build.json").read_text(encoding="utf-8"))
 assert set(manifest["sources"]) == {"templates/cv.html", "css/cv.css", "cv_samy_houchat.html",
                                    "assets/img/photo_opt.jpg", "assets/img/qr-portfolio-cv.svg", "assets/img/layer_data_logo_opt.png"}
 for name, digest in manifest["sources"].items():

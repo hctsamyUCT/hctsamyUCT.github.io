@@ -13,7 +13,7 @@ from threading import Thread
 from playwright.sync_api import expect, sync_playwright
 
 ROOT = Path(__file__).resolve().parents[1]
-CONTRAST_CHECK = (ROOT / "scripts/contrast-check.js").read_text().rstrip().removesuffix(";")
+CONTRAST_CHECK = (ROOT / "scripts/contrast-check.js").read_text(encoding="utf-8").rstrip().removesuffix(";")
 
 
 def check_contrast(page):

@@ -130,7 +130,7 @@ export const siteConfig = {
         caption: "Preuve 3 : Architecture relationnelle Power BI — Modèle en étoile (DIM_CUSTOMER, DIM_PRODUCT, FACT_ORDER, FACT_DELIVERY)"
       }
     ],
-    githubUrl: null // Projet d'entreprise confidentiel
+    githubUrl: "https://github.com/HouchatSamy/POWERBI_files"
   },
 
   otherProjects: [
