@@ -11,7 +11,8 @@ import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = "https://hctsamyuct.github.io/"
-INDEXABLE = {"index.html": BASE, "cv_samy_houchat.html": BASE + "cv_samy_houchat.html"}
+INDEXABLE = {"index.html": BASE, "en/index.html": BASE + "en/",
+             "cv_samy_houchat.html": BASE + "cv_samy_houchat.html"}
 
 
 def require(condition, message):
@@ -25,6 +26,7 @@ class Page(HTMLParser):
         self.path = path
         self.meta = {}
         self.canonicals = []
+        self.alternates = {}
         self.ids = set()
         self.links = []
         self.images = []
@@ -59,6 +61,8 @@ class Page(HTMLParser):
                 self.meta[key] = a.get("content", "")
         elif tag == "link" and a.get("rel") == "canonical":
             self.canonicals.append(a.get("href"))
+        elif tag == "link" and a.get("rel") == "alternate" and a.get("hreflang"):
+            self.alternates[a["hreflang"]] = a.get("href")
         elif tag == "h1":
             self.h1 += 1
         elif tag == "main":
@@ -93,13 +97,16 @@ class Page(HTMLParser):
         if u.scheme or u.netloc or not u.path:
             return
         target = ROOT / unquote(u.path.lstrip("/"))
+        if target.is_dir():
+            target = target / "index.html"
         require(target.is_file(), f"{self.path.name}: missing local asset {url}")
 
 
 pages = {name: Page(ROOT / name) for name in [*INDEXABLE, "404.html"]}
 for name, url in INDEXABLE.items():
     p = pages[name]
-    require(p.lang == "fr", f"{name}: expected French language")
+    expected_lang = "en" if name.startswith("en/") else "fr"
+    require(p.lang == expected_lang, f"{name}: incorrect page language")
     require(p.h1 == 1 and p.mains == 1, f"{name}: expected one H1 and one main landmark")
     require("Samy Houchat" in p.title, f"{name}: missing name in title")
     require(p.canonicals == [url], f"{name}: incorrect canonical")
@@ -127,11 +134,15 @@ for name, url in INDEXABLE.items():
             f"{name}: incorrect Person URL")
     require("Samy" in " ".join(p.text) and "Houchat" in " ".join(p.text), f"{name}: no visible identity")
     webpage = next(x for x in graph if x["@type"] in {"ProfilePage", "WebPage"})
+    require(webpage["inLanguage"] == expected_lang, f"{name}: incorrect schema language")
     require(webpage["url"] == url and webpage["mainEntity"]["@id"] == person["@id"],
             f"{name}: inconsistent page entity")
     require(webpage["description"] == p.meta["description"], f"{name}: schema/description differ")
     require(all(link in p.links for link in person["sameAs"] if "linkedin" in link),
             f"{name}: structured profile link absent from HTML")
+    if name in {"index.html", "en/index.html"}:
+        require(p.alternates == {"fr": BASE, "en": BASE + "en/", "x-default": BASE},
+                f"{name}: missing reciprocal language alternates")
 
 require(pages["index.html"].title != pages["cv_samy_houchat.html"].title, "Page titles must be distinct")
 require(pages["index.html"].meta["description"] != pages["cv_samy_houchat.html"].meta["description"],
@@ -149,17 +160,27 @@ for name, p in pages.items():
             continue
         else:
             target = ROOT / unquote(u.path.lstrip("/"))
+            if target.is_dir():
+                target = target / "index.html"
             require(target.is_file(), f"{name}: broken local link {link}")
 
 source = (ROOT / "index.html").read_text()
 for id in ["stats-grid", "featured-project-container", "other-projects-grid", "skills-categories-grid",
-           "timeline-container", "education-list", "languages-list", "contact-search-desc"]:
+           "timeline-container", "education-list", "contact-search-desc"]:
     block = source.split(f"<!-- seo:{id}:start -->", 1)[1].split(f"<!-- seo:{id}:end -->", 1)[0]
     require(bool(block.strip()), f"Missing crawlable content: {id}")
 visible = " ".join(pages["index.html"].text)
 for term in ["Power BI", "Python", "SQL", "Layer Data", "AVDA"]:
     require(term in visible, f"Content requires JavaScript: {term}")
 require("data:image" not in source, "Avoid duplicated embedded images in index.html")
+english = " ".join(pages["en/index.html"].text)
+for term in ["Data / BI internship", "What I can contribute", "Orders", "Forecasts", "Data model",
+             "Professional Experience", "Layer Data", "Power BI"]:
+    require(term in english, f"English content missing or requires JavaScript: {term}")
+for name in ["index.html", "en/index.html"]:
+    p = pages[name]
+    require("value-title" in p.ids and "languages-list" not in p.ids,
+            f"{name}: recruiter summary missing or removed language card restored")
 
 ns = {"s": "http://www.sitemaps.org/schemas/sitemap/0.9"}
 sitemap = ET.parse(ROOT / "sitemap.xml").getroot()
@@ -178,11 +199,12 @@ require(qr.find("{http://www.w3.org/2000/svg}desc").text == BASE,
 
 # Parse the actual shipped inline JS with Node, without executing it in this check.
 with tempfile.TemporaryDirectory(prefix="portfolio-seo-") as directory:
-    for i, (attrs, body) in enumerate(pages["index.html"].scripts):
+    shipped_scripts = pages["index.html"].scripts + pages["en/index.html"].scripts
+    for i, (attrs, body) in enumerate(shipped_scripts):
         if attrs.get("type") == "application/ld+json" or attrs.get("src"):
             continue
         script = Path(directory) / f"inline-{i}.js"
         script.write_text(body)
         subprocess.run(["node", "--check", str(script)], check=True)
 
-print("PASS: 3 HTML pages, metadata, identity/schema, crawlable content, local links/assets, sitemap, robots and shipped JavaScript.")
+print("PASS: 4 HTML pages, FR/EN alternates, metadata, identity/schema, crawlable content, local links/assets, sitemap, robots and shipped JavaScript.")

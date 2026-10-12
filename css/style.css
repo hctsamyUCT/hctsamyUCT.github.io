@@ -2014,3 +2014,28 @@ ul {
   }
 }
 
+
+
+/* Recruiter summary, language switch and fully visible proof selectors. */
+.value-title { font-size: clamp(1.35rem, 2.6vw, 1.8rem); line-height: 1.35; margin-bottom: .6rem; }
+.value-intro { color: var(--text-muted); margin-bottom: 1.4rem; }
+.stat-proof-link { margin-top: auto; padding-top: .8rem; color: var(--accent-primary); font-size: .85rem; font-weight: 700; }
+.language-switch { display: flex; gap: .25rem; padding: .2rem; border: 1px solid var(--border-subtle); border-radius: var(--radius-full); }
+.language-switch a { padding: .35rem .5rem; border-radius: var(--radius-full); font-size: .75rem; font-weight: 800; }
+.language-switch a[aria-current="page"] { color: #fff; background: var(--accent-primary); }
+.language-switch a:focus-visible, .proof-tab-btn:focus-visible, .stat-proof-link:focus-visible { outline: 3px solid var(--accent-cyan); outline-offset: 3px; }
+.featured-confidentiality-note { font-size: .78rem; line-height: 1.5; color: var(--text-muted); }
+.featured-preview-img { height: auto; aspect-ratio: auto; object-fit: contain; }
+.featured-proofs-tabs { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.proof-tab-btn { min-width: 0; padding: .7rem .6rem; align-items: flex-start; }
+.proof-tab-text { min-width: 0; overflow: visible; gap: .25rem; }
+.proof-tab-title, .proof-tab-sub { white-space: normal; overflow: visible; text-overflow: clip; overflow-wrap: anywhere; line-height: 1.45; }
+.education-languages-grid { grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 900px) { .stats-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 899px) and (min-width: 600px) { .stats-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 640px) {
+  .featured-proofs-tabs { grid-template-columns: minmax(0, 1fr); }
+  .preview-overlay-hint { font-size: .68rem; padding: .35rem .55rem; right: 6px; bottom: 6px; }
+  .header-actions { gap: .4rem; }
+  .brand-name { font-size: .9rem; }
+}

@@ -8,6 +8,9 @@
   <meta name="description" content="Samy Houchat, étudiant en Science des données à Aurillac : portfolio de projets Power BI, Python, SQL et ETL. Découvrez mes réalisations et mon CV.">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://hctsamyuct.github.io/">
+  <link rel="alternate" hreflang="fr" href="https://hctsamyuct.github.io/">
+  <link rel="alternate" hreflang="en" href="https://hctsamyuct.github.io/en/">
+  <link rel="alternate" hreflang="x-default" href="https://hctsamyuct.github.io/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Samy Houchat — Portfolio Data &amp; BI">
@@ -55,7 +58,10 @@
       "@id": "https://hctsamyuct.github.io/#website",
       "url": "https://hctsamyuct.github.io/",
       "name": "Samy Houchat — Portfolio Data & Business Intelligence",
-      "inLanguage": "fr",
+      "inLanguage": [
+        "fr",
+        "en"
+      ],
       "publisher": {
         "@id": "https://hctsamyuct.github.io/#samy-houchat"
       }
@@ -2268,7 +2274,7 @@ ul {
     /* ==========================================================================
        VARIABLES DE DESIGN & TOKENS ATS-COMPATIBLES
        ========================================================================== */
-    :root {
+    .cv-overlay-backdrop {
       --primary: #0f172a;        /* Noir ardoise / Navy profond */
       --primary-light: #1e293b;  /* Ardoise sombre */
       --accent: #1d4ed8;         /* Bleu cobalt vif / Corporate */
@@ -2291,7 +2297,7 @@ ul {
     /* scoped to cv-overlay */
 
     /* Barre d'action d'impression (écran uniquement) */
-    .top-toolbar {
+    .cv-overlay-backdrop .top-toolbar {
       position: fixed;
       top: 0;
       left: 0;
@@ -2308,13 +2314,13 @@ ul {
       font-size: 13px;
     }
 
-    .toolbar-info {
+    .cv-overlay-backdrop .toolbar-info {
       display: flex;
       align-items: center;
       gap: 12px;
     }
 
-    .badge-ats {
+    .cv-overlay-backdrop .badge-ats {
       background: #22c55e;
       color: #064e3b;
       font-weight: 700;
@@ -2324,13 +2330,13 @@ ul {
       letter-spacing: 0.03em;
     }
 
-    .toolbar-actions {
+    .cv-overlay-backdrop .toolbar-actions {
       display: flex;
       align-items: center;
       gap: 10px;
     }
 
-    .btn-print {
+    .cv-overlay-backdrop .btn-print {
       background: #2563eb;
       color: #fff;
       border: none;
@@ -2346,11 +2352,11 @@ ul {
       text-decoration: none;
     }
 
-    .btn-print:hover {
+    .cv-overlay-backdrop .btn-print:hover {
       background: #1d4ed8;
     }
 
-    .btn-back {
+    .cv-overlay-backdrop .btn-back {
       background: transparent;
       color: #cbd5e1;
       border: 1px solid #475569;
@@ -2361,7 +2367,7 @@ ul {
       transition: all 0.15s ease;
     }
 
-    .btn-back:hover {
+    .cv-overlay-backdrop .btn-back:hover {
       color: #fff;
       border-color: #94a3b8;
     }
@@ -2369,13 +2375,13 @@ ul {
     /* ==========================================================================
        PAGE A4 EXACTE (210mm x 297mm)
        ========================================================================== */
-    .page-wrapper {
+    .cv-overlay-backdrop .page-wrapper {
       padding: 70px 0 30px;
       display: flex;
       justify-content: center;
     }
 
-    .cv-page {
+    .cv-overlay-backdrop .cv-page {
       width: 210mm;
       height: 297mm;
       max-height: 297mm;
@@ -2391,19 +2397,19 @@ ul {
     }
 
     /* Liens propres */
-    a {
+    .cv-overlay-backdrop a {
       color: var(--accent);
       text-decoration: none;
     }
 
-    a:hover {
+    .cv-overlay-backdrop a:hover {
       text-decoration: underline;
     }
 
     /* ==========================================================================
        1. EN-TÊTE DU CV (HEADER ATS HAUTE VISIBILITÉ)
        ========================================================================== */
-    .cv-header {
+    .cv-overlay-backdrop .cv-header {
       display: grid;
       grid-template-columns: auto 1fr auto;
       gap: 14px;
@@ -2413,7 +2419,7 @@ ul {
     }
 
     /* Photo de profil */
-    .photo-container {
+    .cv-overlay-backdrop .photo-container {
       width: 82px;
       height: 98px;
       border-radius: 6px;
@@ -2424,7 +2430,7 @@ ul {
       flex-shrink: 0;
     }
 
-    .photo-container img {
+    .cv-overlay-backdrop .photo-container img {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -2433,13 +2439,13 @@ ul {
     }
 
     /* Informations du candidat */
-    .header-info {
+    .cv-overlay-backdrop .header-info {
       display: flex;
       flex-direction: column;
       gap: 2.5px;
     }
 
-    .candidate-name {
+    .cv-overlay-backdrop .candidate-name {
       font-family: var(--font-heading);
       font-size: 21pt;
       font-weight: 800;
@@ -2449,7 +2455,7 @@ ul {
       text-transform: none;
     }
 
-    .candidate-role {
+    .cv-overlay-backdrop .candidate-role {
       font-family: var(--font-heading);
       font-size: 11pt;
       font-weight: 700;
@@ -2457,7 +2463,7 @@ ul {
       line-height: 1.2;
     }
 
-    .candidate-objective {
+    .cv-overlay-backdrop .candidate-objective {
       font-size: 8.8pt;
       font-weight: 600;
       color: var(--text-main);
@@ -2472,7 +2478,7 @@ ul {
       width: fit-content;
     }
 
-    .badge-dot {
+    .cv-overlay-backdrop .badge-dot {
       width: 7px;
       height: 7px;
       background: var(--success);
@@ -2481,7 +2487,7 @@ ul {
     }
 
     /* Coordonnées en grille claire */
-    .contact-grid {
+    .cv-overlay-backdrop .contact-grid {
       display: grid;
       grid-template-columns: auto auto;
       gap: 4px 14px;
@@ -2490,27 +2496,27 @@ ul {
       margin-top: 3px;
     }
 
-    .contact-item {
+    .cv-overlay-backdrop .contact-item {
       display: flex;
       align-items: center;
       gap: 4px;
       white-space: nowrap;
     }
 
-    .contact-item svg {
+    .cv-overlay-backdrop .contact-item svg {
       width: 11px;
       height: 11px;
       color: var(--accent);
       flex-shrink: 0;
     }
 
-    .contact-item a {
+    .cv-overlay-backdrop .contact-item a {
       color: var(--text-main);
       font-weight: 500;
     }
 
     /* QR Code interactif vers portfolio */
-    .qr-badge {
+    .cv-overlay-backdrop .qr-badge {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -2524,13 +2530,13 @@ ul {
       flex-shrink: 0;
     }
 
-    .qr-badge img {
+    .cv-overlay-backdrop .qr-badge img {
       width: 52px;
       height: 52px;
       display: block;
     }
 
-    .qr-label {
+    .cv-overlay-backdrop .qr-label {
       font-size: 5.8pt;
       font-weight: 700;
       text-transform: uppercase;
@@ -2542,7 +2548,7 @@ ul {
     /* ==========================================================================
        2. ACCROCHE BUSINESS & VALEUR AJOUTÉE (HOOK RECRUTEUR)
        ========================================================================== */
-    .business-pitch {
+    .cv-overlay-backdrop .business-pitch {
       background: #f8fafc;
       border-left: 3.5px solid var(--accent);
       padding: 7px 11px;
@@ -2551,7 +2557,7 @@ ul {
       border-radius: 0 5px 5px 0;
     }
 
-    .pitch-title {
+    .cv-overlay-backdrop .pitch-title {
       font-size: 8.8pt;
       font-weight: 700;
       color: var(--primary);
@@ -2563,14 +2569,14 @@ ul {
       gap: 6px;
     }
 
-    .pitch-text {
+    .cv-overlay-backdrop .pitch-text {
       font-size: 8.8pt;
       color: var(--text-muted);
       line-height: 1.4;
       text-align: justify;
     }
 
-    .pitch-highlight {
+    .cv-overlay-backdrop .pitch-highlight {
       font-weight: 600;
       color: var(--primary);
     }
@@ -2578,7 +2584,7 @@ ul {
     /* ==========================================================================
        3. CORPS DU CV EN 2 COLONNES (DOM SÉMANTIQUE PUR)
        ========================================================================== */
-    .cv-body {
+    .cv-overlay-backdrop .cv-body {
       display: grid;
       grid-template-columns: 125mm 1fr;
       gap: 6.5mm;
@@ -2587,14 +2593,14 @@ ul {
       margin-bottom: 2px;
     }
 
-    .col-left, .col-right {
+    .cv-overlay-backdrop .col-left, .cv-overlay-backdrop .col-right {
       display: flex;
       flex-direction: column;
       gap: 6px;
     }
 
     /* Titres de sections (ATS Standard H2) */
-    .section-title {
+    .cv-overlay-backdrop .section-title {
       font-family: var(--font-heading);
       font-size: 10pt;
       font-weight: 800;
@@ -2609,7 +2615,7 @@ ul {
       justify-content: space-between;
     }
 
-    .section-title-tag {
+    .cv-overlay-backdrop .section-title-tag {
       font-size: 7.2pt;
       font-weight: 600;
       color: var(--accent);
@@ -2618,11 +2624,11 @@ ul {
     }
 
     /* Entrées d'expériences & projets */
-    .entry-card {
+    .cv-overlay-backdrop .entry-card {
       margin-bottom: 5px;
     }
 
-    .entry-header {
+    .cv-overlay-backdrop .entry-header {
       display: flex;
       justify-content: flex-start;
       align-items: baseline;
@@ -2630,14 +2636,14 @@ ul {
       margin-bottom: 1.5px;
     }
 
-    .entry-role {
+    .cv-overlay-backdrop .entry-role {
       font-family: var(--font-heading);
       font-size: 9.4pt;
       font-weight: 700;
       color: var(--primary);
     }
 
-    .entry-date {
+    .cv-overlay-backdrop .entry-date {
       font-size: 8.2pt;
       font-weight: 600;
       color: var(--accent);
@@ -2645,7 +2651,7 @@ ul {
       order: -1;
     }
 
-    .entry-company-line {
+    .cv-overlay-backdrop .entry-company-line {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -2654,7 +2660,7 @@ ul {
       margin-bottom: 2.5px;
     }
 
-    .entry-company {
+    .cv-overlay-backdrop .entry-company {
       font-weight: 600;
       color: var(--primary-light);
       display: inline-flex;
@@ -2662,7 +2668,7 @@ ul {
       gap: 4px;
     }
 
-    .company-logo {
+    .cv-overlay-backdrop .company-logo {
       width: 24px;
       height: 16px;
       object-fit: cover;
@@ -2670,12 +2676,12 @@ ul {
       flex-shrink: 0;
     }
 
-    .entry-location {
+    .cv-overlay-backdrop .entry-location {
       font-size: 7.6pt;
       color: var(--text-light);
     }
 
-    .entry-mission-tag {
+    .cv-overlay-backdrop .entry-mission-tag {
       display: inline-block;
       font-size: 8pt;
       font-weight: 700;
@@ -2688,13 +2694,13 @@ ul {
     }
 
     /* Puces d'actions orientées résultats & ROI */
-    .bullet-list {
+    .cv-overlay-backdrop .bullet-list {
       list-style: none;
       padding-left: 0;
       margin-bottom: 2.5px;
     }
 
-    .bullet-list li {
+    .cv-overlay-backdrop .bullet-list li {
       position: relative;
       padding-left: 10px;
       font-size: 8.7pt;
@@ -2703,7 +2709,7 @@ ul {
       margin-bottom: 2px;
     }
 
-    .bullet-list li::before {
+    .cv-overlay-backdrop .bullet-list li::before {
       content: "▪";
       position: absolute;
       left: 0;
@@ -2712,20 +2718,20 @@ ul {
       line-height: 1.35;
     }
 
-    .bullet-list strong {
+    .cv-overlay-backdrop .bullet-list strong {
       color: var(--primary);
       font-weight: 600;
     }
 
     /* Tags techniques sous expériences/projets */
-    .tech-pill-row {
+    .cv-overlay-backdrop .tech-pill-row {
       display: flex;
       flex-wrap: wrap;
       gap: 3.5px;
       margin-top: 3px;
     }
 
-    .tech-pill {
+    .cv-overlay-backdrop .tech-pill {
       font-size: 7.1pt;
       background: #f1f5f9;
       color: #334155;
@@ -2736,35 +2742,35 @@ ul {
     }
 
     /* Savoir-faire & savoir-être */
-    .qualities-grid {
+    .cv-overlay-backdrop .qualities-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 7px;
       margin-top: 2px;
     }
 
-    .quality-block {
+    .cv-overlay-backdrop .quality-block {
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
       border-radius: 4px;
       padding: 5px 7px;
     }
 
-    .quality-title {
+    .cv-overlay-backdrop .quality-title {
       font-size: 8.5pt;
       font-weight: 700;
       color: var(--primary);
       margin-bottom: 2px;
     }
 
-    .quality-list {
+    .cv-overlay-backdrop .quality-list {
       list-style: none;
       font-size: 8.2pt;
       color: var(--text-muted);
       line-height: 1.35;
     }
 
-    .quality-list li::before {
+    .cv-overlay-backdrop .quality-list li::before {
       content: "▪";
       color: var(--accent);
       margin-right: 4px;
@@ -2773,7 +2779,7 @@ ul {
     /* ==========================================================================
        4. COLONNE DROITE : COMPÉTENCES, FORMATION, LANGUES
        ========================================================================== */
-    .skill-block {
+    .cv-overlay-backdrop .skill-block {
       background: #ffffff;
       border: 1px solid var(--border-subtle);
       border-radius: 4px;
@@ -2781,7 +2787,7 @@ ul {
       margin-bottom: 4.5px;
     }
 
-    .skill-block-title {
+    .cv-overlay-backdrop .skill-block-title {
       font-size: 8.2pt;
       font-weight: 700;
       color: var(--primary);
@@ -2791,37 +2797,37 @@ ul {
       justify-content: space-between;
     }
 
-    .skill-block-title span {
+    .cv-overlay-backdrop .skill-block-title span {
       color: var(--accent);
       font-size: 7.1pt;
       font-weight: 600;
     }
 
-    .skill-items {
+    .cv-overlay-backdrop .skill-items {
       font-size: 7.7pt;
       color: var(--text-muted);
       line-height: 1.34;
     }
 
-    .skill-items strong {
+    .cv-overlay-backdrop .skill-items strong {
       color: var(--primary-light);
       font-weight: 600;
     }
 
     /* Bloc Formation */
-    .edu-item {
+    .cv-overlay-backdrop .edu-item {
       margin-bottom: 4.5px;
       padding-bottom: 3.5px;
       border-bottom: 0.5px dashed var(--border-subtle);
     }
 
-    .edu-item:last-child {
+    .cv-overlay-backdrop .edu-item:last-child {
       border-bottom: none;
       margin-bottom: 0;
       padding-bottom: 0;
     }
 
-    .edu-degree {
+    .cv-overlay-backdrop .edu-degree {
       font-family: var(--font-heading);
       font-size: 8.3pt;
       font-weight: 700;
@@ -2829,7 +2835,7 @@ ul {
       line-height: 1.25;
     }
 
-    .edu-major-tag {
+    .cv-overlay-backdrop .edu-major-tag {
       display: inline-block;
       font-size: 7pt;
       font-weight: 700;
@@ -2841,27 +2847,27 @@ ul {
       margin-left: 3px;
     }
 
-    .edu-school {
+    .cv-overlay-backdrop .edu-school {
       font-size: 7.6pt;
       font-weight: 500;
       color: var(--text-muted);
     }
 
-    .edu-date {
+    .cv-overlay-backdrop .edu-date {
       font-size: 7.3pt;
       font-weight: 600;
       color: var(--accent);
     }
 
     /* Bloc Langues & Atouts */
-    .lang-grid {
+    .cv-overlay-backdrop .lang-grid {
       display: grid;
       grid-template-columns: 1fr;
       gap: 3px;
       font-size: 7.8pt;
     }
 
-    .lang-row {
+    .cv-overlay-backdrop .lang-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -2871,19 +2877,19 @@ ul {
       border: 0.5px solid var(--border-subtle);
     }
 
-    .lang-name {
+    .cv-overlay-backdrop .lang-name {
       font-weight: 600;
       color: var(--primary);
     }
 
-    .lang-level {
+    .cv-overlay-backdrop .lang-level {
       color: var(--accent);
       font-weight: 600;
       font-size: 7.4pt;
     }
 
     /* Bandeau bas / Note légale & disponibilité */
-    .cv-footer {
+    .cv-overlay-backdrop .cv-footer {
       border-top: 1px solid var(--border-color);
       padding-top: 4px;
       display: flex;
@@ -2893,7 +2899,7 @@ ul {
       color: var(--text-light);
     }
 
-    .footer-highlight {
+    .cv-overlay-backdrop .footer-highlight {
       font-weight: 700;
       color: var(--accent);
     }
@@ -2909,16 +2915,16 @@ ul {
     @media print {
       /* scoped to cv-overlay */
 
-      .top-toolbar {
+      .cv-overlay-backdrop .top-toolbar {
         display: none !important;
       }
 
-      .page-wrapper {
+      .cv-overlay-backdrop .page-wrapper {
         padding: 0 !important;
         margin: 0 !important;
       }
 
-      .cv-page {
+      .cv-overlay-backdrop .cv-page {
         width: 210mm !important;
         height: 297mm !important;
         max-height: 297mm !important;
@@ -2931,7 +2937,7 @@ ul {
       }
 
       /* Force background graphics printing */
-      * {
+      .cv-overlay-backdrop * {
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
       }
@@ -2990,6 +2996,31 @@ ul {
   }
 }
 
+
+/* Recruiter summary, language switch and fully visible proof selectors. */
+.value-title { font-size: clamp(1.35rem, 2.6vw, 1.8rem); line-height: 1.35; margin-bottom: .6rem; }
+.value-intro { color: var(--text-muted); margin-bottom: 1.4rem; }
+.stat-proof-link { margin-top: auto; padding-top: .8rem; color: var(--accent-primary); font-size: .85rem; font-weight: 700; }
+.language-switch { display: flex; gap: .25rem; padding: .2rem; border: 1px solid var(--border-subtle); border-radius: var(--radius-full); }
+.language-switch a { padding: .35rem .5rem; border-radius: var(--radius-full); font-size: .75rem; font-weight: 800; }
+.language-switch a[aria-current="page"] { color: #fff; background: var(--accent-primary); }
+.language-switch a:focus-visible, .proof-tab-btn:focus-visible, .stat-proof-link:focus-visible { outline: 3px solid var(--accent-cyan); outline-offset: 3px; }
+.featured-confidentiality-note { font-size: .78rem; line-height: 1.5; color: var(--text-muted); }
+.featured-preview-img { height: auto; aspect-ratio: auto; object-fit: contain; }
+.featured-proofs-tabs { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.proof-tab-btn { min-width: 0; padding: .7rem .6rem; align-items: flex-start; }
+.proof-tab-text { min-width: 0; overflow: visible; gap: .25rem; }
+.proof-tab-title, .proof-tab-sub { white-space: normal; overflow: visible; text-overflow: clip; overflow-wrap: anywhere; line-height: 1.45; }
+.education-languages-grid { grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 900px) { .stats-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 899px) and (min-width: 600px) { .stats-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 640px) {
+  .featured-proofs-tabs { grid-template-columns: minmax(0, 1fr); }
+  .preview-overlay-hint { font-size: .68rem; padding: .35rem .55rem; right: 6px; bottom: 6px; }
+  .header-actions { gap: .4rem; }
+  .brand-name { font-size: .9rem; }
+}
+
 </style>
 </head>
 <body>
@@ -3016,6 +3047,10 @@ ul {
 
       <!-- Actions : Bouton Thème & Menu Mobile -->
       <div class="header-actions">
+        <nav class="language-switch" aria-label="Langue du portfolio">
+          <a href="/" lang="fr" hreflang="fr" aria-current="page">FR</a>
+          <a href="/en/" lang="en" hreflang="en">EN</a>
+        </nav>
         <button type="button" class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Changer de thème (sombre/clair)">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26 5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/></svg>
         </button>
@@ -3033,7 +3068,7 @@ ul {
     <a href="#projets" class="mobile-nav-link">📊 Projets &amp; Tableaux de bord</a>
     <a href="#competences" class="mobile-nav-link">⚡ Compétences techniques</a>
     <a href="#experience" class="mobile-nav-link">💼 Expérience terrain</a>
-    <a href="#formation" class="mobile-nav-link">🎓 Formation &amp; Langues</a>
+    <a href="#formation" class="mobile-nav-link">🎓 Formation</a>
     <a href="#contact" class="mobile-nav-link">✉️ Recherche de stage &amp; Contact</a>
   </div>
 
@@ -3061,12 +3096,12 @@ ul {
           <!-- Badge d'accroche bien visible -->
           <div class="availability-badge" role="status">
             <span class="pulse-indicator"></span>
-            <span id="availability-text">Disponible pour un stage de 10 semaines à partir du 1er avril 2027</span>
+            <span id="availability-text">Stage Data / BI · 10 semaines · dès le 1er avril 2027</span>
           </div>
 
           <h1 class="hero-name" id="hero-name">Samy Houchat</h1>
-          <p class="hero-title" id="hero-title">Étudiant en BUT Science des données · Data &amp; BI</p>
-          <p class="hero-headline" id="hero-headline">Rigoureux et passionné par la valorisation de la donnée, je conçois des pipelines ETL fiables, des modèles relationnels solides et des tableaux de bord Power BI d'aide à la décision.</p>
+          <p class="hero-title" id="hero-title">Étudiant en science des données · Stage Data / BI</p>
+          <p class="hero-headline" id="hero-headline">Des données brutes aux outils de décision : Python, SQL, Power BI et développement d'applications métiers. Avec une expérience Data et web chez Layer Data, je recherche un stage pour contribuer aux projets de votre équipe.</p>
 
           <!-- Métadonnées géographiques et contact rapide -->
           <div class="hero-meta-items">
@@ -3082,20 +3117,21 @@ ul {
 
           <!-- 3 Boutons d'action recruteur -->
           <div class="hero-cta-group">
-            <a href="assets/cv/CV_Samy_Houchat.pdf" class="btn btn-primary" id="hero-cv-btn" download="CV_Samy_Houchat.pdf">
+            <a href="mailto:samyhctpro@gmail.com" class="btn btn-primary" id="hero-contact-btn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              <span>Échanger sur un stage</span>
+            </a>
+
+            <a href="assets/cv/CV_Samy_Houchat.pdf" class="btn btn-secondary" id="hero-cv-btn" download="CV_Samy_Houchat.pdf">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
-              <span>Télécharger CV (PDF)</span>
+              <span>Télécharger le CV (PDF)</span>
             </a>
 
             <a href="cv_samy_houchat.html" target="_blank" class="btn btn-outline" id="hero-cv-view-btn" title="Consulter le CV en ligne format A4">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
-              <span>Voir le CV en ligne</span>
+              <span>Lire le CV</span>
             </a>
 
-            <a href="mailto:samyhctpro@gmail.com" class="btn btn-secondary" id="hero-contact-btn">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-              <span>Me contacter</span>
-            </a>
 
             <a href="https://www.linkedin.com/in/samyhouchat" target="_blank" rel="noopener noreferrer" class="btn btn-outline" id="hero-linkedin-btn" title="Consulter mon profil LinkedIn">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
@@ -3116,32 +3152,31 @@ ul {
     <!-- =======================================================================
          2. CHIFFRES / POINTS CLÉS DU CV
          ======================================================================= -->
-    <section class="section-stats" aria-label="Points clés du profil">
+    <section class="section-stats" aria-labelledby="value-title">
       <div class="container">
+        <h2 class="value-title" id="value-title">Ce que je peux apporter à votre équipe</h2>
+        <p class="value-intro">Des compétences appliquées à des projets concrets, à découvrir ci-dessous.</p>
         <div class="stats-grid" id="stats-grid">
 <!-- seo:stats-grid:start -->
-    <div class="stat-card" data-stat-id="major">
-      <span class="stat-badge">Major de Promotion</span>
-      <h3 class="stat-title">BTS Informatique</h3>
-      <p class="stat-subtitle">Option Bases de données (IIM Béjaïa)</p>
+    <div class="stat-card" data-stat-id="reliable-data">
+      <span class="stat-badge">Fiabiliser vos données</span>
+      <h3 class="stat-title">Python & SQL</h3>
+      <p class="stat-subtitle">Collecter, nettoyer et structurer les données pour limiter les traitements manuels.</p>
+      <a class="stat-proof-link" href="#projets">Voir le projet Data <span aria-hidden="true">→</span></a>
     </div>
 
-    <div class="stat-card" data-stat-id="exp">
-      <span class="stat-badge">Expérience terrain</span>
-      <h3 class="stat-title">Layer Data</h3>
-      <p class="stat-subtitle">Analyste de données & dev web</p>
+    <div class="stat-card" data-stat-id="clear-decisions">
+      <span class="stat-badge">Rendre les chiffres utiles</span>
+      <h3 class="stat-title">Tableaux de bord Power BI</h3>
+      <p class="stat-subtitle">Suivre les commandes, comparer les prévisions et rendre les indicateurs lisibles.</p>
+      <a class="stat-proof-link" href="#projets">Explorer les tableaux de bord <span aria-hidden="true">→</span></a>
     </div>
 
-    <div class="stat-card" data-stat-id="etl">
-      <span class="stat-badge">Cycle Data complet</span>
-      <h3 class="stat-title">ETL & Modélisation</h3>
-      <p class="stat-subtitle">Python, Star Schema & Power BI</p>
-    </div>
-
-    <div class="stat-card" data-stat-id="lang">
-      <span class="stat-badge">Profil trilingue</span>
-      <h3 class="stat-title">Anglais B2</h3>
-      <p class="stat-subtitle">Français & Arabe maternels</p>
+    <div class="stat-card" data-stat-id="real-experience">
+      <span class="stat-badge">Passer de l'idée à l'outil</span>
+      <h3 class="stat-title">Expérience chez Layer Data</h3>
+      <p class="stat-subtitle">Des missions Data et web en entreprise, complétées par le développement d'AVDA Auto.</p>
+      <a class="stat-proof-link" href="#experience">Découvrir mon expérience <span aria-hidden="true">→</span></a>
     </div>
 <!-- seo:stats-grid:end -->
         </div>
@@ -3167,6 +3202,7 @@ ul {
       <div class="featured-grid">
         <div class="featured-preview-column">
           <!-- Aperçu principal zoomable -->
+          <div id="featured-preview-panel" role="tabpanel" aria-labelledby="proof-tab-0">
           <div class="featured-preview-box" id="featured-zoom-trigger" role="button" tabindex="0" aria-label="Agrandir la capture active en plein écran">
             <img src="assets/img/bi-dashboard-commandes.png" alt="Dashboard Commandes — Suivi OTIF & Analyse Clients Power BI" class="featured-preview-img" id="featured-main-img" loading="eager" width="760" height="430">
             <div class="preview-overlay-hint">
@@ -3175,30 +3211,31 @@ ul {
             </div>
           </div>
 
+          </div>
           <!-- Sélecteur interactif des 3 preuves -->
           <div class="featured-proofs-tabs" role="tablist" aria-label="Choisir la capture à afficher">
 
-              <button type="button" class="proof-tab-btn active" data-proof-idx="0" role="tab" aria-selected="true">
+              <button type="button" class="proof-tab-btn active" id="proof-tab-0" data-proof-idx="0" role="tab" aria-controls="featured-preview-panel" tabindex="0" aria-selected="true">
                 <span class="proof-tab-num">1</span>
                 <div class="proof-tab-text">
-                  <span class="proof-tab-title">1. Dashboard Commandes</span>
-                  <span class="proof-tab-sub">KPIs OTIF, alertes & analyse clients</span>
+                  <span class="proof-tab-title">Commandes</span>
+                  <span class="proof-tab-sub">Suivi clients et livraisons</span>
                 </div>
               </button>
 
-              <button type="button" class="proof-tab-btn " data-proof-idx="1" role="tab" aria-selected="false">
+              <button type="button" class="proof-tab-btn " id="proof-tab-1" data-proof-idx="1" role="tab" aria-controls="featured-preview-panel" tabindex="-1" aria-selected="false">
                 <span class="proof-tab-num">2</span>
                 <div class="proof-tab-text">
-                  <span class="proof-tab-title">2. Dashboard Prévisions</span>
-                  <span class="proof-tab-sub">Prévision vs Commande & reliquats</span>
+                  <span class="proof-tab-title">Prévisions</span>
+                  <span class="proof-tab-sub">Comparaison des volumes</span>
                 </div>
               </button>
 
-              <button type="button" class="proof-tab-btn " data-proof-idx="2" role="tab" aria-selected="false">
+              <button type="button" class="proof-tab-btn " id="proof-tab-2" data-proof-idx="2" role="tab" aria-controls="featured-preview-panel" tabindex="-1" aria-selected="false">
                 <span class="proof-tab-num">3</span>
                 <div class="proof-tab-text">
-                  <span class="proof-tab-title">3. Modèle de Données</span>
-                  <span class="proof-tab-sub">Schéma en étoile</span>
+                  <span class="proof-tab-title">Modèle de données</span>
+                  <span class="proof-tab-sub">Structure des données</span>
                 </div>
               </button>
 
@@ -3211,18 +3248,19 @@ ul {
             <span class="featured-sector-badge">🏭 Client industriel agroalimentaire</span>
           </div>
 
-          <h3 class="featured-title-compact">Business Intelligence Dashboard — Supply Chain Analytics</h3>
-          <p class="featured-desc-compact">Architecture décisionnelle end-to-end pour l'industrie agroalimentaire</p>
-          <p class="featured-overview">Conception d'une chaîne décisionnelle complète pour le pilotage de la logistique industrielle et commerciale : automatisation des flux via des pipelines ETL Python, modélisation relationnelle en schéma en étoile, et tableaux de bord Power BI interactifs axés sur le taux de service client (OTIF).</p>
+          <h3 class="featured-title-compact">Power BI — Pilotage des commandes et des prévisions</h3>
+          <p class="featured-desc-compact">De la préparation des données au suivi de l'activité</p>
+          <p class="featured-overview">Un projet réalisé chez Layer Data pour un client industriel agroalimentaire : préparer les données avec Python, construire le modèle d'analyse et créer des tableaux de bord Power BI pour suivre les commandes, les livraisons et les écarts avec les prévisions.</p>
+          <p class="featured-confidentiality-note">Captures et données anonymisées pour respecter la confidentialité du client.</p>
 
           <ul class="featured-points-list">
-            <li>Pipelines ETL Python · Architecture Bronze → Gold</li>
-            <li>Modélisation des données en étoile</li>
-            <li>Tableaux de bord interactifs Power BI</li>
+            <li>Préparer et automatiser les données avec Python</li>
+            <li>Relier les commandes, livraisons et prévisions</li>
+            <li>Créer des indicateurs et des vues interactives Power BI</li>
           </ul>
 
           <div class="featured-tags-compact">
-            <span class="skill-tag">Power BI</span><span class="skill-tag">DAX Avancé</span><span class="skill-tag">Python (ETL)</span><span class="skill-tag">Data Warehouse</span><span class="skill-tag">Star Schema (MPD)</span>
+            <span class="skill-tag">Power BI</span><span class="skill-tag">Python</span><span class="skill-tag">SQL</span><span class="skill-tag">Modélisation des données</span>
           </div>
         </div>
       </div>
@@ -3447,7 +3485,7 @@ ul {
       <div class="container">
         <div class="section-header">
           <span class="section-label">Cursus Académique</span>
-          <h2 class="section-title">Formation &amp; Langues</h2>
+          <h2 class="section-title">Formation</h2>
         </div>
 
         <div class="education-languages-grid">
@@ -3458,7 +3496,7 @@ ul {
         <span class="education-period-badge">09/2026 – En cours</span>
         <h3 class="education-degree">BUT Science des données (Niveau 6 CEC)</h3>
         <p class="education-institution">IUT Clermont Auvergne, site d'Aurillac · 📍 Aurillac, France</p>
-        <p class="education-highlight">Formation d'excellence en statistiques, data science, fouille de données et modélisation.</p>
+        <p class="education-highlight">Formation en statistiques, programmation, analyse et modélisation des données.</p>
       </div>
 
       <div class="education-item">
@@ -3477,38 +3515,7 @@ ul {
 <!-- seo:education-list:end -->
           </div>
 
-          <!-- Carte des Langues -->
-          <div class="languages-card">
-            <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--text-main);">Langues Maîtrisées</h3>
-            <p style="font-size: 0.875rem; color: var(--text-muted); margin-top: 0.25rem;">Communication professionnelle et travail en contexte international.</p>
-            <div class="languages-list" id="languages-list">
-<!-- seo:languages-list:start -->
-      <div class="language-item">
-        <div class="lang-info">
-          <span class="lang-flag">🇫🇷</span>
-          <span class="lang-name">Français</span>
-        </div>
-        <span class="lang-level">Langue maternelle</span>
-      </div>
 
-      <div class="language-item">
-        <div class="lang-info">
-          <span class="lang-flag">🇩🇿</span>
-          <span class="lang-name">Arabe</span>
-        </div>
-        <span class="lang-level">Langue maternelle</span>
-      </div>
-
-      <div class="language-item">
-        <div class="lang-info">
-          <span class="lang-flag">🇬🇧</span>
-          <span class="lang-name">Anglais</span>
-        </div>
-        <span class="lang-level">Niveau B2 (Compréhension & expression fluide)</span>
-      </div>
-<!-- seo:languages-list:end -->
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -3588,9 +3595,9 @@ const siteConfig = {
 
   profile: {
     name: "Samy Houchat",
-    title: "Étudiant en BUT Science des données · Data & BI",
-    headline: "Rigoureux et passionné par la valorisation de la donnée, je conçois des pipelines ETL fiables, des modèles relationnels solides et des tableaux de bord Power BI d'aide à la décision.",
-    availabilityBadge: "Disponible pour un stage de 10 semaines à partir du 1er avril 2027",
+    title: "Étudiant en science des données · Stage Data / BI",
+    headline: "Des données brutes aux outils de décision : Python, SQL, Power BI et développement d'applications métiers. Avec une expérience Data et web chez Layer Data, je recherche un stage pour contribuer aux projets de votre équipe.",
+    availabilityBadge: "Stage Data / BI · 10 semaines · dès le 1er avril 2027",
     location: "Tout le territoire français",
     email: "samyhctpro@gmail.com",
     linkedin: "https://www.linkedin.com/in/samyhouchat",
@@ -3602,32 +3609,25 @@ const siteConfig = {
 
   keyStats: [
     {
-      id: "major",
-      badge: "Major de Promotion",
-      title: "BTS Informatique",
-      subtitle: "Option Bases de données (IIM Béjaïa)",
-      icon: "trophy"
+      id: "reliable-data",
+      badge: "Fiabiliser vos données",
+      title: "Python & SQL",
+      subtitle: "Collecter, nettoyer et structurer les données pour limiter les traitements manuels.",
+      href: "#projets", action: "Voir le projet Data"
     },
     {
-      id: "exp",
-      badge: "Expérience terrain",
-      title: "Layer Data",
-      subtitle: "Analyste de données & dev web",
-      icon: "briefcase"
+      id: "clear-decisions",
+      badge: "Rendre les chiffres utiles",
+      title: "Tableaux de bord Power BI",
+      subtitle: "Suivre les commandes, comparer les prévisions et rendre les indicateurs lisibles.",
+      href: "#projets", action: "Explorer les tableaux de bord"
     },
     {
-      id: "etl",
-      badge: "Cycle Data complet",
-      title: "ETL & Modélisation",
-      subtitle: "Python, Star Schema & Power BI",
-      icon: "database"
-    },
-    {
-      id: "lang",
-      badge: "Profil trilingue",
-      title: "Anglais B2",
-      subtitle: "Français & Arabe maternels",
-      icon: "languages"
+      id: "real-experience",
+      badge: "Passer de l'idée à l'outil",
+      title: "Expérience chez Layer Data",
+      subtitle: "Des missions Data et web en entreprise, complétées par le développement d'AVDA Auto.",
+      href: "#experience", action: "Découvrir mon expérience"
     }
   ],
 
@@ -3647,11 +3647,11 @@ const siteConfig = {
   featuredProject: {
     id: "agrana-supply-chain",
     tag: "Projet Vedette · Décisionnel & Supply Chain Analytics",
-    title: "Business Intelligence Dashboard — Supply Chain Analytics",
-    subtitle: "Architecture décisionnelle end-to-end pour l'industrie agroalimentaire",
+    title: "Power BI — Pilotage des commandes et des prévisions",
+    subtitle: "De la préparation des données au suivi de l'activité",
     clientKey: "agrana",
     clientDetail: "Projet BI réalisé dans le secteur agroalimentaire",
-    summary: "Conception d'une chaîne décisionnelle complète pour le pilotage de la logistique industrielle et commerciale : automatisation des flux via des pipelines ETL Python, modélisation relationnelle en schéma en étoile, et tableaux de bord Power BI interactifs axés sur le taux de service client (OTIF).",
+    summary: "Un projet réalisé chez Layer Data pour un client industriel agroalimentaire : préparer les données avec Python, construire le modèle d'analyse et créer des tableaux de bord Power BI pour suivre les commandes, les livraisons et les écarts avec les prévisions.",
     confidentialityNote: "Projet réalisé dans un contexte professionnel. Les données, noms d'entités et structures présentés ici ont été entièrement synthétisés et anonymisés à des fins de portfolio.",
     objective: "Automatiser le flux de données de la source au reporting, suivre en temps réel la conformité des livraisons (OTIF), analyser les écarts Prévisions vs Commandes et sécuriser la satisfaction client.",
     tags: ["Power BI", "DAX Avancé", "Python (ETL)", "Data Warehouse", "Star Schema (MPD)", "KPI OTIF"],
@@ -3680,30 +3680,30 @@ const siteConfig = {
         desc: "Automatisation du traitement des flux de données sources brutes (couche Bronze) vers l'entrepôt consolidé pour l'analyse décisionnelle (couche Gold)."
       }
     ],
-    result: "Chaîne de traitement 100% automatisée et fiable, visibilité exhaustive sur les performances de livraison et aide à la décision opérationnelle pour les équipes logistiques et commerciales.",
+    result: "Une chaîne de traitement automatisée et des indicateurs pour aider les équipes logistiques et commerciales à suivre leur activité.",
     image: "assets/img/bi-dashboard-commandes.png",
     gallery: [
       {
         id: "commandes",
         src: "assets/img/bi-dashboard-commandes.png",
-        title: "1. Dashboard Commandes",
-        subtitle: "KPIs OTIF, alertes & analyse clients",
+        title: "Commandes",
+        subtitle: "Suivi clients et livraisons",
         alt: "Dashboard Commandes — Suivi OTIF & Analyse Clients Power BI",
         caption: "Preuve 1 : Dashboard Commandes — Suivi du taux de service OTIF, alertes sur commandes à risque et analyse des volumes clients"
       },
       {
         id: "previsions",
         src: "assets/img/bi-dashboard-previsions.png",
-        title: "2. Dashboard Prévisions",
-        subtitle: "Prévision vs Commande & reliquats",
+        title: "Prévisions",
+        subtitle: "Comparaison des volumes",
         alt: "Dashboard Prévisions — Analyse Prévisions vs Réalisé Power BI",
         caption: "Preuve 2 : Dashboard Prévisions — Comparatif Prévisions vs Réalisé, détection des reliquats et tendances"
       },
       {
         id: "modele",
         src: "assets/img/bi-modele-donnees.png",
-        title: "3. Modèle de Données",
-        subtitle: "Schéma en étoile",
+        title: "Modèle de données",
+        subtitle: "Structure des données",
         alt: "Architecture Modèle de Données Power BI",
         caption: "Preuve 3 : Architecture relationnelle Power BI — Modèle en étoile (DIM_CUSTOMER, DIM_PRODUCT, FACT_ORDER, FACT_DELIVERY)"
       }
@@ -3835,7 +3835,7 @@ const siteConfig = {
       field: "Parcours Exploration et Modélisation Statistique",
       institution: "IUT Clermont Auvergne, site d'Aurillac",
       location: "Aurillac, France",
-      highlight: "Formation d'excellence en statistiques, data science, fouille de données et modélisation."
+      highlight: "Formation en statistiques, programmation, analyse et modélisation des données."
     },
     {
       period: "10/2022 – 01/2026",
@@ -4004,6 +4004,7 @@ function renderKeyStats() {
       <span class="stat-badge">${stat.badge}</span>
       <h3 class="stat-title">${stat.title}</h3>
       <p class="stat-subtitle">${stat.subtitle}</p>
+      <a class="stat-proof-link" href="${stat.href}">${stat.action} <span aria-hidden="true">→</span></a>
     </div>
   `).join('');
 }
@@ -4021,6 +4022,7 @@ function renderFeaturedProject() {
       <div class="featured-grid">
         <div class="featured-preview-column">
           <!-- Aperçu principal zoomable -->
+          <div id="featured-preview-panel" role="tabpanel" aria-labelledby="proof-tab-0">
           <div class="featured-preview-box" id="featured-zoom-trigger" role="button" tabindex="0" aria-label="Agrandir la capture active en plein écran">
             <img src="${fp.gallery[0].src}" alt="${fp.gallery[0].alt}" class="featured-preview-img" id="featured-main-img" loading="eager" width="760" height="430">
             <div class="preview-overlay-hint">
@@ -4029,10 +4031,11 @@ function renderFeaturedProject() {
             </div>
           </div>
 
+          </div>
           <!-- Sélecteur interactif des 3 preuves -->
           <div class="featured-proofs-tabs" role="tablist" aria-label="Choisir la capture à afficher">
             ${fp.gallery.map((item, idx) => `
-              <button type="button" class="proof-tab-btn ${idx === 0 ? 'active' : ''}" data-proof-idx="${idx}" role="tab" aria-selected="${idx === 0}">
+              <button type="button" class="proof-tab-btn ${idx === 0 ? 'active' : ''}" id="proof-tab-${idx}" data-proof-idx="${idx}" role="tab" aria-controls="featured-preview-panel" tabindex="${idx === 0 ? 0 : -1}" aria-selected="${idx === 0}">
                 <span class="proof-tab-num">${idx + 1}</span>
                 <div class="proof-tab-text">
                   <span class="proof-tab-title">${item.title}</span>
@@ -4052,15 +4055,16 @@ function renderFeaturedProject() {
           <h3 class="featured-title-compact">${fp.title}</h3>
           <p class="featured-desc-compact">${fp.subtitle}</p>
           <p class="featured-overview">${fp.summary}</p>
+          <p class="featured-confidentiality-note">Captures et données anonymisées pour respecter la confidentialité du client.</p>
 
           <ul class="featured-points-list">
-            <li>Pipelines ETL Python · Architecture Bronze → Gold</li>
-            <li>Modélisation des données en étoile</li>
-            <li>Tableaux de bord interactifs Power BI</li>
+            <li>Préparer et automatiser les données avec Python</li>
+            <li>Relier les commandes, livraisons et prévisions</li>
+            <li>Créer des indicateurs et des vues interactives Power BI</li>
           </ul>
 
           <div class="featured-tags-compact">
-            ${fp.tags.slice(0, 5).map(tech => `<span class="skill-tag">${tech}</span>`).join('')}
+            ${['Power BI', 'Python', 'SQL', 'Modélisation des données'].map(tech => `<span class="skill-tag">${tech}</span>`).join('')}
           </div>
         </div>
       </div>
@@ -4079,13 +4083,31 @@ function renderFeaturedProject() {
       proofBtns.forEach(b => {
         b.classList.remove('active');
         b.setAttribute('aria-selected', 'false');
+        b.setAttribute('tabindex', '-1');
       });
       btn.classList.add('active');
       btn.setAttribute('aria-selected', 'true');
+      btn.setAttribute('tabindex', '0');
+      document.getElementById('featured-preview-panel').setAttribute('aria-labelledby', btn.id);
 
       if (mainImg && fp.gallery[idx]) {
         mainImg.src = fp.gallery[idx].src;
         mainImg.alt = fp.gallery[idx].alt;
+      }
+    });
+  });
+
+  proofBtns.forEach((btn, index) => {
+    btn.addEventListener('keydown', (event) => {
+      let next;
+      if (event.key === 'ArrowRight') next = (index + 1) % proofBtns.length;
+      if (event.key === 'ArrowLeft') next = (index - 1 + proofBtns.length) % proofBtns.length;
+      if (event.key === 'Home') next = 0;
+      if (event.key === 'End') next = proofBtns.length - 1;
+      if (next !== undefined) {
+        event.preventDefault();
+        proofBtns[next].click();
+        proofBtns[next].focus();
       }
     });
   });
@@ -4340,22 +4362,6 @@ function openProjectModal(project) {
       ).join('')}
     </div>
 
-    ${project.id === 'agrana-supply-chain' ? `
-      <div style="background:var(--border-subtle); border-left:3.5px solid var(--accent-primary); padding:1.15rem; border-radius:0 var(--radius-md) var(--radius-md) 0; margin:1.35rem 0;">
-        <h5 style="margin:0 0 0.5rem; font-size:1rem; color:var(--text-main); font-weight:800;">🧩 Architecture relationnelle en étoile (Modèle Power BI synthétisé)</h5>
-        <p style="font-size:0.86rem; color:var(--text-muted); line-height:1.55; margin-bottom:0.65rem;">
-          Conformément aux meilleures pratiques de confidentialité en entreprise, la modélisation a été entièrement anonymisée tout en conservant une structure hautement rigoureuse :
-        </p>
-        <ul style="font-size:0.84rem; color:var(--text-main); padding-left:1.25rem; line-height:1.6; margin-bottom:0.5rem;">
-          <li><strong>Dimensions unifiées (Filtrage) :</strong> <code>DIM_CUSTOMER</code>, <code>DIM_PRODUCT</code>, <code>DIM_CATEGORY</code>, <code>DIM_DATE</code>, <code>DIM_WAREHOUSE</code>, <code>DIM_SALES_REP</code></li>
-          <li><strong>Tables de faits (Transactions &amp; Cibles) :</strong> <code>FACT_ORDER</code> (Commandes clients), <code>FACT_DELIVERY</code> (Livraisons réelles), <code>FACT_FORECAST</code> (Prévisions de vente)</li>
-          <li><strong>Table centralisée des mesures (<code>MEASURES</code>) :</strong> Mesures DAX avancées pour le KPI OTIF (Strict), le taux de service et les alertes de commandes à risque.</li>
-        </ul>
-        <div style="font-size:0.78rem; color:var(--text-subtle); font-style:italic;">
-          🔒 Note déontologique : Aucune donnée confidentielle ou table propriétaire n'est exposée publiquement.
-        </div>
-      </div>
-    ` : ''}
 
     ${project.result ? `
       <div class="featured-result-box" style="margin-top:1.25rem;">

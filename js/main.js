@@ -131,6 +131,7 @@ function renderKeyStats() {
       <span class="stat-badge">${stat.badge}</span>
       <h3 class="stat-title">${stat.title}</h3>
       <p class="stat-subtitle">${stat.subtitle}</p>
+      <a class="stat-proof-link" href="${stat.href}">${stat.action} <span aria-hidden="true">→</span></a>
     </div>
   `).join('');
 }
@@ -148,6 +149,7 @@ function renderFeaturedProject() {
       <div class="featured-grid">
         <div class="featured-preview-column">
           <!-- Aperçu principal zoomable -->
+          <div id="featured-preview-panel" role="tabpanel" aria-labelledby="proof-tab-0">
           <div class="featured-preview-box" id="featured-zoom-trigger" role="button" tabindex="0" aria-label="Agrandir la capture active en plein écran">
             <img src="${fp.gallery[0].src}" alt="${fp.gallery[0].alt}" class="featured-preview-img" id="featured-main-img" loading="eager" width="760" height="430">
             <div class="preview-overlay-hint">
@@ -156,10 +158,11 @@ function renderFeaturedProject() {
             </div>
           </div>
 
+          </div>
           <!-- Sélecteur interactif des 3 preuves -->
           <div class="featured-proofs-tabs" role="tablist" aria-label="Choisir la capture à afficher">
             ${fp.gallery.map((item, idx) => `
-              <button type="button" class="proof-tab-btn ${idx === 0 ? 'active' : ''}" data-proof-idx="${idx}" role="tab" aria-selected="${idx === 0}">
+              <button type="button" class="proof-tab-btn ${idx === 0 ? 'active' : ''}" id="proof-tab-${idx}" data-proof-idx="${idx}" role="tab" aria-controls="featured-preview-panel" tabindex="${idx === 0 ? 0 : -1}" aria-selected="${idx === 0}">
                 <span class="proof-tab-num">${idx + 1}</span>
                 <div class="proof-tab-text">
                   <span class="proof-tab-title">${item.title}</span>
@@ -179,15 +182,16 @@ function renderFeaturedProject() {
           <h3 class="featured-title-compact">${fp.title}</h3>
           <p class="featured-desc-compact">${fp.subtitle}</p>
           <p class="featured-overview">${fp.summary}</p>
+          <p class="featured-confidentiality-note">Captures et données anonymisées pour respecter la confidentialité du client.</p>
 
           <ul class="featured-points-list">
-            <li>Pipelines ETL Python · Architecture Bronze → Gold</li>
-            <li>Modélisation des données en étoile</li>
-            <li>Tableaux de bord interactifs Power BI</li>
+            <li>Préparer et automatiser les données avec Python</li>
+            <li>Relier les commandes, livraisons et prévisions</li>
+            <li>Créer des indicateurs et des vues interactives Power BI</li>
           </ul>
 
           <div class="featured-tags-compact">
-            ${fp.tags.slice(0, 5).map(tech => `<span class="skill-tag">${tech}</span>`).join('')}
+            ${['Power BI', 'Python', 'SQL', 'Modélisation des données'].map(tech => `<span class="skill-tag">${tech}</span>`).join('')}
           </div>
         </div>
       </div>
@@ -206,13 +210,31 @@ function renderFeaturedProject() {
       proofBtns.forEach(b => {
         b.classList.remove('active');
         b.setAttribute('aria-selected', 'false');
+        b.setAttribute('tabindex', '-1');
       });
       btn.classList.add('active');
       btn.setAttribute('aria-selected', 'true');
+      btn.setAttribute('tabindex', '0');
+      document.getElementById('featured-preview-panel').setAttribute('aria-labelledby', btn.id);
 
       if (mainImg && fp.gallery[idx]) {
         mainImg.src = fp.gallery[idx].src;
         mainImg.alt = fp.gallery[idx].alt;
+      }
+    });
+  });
+
+  proofBtns.forEach((btn, index) => {
+    btn.addEventListener('keydown', (event) => {
+      let next;
+      if (event.key === 'ArrowRight') next = (index + 1) % proofBtns.length;
+      if (event.key === 'ArrowLeft') next = (index - 1 + proofBtns.length) % proofBtns.length;
+      if (event.key === 'Home') next = 0;
+      if (event.key === 'End') next = proofBtns.length - 1;
+      if (next !== undefined) {
+        event.preventDefault();
+        proofBtns[next].click();
+        proofBtns[next].focus();
       }
     });
   });
@@ -467,22 +489,6 @@ function openProjectModal(project) {
       ).join('')}
     </div>
 
-    ${project.id === 'agrana-supply-chain' ? `
-      <div style="background:var(--border-subtle); border-left:3.5px solid var(--accent-primary); padding:1.15rem; border-radius:0 var(--radius-md) var(--radius-md) 0; margin:1.35rem 0;">
-        <h5 style="margin:0 0 0.5rem; font-size:1rem; color:var(--text-main); font-weight:800;">🧩 Architecture relationnelle en étoile (Modèle Power BI synthétisé)</h5>
-        <p style="font-size:0.86rem; color:var(--text-muted); line-height:1.55; margin-bottom:0.65rem;">
-          Conformément aux meilleures pratiques de confidentialité en entreprise, la modélisation a été entièrement anonymisée tout en conservant une structure hautement rigoureuse :
-        </p>
-        <ul style="font-size:0.84rem; color:var(--text-main); padding-left:1.25rem; line-height:1.6; margin-bottom:0.5rem;">
-          <li><strong>Dimensions unifiées (Filtrage) :</strong> <code>DIM_CUSTOMER</code>, <code>DIM_PRODUCT</code>, <code>DIM_CATEGORY</code>, <code>DIM_DATE</code>, <code>DIM_WAREHOUSE</code>, <code>DIM_SALES_REP</code></li>
-          <li><strong>Tables de faits (Transactions &amp; Cibles) :</strong> <code>FACT_ORDER</code> (Commandes clients), <code>FACT_DELIVERY</code> (Livraisons réelles), <code>FACT_FORECAST</code> (Prévisions de vente)</li>
-          <li><strong>Table centralisée des mesures (<code>MEASURES</code>) :</strong> Mesures DAX avancées pour le KPI OTIF (Strict), le taux de service et les alertes de commandes à risque.</li>
-        </ul>
-        <div style="font-size:0.78rem; color:var(--text-subtle); font-style:italic;">
-          🔒 Note déontologique : Aucune donnée confidentielle ou table propriétaire n'est exposée publiquement.
-        </div>
-      </div>
-    ` : ''}
 
     ${project.result ? `
       <div class="featured-result-box" style="margin-top:1.25rem;">

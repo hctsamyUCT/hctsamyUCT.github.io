@@ -17,7 +17,16 @@ HTML réellement publié sur GitHub Pages, pas seulement à un aperçu JavaScrip
   fonctionnalités interactives comme amélioration progressive. Les marqueurs
   `seo:*` sont alimentés par les vrais renderers du script `portfolio-script`.
   Après modification des données ou des renderers, exécuter
-  `node scripts/render-seo.mjs` et inclure le HTML régénéré dans la modification.
+  `node scripts/render-seo.mjs`, puis `node scripts/build-en.mjs`, et inclure
+  les deux pages HTML régénérées dans la modification.
+- Le portfolio existe en français à `/` et en anglais à `/en/`. Conserver le
+  sélecteur FR / EN, les canoniques propres à chaque page, les liens `hreflang`
+  réciproques et les deux URL dans le sitemap. Ne pas rediriger automatiquement
+  les visiteurs selon leur navigateur. Mettre à jour `data/en-translations.json`
+  dès qu'un texte français évolue ; ne pas éditer `en/index.html` directement.
+  Le CV et son PDF restent en français, avec des liens explicitement étiquetés
+  sur la version anglaise. Ne pas traduire approximativement un diplôme en un
+  diplôme étranger différent, ni présenter une formation en cours comme terminée.
 - Le script intégré à `index.html` est celui actuellement exécuté par le site.
   Les fichiers `data/projects.js` et `js/main.js` sont des sources modulaires
   historiques ; les modifier seuls ne modifie pas le portfolio publié.
@@ -35,8 +44,13 @@ HTML réellement publié sur GitHub Pages, pas seulement à un aperçu JavaScrip
   canoniques publiques indexables. Modifier `lastmod` uniquement lors d'un vrai
   changement de contenu de la page concernée, avec la date réelle de ce changement.
 - Avant livraison : `node scripts/render-seo.mjs --check`,
-  `python3 scripts/check_seo.py`, puis un contrôle du rendu et des interactions
-  touchées. Le workflow CI SEO doit passer. Ne pas contourner les contrôles pour
+  `node scripts/build-en.mjs --check`, `python3 scripts/check_seo.py`, puis
+  `python3 scripts/check_browser.py` (Playwright 1.62.0 et Chromium nécessaires).
+  Vérifier les onglets des captures à 320–1440 px : aucun texte tronqué, les trois
+  boutons restent dans leur colonne, sélection souris et clavier fonctionnelle.
+  Conserver l'isolation des styles du CV dans `.cv-overlay-backdrop`, pour éviter
+  qu'ils modifient les titres ou les couleurs du portfolio. Le workflow CI SEO
+  doit passer. Ne pas contourner les contrôles pour
   faire passer une modification qui casse le référencement.
 - Les bonnes pratiques évoluent : consulter les recommandations officielles
   Google Search Central et Bing pour toute nouvelle technique. Ne pas présenter

@@ -17,7 +17,9 @@ extrait enrichi ou citation par une IA ne peut être garanti.
 - Images auparavant dupliquées en base64 remplacées par les fichiers existants.
 - QR codes des pages web régénérés vers le domaine officiel, à la place de
   l'ancienne adresse de portfolio.
-- Sitemap des deux pages indexables ; erreur 404 exclue de l'indexation.
+- Versions française `/` et anglaise `/en/` avec canoniques propres et liens
+  `hreflang` réciproques. Sitemap des trois pages indexables (FR, EN, CV) ; erreur
+  404 exclue de l'indexation.
 - Consignes `AGENTS.md` et vérification automatique sur chaque push et PR.
 
 `robots.txt` permet l'exploration publique. Cela autorise les robots qui respectent
@@ -77,15 +79,25 @@ Depuis la racine du dépôt :
 
 ```sh
 node scripts/render-seo.mjs
+node scripts/build-en.mjs
 node scripts/render-seo.mjs --check
+node scripts/build-en.mjs --check
 python3 scripts/check_seo.py
 ```
 
-La première commande met à jour les blocs statiques de `index.html`. Les autres
+Les deux premières commandes mettent à jour les blocs statiques de `index.html`
+et la page anglaise `en/index.html`. Mettre à jour les traductions explicites dans
+`data/en-translations.json` lorsque les textes évoluent. Les autres commandes
 contrôlent leur cohérence et le référencement technique. Aucune dépendance npm
 ou Python supplémentaire n'est requise. Après un changement de contenu, mettre
 à jour seulement le `lastmod` correspondant dans le sitemap. Vérifier également
 les interactions modifiées dans un navigateur et le rendu sans JavaScript.
+
+`python3 scripts/check_browser.py` vérifie les deux langues, les liens entre
+versions, les contenus sans JavaScript, les onglets des trois captures et les
+interactions à 320, 390, 768, 1024 et 1440 px. Ce contrôle optionnel en local,
+exécuté systématiquement en CI, utilise Playwright 1.62.0 et Chromium. Il ne
+mesure pas les Core Web Vitals en production. Le CV téléchargeable reste français.
 
 En cas de changement de domaine, régénérer aussi les QR codes web avec
 `scripts/update_qr.py` (dépendance optionnelle `qrcode==8.2`), et vérifier les

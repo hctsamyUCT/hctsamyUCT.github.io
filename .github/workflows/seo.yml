@@ -17,5 +17,13 @@ jobs:
           python-version: '3.12'
       - name: Check static content is current
         run: node scripts/render-seo.mjs --check
+      - name: Check English edition is current
+        run: node scripts/build-en.mjs --check
       - name: Check SEO, links and structured data
         run: python3 scripts/check_seo.py
+      - name: Install browser test tools
+        run: |
+          python3 -m pip install playwright==1.62.0
+          python3 -m playwright install --with-deps chromium
+      - name: Check FR/EN layouts and interactions
+        run: python3 scripts/check_browser.py

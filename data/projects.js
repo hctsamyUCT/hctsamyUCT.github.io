@@ -10,9 +10,9 @@ export const siteConfig = {
 
   profile: {
     name: "Samy Houchat",
-    title: "Étudiant en BUT Science des données · Data & BI",
-    headline: "Rigoureux et passionné par la valorisation de la donnée, je conçois des pipelines ETL fiables, des modèles relationnels solides et des tableaux de bord Power BI d'aide à la décision.",
-    availabilityBadge: "Disponible pour un stage de 10 semaines à partir du 1er avril 2027",
+    title: "Étudiant en science des données · Stage Data / BI",
+    headline: "Des données brutes aux outils de décision : Python, SQL, Power BI et développement d'applications métiers. Avec une expérience Data et web chez Layer Data, je recherche un stage pour contribuer aux projets de votre équipe.",
+    availabilityBadge: "Stage Data / BI · 10 semaines · dès le 1er avril 2027",
     location: "Tout le territoire français",
     email: "samyhctpro@gmail.com",
     linkedin: "https://www.linkedin.com/in/samyhouchat",
@@ -24,32 +24,25 @@ export const siteConfig = {
 
   keyStats: [
     {
-      id: "major",
-      badge: "Major de Promotion",
-      title: "BTS Informatique",
-      subtitle: "Option Bases de données (IIM Béjaïa)",
-      icon: "trophy"
+      id: "reliable-data",
+      badge: "Fiabiliser vos données",
+      title: "Python & SQL",
+      subtitle: "Collecter, nettoyer et structurer les données pour limiter les traitements manuels.",
+      href: "#projets", action: "Voir le projet Data"
     },
     {
-      id: "exp",
-      badge: "Expérience terrain",
-      title: "Layer Data",
-      subtitle: "Analyste de données & dev web",
-      icon: "briefcase"
+      id: "clear-decisions",
+      badge: "Rendre les chiffres utiles",
+      title: "Tableaux de bord Power BI",
+      subtitle: "Suivre les commandes, comparer les prévisions et rendre les indicateurs lisibles.",
+      href: "#projets", action: "Explorer les tableaux de bord"
     },
     {
-      id: "etl",
-      badge: "Cycle Data complet",
-      title: "ETL & Modélisation",
-      subtitle: "Python, Star Schema & Power BI",
-      icon: "database"
-    },
-    {
-      id: "lang",
-      badge: "Profil trilingue",
-      title: "Anglais B2",
-      subtitle: "Français & Arabe maternels",
-      icon: "languages"
+      id: "real-experience",
+      badge: "Passer de l'idée à l'outil",
+      title: "Expérience chez Layer Data",
+      subtitle: "Des missions Data et web en entreprise, complétées par le développement d'AVDA Auto.",
+      href: "#experience", action: "Découvrir mon expérience"
     }
   ],
 
@@ -69,11 +62,11 @@ export const siteConfig = {
   featuredProject: {
     id: "agrana-supply-chain",
     tag: "Projet Vedette · Décisionnel & Supply Chain Analytics",
-    title: "Business Intelligence Dashboard — Supply Chain Analytics",
-    subtitle: "Architecture décisionnelle end-to-end pour l'industrie agroalimentaire",
+    title: "Power BI — Pilotage des commandes et des prévisions",
+    subtitle: "De la préparation des données au suivi de l'activité",
     clientKey: "agrana",
     clientDetail: "Projet BI réalisé dans le secteur agroalimentaire",
-    summary: "Conception d'une chaîne décisionnelle complète pour le pilotage de la logistique industrielle et commerciale : automatisation des flux via des pipelines ETL Python, modélisation relationnelle en schéma en étoile, et tableaux de bord Power BI interactifs axés sur le taux de service client (OTIF).",
+    summary: "Un projet réalisé chez Layer Data pour un client industriel agroalimentaire : préparer les données avec Python, construire le modèle d'analyse et créer des tableaux de bord Power BI pour suivre les commandes, les livraisons et les écarts avec les prévisions.",
     confidentialityNote: "Projet réalisé dans un contexte professionnel. Les données, noms d'entités et structures présentés ici ont été entièrement synthétisés et anonymisés à des fins de portfolio.",
     objective: "Automatiser le flux de données de la source au reporting, suivre en temps réel la conformité des livraisons (OTIF), analyser les écarts Prévisions vs Commandes et sécuriser la satisfaction client.",
     tags: ["Power BI", "DAX Avancé", "Python (ETL)", "Data Warehouse", "Star Schema (MPD)", "KPI OTIF"],
@@ -102,30 +95,30 @@ export const siteConfig = {
         desc: "Automatisation du traitement des flux de données sources brutes (couche Bronze) vers l'entrepôt consolidé pour l'analyse décisionnelle (couche Gold)."
       }
     ],
-    result: "Chaîne de traitement 100% automatisée et fiable, visibilité exhaustive sur les performances de livraison et aide à la décision opérationnelle pour les équipes logistiques et commerciales.",
+    result: "Une chaîne de traitement automatisée et des indicateurs pour aider les équipes logistiques et commerciales à suivre leur activité.",
     image: "assets/img/bi-dashboard-commandes.png",
     gallery: [
       {
         id: "commandes",
         src: "assets/img/bi-dashboard-commandes.png",
-        title: "1. Dashboard Commandes",
-        subtitle: "KPIs OTIF, alertes & analyse clients",
+        title: "Commandes",
+        subtitle: "Suivi clients et livraisons",
         alt: "Dashboard Commandes — Suivi OTIF & Analyse Clients Power BI",
         caption: "Preuve 1 : Dashboard Commandes — Suivi du taux de service OTIF, alertes sur commandes à risque et analyse des volumes clients"
       },
       {
         id: "previsions",
         src: "assets/img/bi-dashboard-previsions.png",
-        title: "2. Dashboard Prévisions",
-        subtitle: "Prévision vs Commande & reliquats",
+        title: "Prévisions",
+        subtitle: "Comparaison des volumes",
         alt: "Dashboard Prévisions — Analyse Prévisions vs Réalisé Power BI",
         caption: "Preuve 2 : Dashboard Prévisions — Comparatif Prévisions vs Réalisé, détection des reliquats et tendances"
       },
       {
         id: "modele",
         src: "assets/img/bi-modele-donnees.png",
-        title: "3. Modèle de Données",
-        subtitle: "Schéma en étoile",
+        title: "Modèle de données",
+        subtitle: "Structure des données",
         alt: "Architecture Modèle de Données Power BI",
         caption: "Preuve 3 : Architecture relationnelle Power BI — Modèle en étoile (DIM_CUSTOMER, DIM_PRODUCT, FACT_ORDER, FACT_DELIVERY)"
       }
@@ -257,7 +250,7 @@ export const siteConfig = {
       field: "Parcours Exploration et Modélisation Statistique",
       institution: "IUT Clermont Auvergne, site d'Aurillac",
       location: "Aurillac, France",
-      highlight: "Formation d'excellence en statistiques, data science, fouille de données et modélisation."
+      highlight: "Formation en statistiques, programmation, analyse et modélisation des données."
     },
     {
       period: "10/2022 – 01/2026",

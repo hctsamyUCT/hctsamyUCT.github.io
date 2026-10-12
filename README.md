@@ -50,10 +50,20 @@ Avant de publier une modification :
 
 ```sh
 node scripts/render-seo.mjs
+node scripts/build-en.mjs
 node scripts/render-seo.mjs --check
+node scripts/build-en.mjs --check
 python3 scripts/check_seo.py
 ```
 
 Le contenu principal est pré-rendu dans le HTML et reste lisible sans JavaScript.
 Le workflow GitHub Actions `SEO` vérifie les métadonnées, les liens, le sitemap et
 la cohérence du contenu à chaque push et pull request. Il ne déploie pas le site.
+
+Le sélecteur **FR / EN** relie le portfolio français à sa version anglaise `/en/`.
+Les traductions sont dans `data/en-translations.json`. Le CV est proposé en
+français et identifié comme tel sur la page anglaise.
+
+Pour les contrôles responsive et interactifs : installer `playwright==1.62.0`
+et Chromium avec `python3 -m playwright install chromium`, puis lancer
+`python3 scripts/check_browser.py`. Ces contrôles sont aussi exécutés en CI.
