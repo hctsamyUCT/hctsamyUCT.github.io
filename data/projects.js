@@ -38,18 +38,18 @@ export const siteConfig = {
       href: "#projets", action: "Explorer les tableaux de bord"
     },
     {
+      id: "real-experience",
+      badge: "Passer de l'idée à l'outil",
+      title: "Expérience Data en entreprise",
+      subtitle: "Des missions Data et web menées en entreprise chez Layer Data, complétées par le développement d'AVDA Auto.",
+      href: "#experience", action: "Découvrir mon expérience"
+    },
+    {
       id: "dba-foundation",
       badge: "Concevoir des bases solides",
       title: "Socle DBA (Administrateur BDD)",
       subtitle: "Modéliser des bases robustes, optimiser le SQL et garantir la qualité de la donnée à la source.",
       href: "#formation", action: "Découvrir mon socle DBA"
-    },
-    {
-      id: "real-experience",
-      badge: "Passer de l'idée à l'outil",
-      title: "Expérience chez Layer Data",
-      subtitle: "Des missions Data et web en entreprise, complétées par le développement d'AVDA Auto.",
-      href: "#experience", action: "Découvrir mon expérience"
     }
   ],
 
