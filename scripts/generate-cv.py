@@ -44,7 +44,8 @@ try:
             assert keyword in text, f"PDF export lost text: {keyword}"
         target = ROOT / "assets/cv/CV_Samy_Houchat.pdf"
         target.write_bytes(pdf.read_bytes())
-        sources = ["templates/cv.html", "css/cv.css", "cv_samy_houchat.html"]
+        sources = ["templates/cv.html", "css/cv.css", "cv_samy_houchat.html",
+                   "assets/img/photo_opt.jpg", "assets/img/qr-portfolio-cv.svg"]
         manifest = {"sources": {name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest() for name in sources},
                     "pdf_sha256": hashlib.sha256(target.read_bytes()).hexdigest()}
         (ROOT / "assets/cv/CV_Samy_Houchat.build.json").write_text(json.dumps(manifest, indent=2) + "\n")

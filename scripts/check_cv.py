@@ -29,7 +29,8 @@ def inspect_pdf(path):
     assert all("/ToUnicode" in font.get_object() for font in page["/Resources"]["/Font"].values()), "Fonts must support text extraction"
     text = normalise(page.extract_text())
     for phrase in ["Samy HOUCHAT", "10 semaines", "1er avril 2027", "07 46 15 66 57", "samyhctpro@gmail.com",
-                   "hctsamyuct.github.io", "BUT Science des données", "BTS Informatique", "Major de promotion",
+                   "hctsamyuct.github.io", "BUT Science des données (SD)", "Parcours Exploration et Modélisation Statistique",
+                   "Formation actuellement en cours", "BTS Informatique", "option Bases de données", "Major de promotion",
                    "Layer Data", "Power BI", "Python", "SQL", "ETL", "AVDA Auto", "Anglais", "B2"]:
         assert phrase in text, f"PDF extraction lost {phrase}"
     positions = [text.index(heading) for heading in HEADINGS]
@@ -41,13 +42,15 @@ def inspect_pdf(path):
         if operator in {b"rg", b"RG"}:
             colors.add(tuple(round(float(channel), 4) for channel in operands))
     assert colors <= INKS and {(0.0, 0.0, 0.0), (0.1176, 0.251, 0.6863)} <= colors, f"Unexpected ink colors: {colors}"
+    assert len(page.images) >= 1, "Portrait missing from PDF"
     links = {str(ref.get_object().get("/A", {}).get("/URI", "")) for ref in page.get("/Annots", [])}
     assert {"mailto:samyhctpro@gmail.com", "https://hctsamyuct.github.io/", "https://www.linkedin.com/in/samyhouchat"} <= links
     return text
 
 
 manifest = json.loads((ROOT / "assets/cv/CV_Samy_Houchat.build.json").read_text())
-assert set(manifest["sources"]) == {"templates/cv.html", "css/cv.css", "cv_samy_houchat.html"}
+assert set(manifest["sources"]) == {"templates/cv.html", "css/cv.css", "cv_samy_houchat.html",
+                                   "assets/img/photo_opt.jpg", "assets/img/qr-portfolio-cv.svg"}
 for name, digest in manifest["sources"].items():
     assert hashlib.sha256((ROOT / name).read_bytes()).hexdigest() == digest, "CV sources changed: regenerate the PDF"
 assert hashlib.sha256(PDF.read_bytes()).hexdigest() == manifest["pdf_sha256"]
@@ -72,6 +75,11 @@ try:
             page = browser.new_page(viewport={"width": width, "height": 1000})
             assert page.goto(base + "/cv_samy_houchat.html", wait_until="networkidle").status == 200
             assert normalise(page.locator("#cv-content").inner_text()) == exported_text
+            assert page.locator(".cv-photo").is_visible()
+            assert page.locator(".cv-qr img").is_visible()
+            assert page.locator(".cv-qr").get_attribute("href") == "https://hctsamyuct.github.io/"
+            for image in page.locator("#cv-content img").all():
+                assert image.evaluate("el => el.complete && el.naturalWidth > 0"), "CV image not loaded"
             assert page.evaluate("document.documentElement.scrollWidth <= innerWidth")
             colors = page.locator("#cv-content").evaluate("el => [...new Set([el, ...el.querySelectorAll('*')].map(node => getComputedStyle(node).color))]")
             assert set(colors) <= {"rgb(0, 0, 0)", "rgb(30, 64, 175)"}, colors

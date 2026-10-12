@@ -7,13 +7,17 @@ résultat chiffré ou outil utilisé en mission n'a été ajouté sans source.
 
 ## Choix éditoriaux
 
-- Noir pour le texte, bleu `#1e40af` pour les titres, sur papier blanc. Aucun badge
-  jaune, étoile, photo, logo ou icône nécessaire à la compréhension du CV.
+- Noir pour le texte, bleu `#1e40af` pour les titres, sur papier blanc. La photo
+  et le QR code du portfolio sont conservés à la demande du propriétaire. Aucun
+  badge jaune ni étoile. La limite de couleurs concerne les encres du texte,
+  pas les couleurs naturelles du portrait.
 - Mots-clés en gras : Power BI, Python, SQL, ETL, expérience chez Layer Data,
   projet AVDA Auto et major de promotion.
 - Formation remontée pour situer la formation actuelle ; compétences techniques
   regroupées après les missions et le projet.
-- « Option bases de données » remplace la répétition après « BTS Informatique ».
+- L'option Bases de données figure directement dans le titre du BTS ; le parcours
+  Exploration et Modélisation Statistique du BUT SD est mis en gras avec la mention
+  explicite de formation actuellement en cours.
 - « Compétences & qualités », « Pourquoi me choisir ? » et centres d'intérêt
   retirés pour privilégier les réalisations. Âge et statut de véhicule retirés
   de l'en-tête ; ville, mobilité et permis sont conservés.
@@ -23,8 +27,8 @@ résultat chiffré ou outil utilisé en mission n'a été ajouté sans source.
 ## Lecture par un ATS : ce qui est vérifié
 
 Une colonne permet un ordre de lecture direct. Les rubriques utilisent des
-intitulés classiques. Les coordonnées sont du texte, pas des icônes ou un QR
-code. Le PDF contient du texte sélectionnable, des polices avec correspondance
+intitulés classiques. Les coordonnées et l'URL du portfolio restent du texte,
+en complément de la photo et du QR code. Le PDF contient du texte sélectionnable, des polices avec correspondance
 Unicode, des balises de structure et des liens cliquables ; il n'est pas une image.
 
 Les contrôles portent sur : une page A4 sans troncature, contenu extrait complet

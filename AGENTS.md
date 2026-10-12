@@ -37,6 +37,12 @@ HTML réellement publié sur GitHub Pages, pas seulement à un aperçu JavaScrip
   blanc, le texte sélectionnable et des mots-clés en gras. La formation précède
   l'expérience et les compétences techniques. Ne pas réintroduire les étoiles,
   couleurs de badges, listes de qualités génériques ou clients non anonymisés.
+- Conserver la photo et le QR code du portfolio dans le CV web, la fenêtre
+  intégrée et le PDF. La limite de deux couleurs concerne le texte et les éléments
+  graphiques ; elle n'impose pas de supprimer la photo. Ne pas retirer ces éléments
+  pour optimiser le CV sans demande explicite. Afficher l'option Bases de données
+  dans le titre du BTS et le parcours Exploration et Modélisation Statistique du
+  BUT Science des données (SD), avec son statut de formation actuellement en cours.
 - Après toute modification du contenu, des styles ou des métadonnées du CV,
   régénérer le PDF avec `python3 scripts/generate-cv.py` (Playwright 1.62.0,
   Chromium et pypdf 6.10.0). Inclure le PDF et son manifeste de construction dans

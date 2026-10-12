@@ -18,6 +18,11 @@
 .cv-page p, .cv-page h1, .cv-page h2, .cv-page h3, .cv-page ul { margin: 0; }
 .cv-page a { color: var(--cv-ink); text-decoration: underline; overflow-wrap: anywhere; }
 .cv-page strong { color: inherit; font-weight: 700; }
+.cv-page .cv-header { display: grid; grid-template-columns: 24mm minmax(0, 1fr) 22mm; gap: 4mm; align-items: start; }
+.cv-page .cv-identity { min-width: 0; }
+.cv-page .cv-photo { display: block; width: 24mm; height: 31.2mm; object-fit: cover; object-position: center top; }
+.cv-page .cv-qr { display: flex; flex-direction: column; align-items: center; gap: 1mm; font-size: 9pt; text-decoration: none; }
+.cv-page .cv-qr img { display: block; width: 22mm; height: 22mm; }
 .cv-page .cv-name { font-size: 24pt; line-height: 1.1; font-weight: 700; color: var(--cv-ink); }
 .cv-page .cv-target { margin-top: 2mm; font-size: 12pt; font-weight: 700; color: var(--cv-accent); }
 .cv-page .cv-objective { margin-top: 1.5mm; }
@@ -93,6 +98,12 @@
   .cv-page h3 { font-size: 14px; }
   .cv-page .cv-contact { font-size: 12px; }
   .cv-page .cv-date { display: block; }
+  .cv-page .cv-header { grid-template-columns: 75px minmax(0, 1fr) 70px; gap: 10px; }
+  .cv-page .cv-photo { width: 75px; height: 98px; }
+  .cv-page .cv-qr { width: 70px; }
+  .cv-page .cv-qr img { width: 70px; height: 70px; }
+  .cv-page .cv-identity { grid-column: 1 / -1; grid-row: 2; }
+  .cv-page .cv-qr { grid-column: 3; grid-row: 1; }
   .cv-toolbar { padding: 8px 12px; }
   .cv-toolbar > span { display: none; }
   .cv-toolbar-actions { gap: 8px; }
