@@ -638,7 +638,15 @@ ul {
   font-weight: 600;
   font-size: 0.95rem;
   min-height: 48px;
+  max-width: 100%;
   transition: transform var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
+}
+
+#hero-contact-btn span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
 }
 
 .btn:active {
