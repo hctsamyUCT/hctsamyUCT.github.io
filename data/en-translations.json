@@ -94,7 +94,6 @@
   "Mission Data & BI — Client : Client industriel agroalimentaire": "Data & BI assignment — Client: Food industry client",
   "Pipeline ETL & Data Warehouse : scripts Python pour l'ingestion, le nettoyage et la transformation des données brutes vers l'architecture Data Warehouse (couches Bronze et Gold).": "ETL pipeline & data warehouse: Python scripts to ingest, clean and transform raw data into the Bronze and Gold layers of a data warehouse.",
   "Modélisation MPD dans Power BI : conception et implémentation du schéma relationnel en étoile reliant dimensions et tables de faits (relations 1-N).": "Power BI data modelling: design and implementation of a relational star schema connecting dimensions and fact tables through one-to-many relationships.",
-  "Tableaux de bord Supply Chain : pilotage complet des commandes, livraisons effectives, prévisions de vente et reliquats.": "Supply chain dashboards: tracking orders, actual deliveries, sales forecasts and backorders.",
   "KPIs métiers clés : calcul et monitoring du taux de service OTIF (On-Time In-Full), analyse des commandes à risque et retards de livraison par client/produit.": "Business KPIs: calculating and monitoring the OTIF (On-Time In-Full) service rate, at-risk orders and delivery delays by customer and product.",
   "Mission Développement Web — Client : Société de gestion des gares routières": "Web development assignment — Client: Bus station management company",
   "Conception et mise en ligne du module « Catalogue des Locaux Disponibles » pour la commercialisation des espaces commerciaux dans les gares routières nationales.": "Designed and launched a catalogue of available commercial spaces in national bus stations.",
@@ -214,5 +213,6 @@
   "Pipelines ETL": "ETL pipelines",
   "Des données brutes aux outils de décision : Python, SQL, Power BI et développement d'applications métiers. Avec une expérience Data et web chez Layer Data, je recherche un stage pour contribuer aux projets de votre équipe.": "From raw data to decision-making tools: Python, SQL, Power BI and business application development. With data and web experience at Layer Data, I am looking for an internship where I can contribute to your team’s projects.",
   "Stage Data / BI · 10 semaines · dès le 1er avril 2027": "Data / BI internship · 10 weeks · from 1 April 2027",
-  "KPIs & Reporting": "KPIs & Reporting"
+  "KPIs & Reporting": "KPIs & Reporting",
+  "Rapport Supply Chain sous Power BI pour un client agroalimentaire : suivi des commandes, livraisons, prévisions de vente et reliquats.": "Supply chain report in Power BI for a food industry client: tracking orders, deliveries, sales forecasts and backorders."
 }

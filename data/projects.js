@@ -18,7 +18,7 @@ export const siteConfig = {
     linkedin: "https://www.linkedin.com/in/samyhouchat",
     githubUser: "https://github.com/HouchatSamy?tab=repositories",
     githubOrg: "https://github.com/AVDAdz/avdaAuto",
-    cvPdfPath: "assets/cv/CV_Samy_Houchat.pdf?v=7ed16a2f3bf1",
+    cvPdfPath: "assets/cv/CV_Samy_Houchat.pdf?v=5359e2c5679a",
     photoPath: "assets/img/photo.png"
   },
 
@@ -181,7 +181,7 @@ export const siteConfig = {
     {
       name: "Développement & Outils Data",
       icon: "code",
-      skills: ["Python (Pandas, NumPy)", "JavaScript (ES6+)", "React 18", "Electron", "HTML5 / CSS3", "PHP"]
+      skills: ["Python (Pandas, NumPy)", "R", "JavaScript (ES6+)", "React 18", "Electron", "HTML5 / CSS3", "PHP"]
     },
     {
       name: "Outils & Versioning",
@@ -208,7 +208,7 @@ export const siteConfig = {
           bullets: [
             "Pipeline ETL & Data Warehouse : scripts Python pour l'ingestion, le nettoyage et la transformation des données brutes vers l'architecture Data Warehouse (couches Bronze et Gold).",
             "Modélisation MPD dans Power BI : conception et implémentation du schéma relationnel en étoile reliant dimensions et tables de faits (relations 1-N).",
-            "Tableaux de bord Supply Chain : pilotage complet des commandes, livraisons effectives, prévisions de vente et reliquats.",
+            "Rapport Supply Chain sous Power BI pour un client agroalimentaire : suivi des commandes, livraisons, prévisions de vente et reliquats.",
             "KPIs métiers clés : calcul et monitoring du taux de service OTIF (On-Time In-Full), analyse des commandes à risque et retards de livraison par client/produit.",
           ]
         },

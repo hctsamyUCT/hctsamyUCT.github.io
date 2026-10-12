@@ -4,7 +4,7 @@ import { createHash } from 'node:crypto';
 const root = new URL('../', import.meta.url);
 const content = readFileSync(new URL('templates/cv.html', root), 'utf8').trim();
 const fingerprint = createHash('sha256');
-for (const name of ['templates/cv.html', 'css/cv.css', 'assets/img/photo_opt.jpg', 'assets/img/qr-portfolio-cv.svg']) fingerprint.update(readFileSync(new URL(name, root)));
+for (const name of ['templates/cv.html', 'css/cv.css', 'assets/img/photo_opt.jpg', 'assets/img/qr-portfolio-cv.svg', 'assets/img/layer_data_logo_opt.png']) fingerprint.update(readFileSync(new URL(name, root)));
 const version = fingerprint.digest('hex').slice(0, 12);
 const pdfURL = `/assets/cv/CV_Samy_Houchat.pdf?v=${version}`;
 const standalone = new URL('cv_samy_houchat.html', root);

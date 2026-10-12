@@ -48,6 +48,7 @@
         "Business Intelligence",
         "Power BI",
         "Python",
+        "R",
         "SQL",
         "ETL",
         "Modélisation des données"
@@ -87,11 +88,11 @@
 }
   </script>
 
-  
+
   <!-- SEO & Titre -->
 
   <meta name="author" content="Samy Houchat">
-  
+
   <!-- Open Graph / LinkedIn / Facebook / WhatsApp -->
 
   <!-- Twitter Card -->
@@ -2152,7 +2153,7 @@ ul {
 }
 
 </style>
-  <link rel="stylesheet" href="/css/cv.css?v=7ed16a2f3bf1">
+  <link rel="stylesheet" href="/css/cv.css?v=5359e2c5679a">
 </head>
 <body>
 
@@ -2210,7 +2211,7 @@ ul {
          ======================================================================= -->
     <section class="section-hero" id="hero">
       <div class="container hero-grid">
-        
+
         <!-- Photo de profil avec badge statut -->
         <div class="hero-photo-wrapper">
           <div class="hero-photo-frame">
@@ -2253,7 +2254,7 @@ ul {
               <span>Échanger sur un stage</span>
             </a>
 
-            <a href="assets/cv/CV_Samy_Houchat.pdf?v=7ed16a2f3bf1" class="btn btn-secondary" id="hero-cv-btn" download="CV_Samy_Houchat.pdf">
+            <a href="assets/cv/CV_Samy_Houchat.pdf?v=5359e2c5679a" class="btn btn-secondary" id="hero-cv-btn" download="CV_Samy_Houchat.pdf">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
               <span>Télécharger le CV (PDF)</span>
             </a>
@@ -2505,7 +2506,7 @@ ul {
       </div>
 
       <div class="skills-tags-wrap">
-        <span class="skill-tag">Python (Pandas, NumPy)</span><span class="skill-tag">JavaScript (ES6+)</span><span class="skill-tag">React 18</span><span class="skill-tag">Electron</span><span class="skill-tag">HTML5 / CSS3</span><span class="skill-tag">PHP</span>
+        <span class="skill-tag">Python (Pandas, NumPy)</span><span class="skill-tag">R</span><span class="skill-tag">JavaScript (ES6+)</span><span class="skill-tag">React 18</span><span class="skill-tag">Electron</span><span class="skill-tag">HTML5 / CSS3</span><span class="skill-tag">PHP</span>
       </div>
     </div>
 
@@ -2569,7 +2570,7 @@ ul {
             <div class="timeline-mission-block">
               <h4 class="timeline-mission-title">Mission Data & BI — Client : Client industriel agroalimentaire</h4>
               <ul class="timeline-bullets">
-                <li class="timeline-bullet">Pipeline ETL & Data Warehouse : scripts Python pour l'ingestion, le nettoyage et la transformation des données brutes vers l'architecture Data Warehouse (couches Bronze et Gold).</li><li class="timeline-bullet">Modélisation MPD dans Power BI : conception et implémentation du schéma relationnel en étoile reliant dimensions et tables de faits (relations 1-N).</li><li class="timeline-bullet">Tableaux de bord Supply Chain : pilotage complet des commandes, livraisons effectives, prévisions de vente et reliquats.</li><li class="timeline-bullet">KPIs métiers clés : calcul et monitoring du taux de service OTIF (On-Time In-Full), analyse des commandes à risque et retards de livraison par client/produit.</li>
+                <li class="timeline-bullet">Pipeline ETL & Data Warehouse : scripts Python pour l'ingestion, le nettoyage et la transformation des données brutes vers l'architecture Data Warehouse (couches Bronze et Gold).</li><li class="timeline-bullet">Modélisation MPD dans Power BI : conception et implémentation du schéma relationnel en étoile reliant dimensions et tables de faits (relations 1-N).</li><li class="timeline-bullet">Rapport Supply Chain sous Power BI pour un client agroalimentaire : suivi des commandes, livraisons, prévisions de vente et reliquats.</li><li class="timeline-bullet">KPIs métiers clés : calcul et monitoring du taux de service OTIF (On-Time In-Full), analyse des commandes à risque et retards de livraison par client/produit.</li>
               </ul>
             </div>
 
@@ -2734,7 +2735,7 @@ const siteConfig = {
     linkedin: "https://www.linkedin.com/in/samyhouchat",
     githubUser: "https://github.com/HouchatSamy?tab=repositories",
     githubOrg: "https://github.com/AVDAdz/avdaAuto",
-    cvPdfPath: "assets/cv/CV_Samy_Houchat.pdf?v=7ed16a2f3bf1",
+    cvPdfPath: "assets/cv/CV_Samy_Houchat.pdf?v=5359e2c5679a",
     photoPath: "assets/img/photo_opt.jpg"
   },
 
@@ -2897,7 +2898,7 @@ const siteConfig = {
     {
       name: "Développement & Outils Data",
       icon: "code",
-      skills: ["Python (Pandas, NumPy)", "JavaScript (ES6+)", "React 18", "Electron", "HTML5 / CSS3", "PHP"]
+      skills: ["Python (Pandas, NumPy)", "R", "JavaScript (ES6+)", "React 18", "Electron", "HTML5 / CSS3", "PHP"]
     },
     {
       name: "Outils & Versioning",
@@ -2924,7 +2925,7 @@ const siteConfig = {
           bullets: [
             "Pipeline ETL & Data Warehouse : scripts Python pour l'ingestion, le nettoyage et la transformation des données brutes vers l'architecture Data Warehouse (couches Bronze et Gold).",
             "Modélisation MPD dans Power BI : conception et implémentation du schéma relationnel en étoile reliant dimensions et tables de faits (relations 1-N).",
-            "Tableaux de bord Supply Chain : pilotage complet des commandes, livraisons effectives, prévisions de vente et reliquats.",
+            "Rapport Supply Chain sous Power BI pour un client agroalimentaire : suivi des commandes, livraisons, prévisions de vente et reliquats.",
             "KPIs métiers clés : calcul et monitoring du taux de service OTIF (On-Time In-Full), analyse des commandes à risque et retards de livraison par client/produit.",
           ]
         },
@@ -3811,7 +3812,7 @@ if (document.readyState === 'loading') {
       <span id="cv-dialog-title">CV — Samy Houchat</span>
       <div class="cv-toolbar-actions">
         <button type="button" id="btn-close-cv">Retour au portfolio</button>
-        <a href="/assets/cv/CV_Samy_Houchat.pdf?v=7ed16a2f3bf1" download="CV_Samy_Houchat.pdf" class="cv-download" id="cv-download-pdf">Télécharger le PDF — 1 page A4</a>
+        <a href="/assets/cv/CV_Samy_Houchat.pdf?v=5359e2c5679a" download="CV_Samy_Houchat.pdf" class="cv-download" id="cv-download-pdf">Télécharger le PDF — 1 page A4</a>
         <button type="button" onclick="window.print()" id="btn-print-cv">Imprimer</button>
       </div>
     </aside>
@@ -3826,10 +3827,10 @@ if (document.readyState === 'loading') {
   <address class="cv-contact">
     <div class="cv-contact-item"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.2c1.1.4 2.3.6 3.6.6a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.6 21 3 13.4 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.3.2 2.5.6 3.6a1 1 0 0 1-.2 1z"/></svg><a href="tel:+33746156657" aria-label="Téléphone : 07 46 15 66 57">07 46 15 66 57</a></div>
     <div class="cv-contact-item"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5z"/></svg><a href="mailto:samyhctpro@gmail.com">samyhctpro@gmail.com</a></div>
-    <div class="cv-contact-item"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 2a8 8 0 0 0-8 8c0 6 8 12 8 12s8-6 8-12a8 8 0 0 0-8-8zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg><span>Aurillac, France · Permis B</span></div>
+    <div class="cv-contact-item"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 2a8 8 0 0 0-8 8c0 6 8 12 8 12s8-6 8-12a8 8 0 0 0-8-8zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg><span>Aurillac, France · 25 ans</span></div>
     <div class="cv-contact-item"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 3a2 2 0 1 0 0 4 2 2 0 0 0 0-4zM2 9h4v12H2zm7 0h4v2c1-2 7-4 7 3v7h-4v-7c0-3-3-3-3 0v7H9z"/></svg><a href="https://www.linkedin.com/in/samyhouchat" target="_blank" rel="noopener">linkedin.com/in/samyhouchat</a></div>
     <div class="cv-contact-item"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 7h10v10H7zM2 2h5v2H4v3H2zm15 0h5v5h-2V4h-3zM2 17h2v3h3v2H2zm18 0h2v5h-5v-2h3z"/></svg><a href="https://github.com/HouchatSamy" target="_blank" rel="noopener">github.com/HouchatSamy</a></div>
-    <div class="cv-contact-item"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M10 14a5 5 0 0 1 0-7l4-4a5 5 0 0 1 7 7l-3 3-2-2 3-3a2 2 0 0 0-3-3l-4 4a2 2 0 0 0 0 3zm4-4a5 5 0 0 1 0 7l-4 4a5 5 0 0 1-7-7l3-3 2 2-3 3a2 2 0 0 0 3 3l4-4a2 2 0 0 0 0-3z"/></svg><a href="https://hctsamyuct.github.io/">hctsamyuct.github.io</a></div>
+    <div class="cv-contact-item"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 3h14l3 8v9h-3v-3H5v3H2v-9zm1.4 2L4.2 11h15.6l-2.2-6zM6 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm12 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg><span>Permis B · Non véhiculé</span></div>
   </address>
   </div>
   <a class="cv-qr" href="https://hctsamyuct.github.io/" aria-label="Ouvrir le portfolio de Samy Houchat">
@@ -3863,12 +3864,17 @@ if (document.readyState === 'loading') {
 <section class="cv-section" aria-labelledby="cv-experience-title">
   <h2 id="cv-experience-title">Expérience professionnelle</h2>
   <article class="cv-entry">
-    <h3>Analyste de données / Développeur web — Layer Data</h3>
-    <p class="cv-entry-context">Février à août 2026 · Akbou, Algérie</p>
+    <div class="cv-employer-header">
+      <div>
+        <h3>Analyste de données / Développeur web — Layer Data</h3>
+        <p class="cv-entry-context">Février à août 2026 · Akbou, Algérie</p>
+      </div>
+      <img class="cv-employer-logo" src="/assets/img/layer_data_logo_opt.png" alt="Logo Layer Data" width="120" height="74">
+    </div>
     <ul>
       <li>Préparation, nettoyage et transformation des données avec <strong>Python</strong> pour alimenter un <strong>Data Warehouse (ETL)</strong>.</li>
       <li>Construction d'un <strong>modèle de données Power BI</strong> reliant dimensions et tables de faits.</li>
-      <li>Création de <strong>tableaux de bord Power BI</strong> : commandes, livraisons, prévisions de vente et indicateurs de suivi.</li>
+      <li>Création d'un <strong>rapport Supply Chain sous Power BI</strong> pour un <strong>client agroalimentaire</strong> : commandes, livraisons et prévisions de vente.</li>
       <li>Développement d'un <strong>catalogue de locaux disponibles</strong> et d'une <strong>interface d'administration</strong> pour la mise à jour des offres.</li>
     </ul>
   </article>
@@ -3896,7 +3902,7 @@ if (document.readyState === 'loading') {
 <section class="cv-section" aria-labelledby="cv-skills-title">
   <h2 id="cv-skills-title">Compétences techniques</h2>
   <ul class="cv-skill-list">
-    <li><strong>Data &amp; BI :</strong> <strong>Power BI</strong>, DAX, Power Query, <strong>Python</strong> (Pandas, NumPy), <strong>SQL</strong>, ETL.</li>
+    <li><strong>Data &amp; BI :</strong> <strong>Power BI</strong>, DAX, Power Query, <strong>Python</strong> (Pandas, NumPy), <strong>R</strong>, <strong>SQL</strong>, ETL.</li>
     <li><strong>Développement :</strong> JavaScript, React, Electron, HTML, CSS, PHP.</li>
     <li><strong>Outils et bases de données :</strong> Excel, Git/GitHub, MySQL, PostgreSQL, SQLite, DBeaver.</li>
   </ul>

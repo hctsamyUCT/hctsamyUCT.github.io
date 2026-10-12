@@ -51,6 +51,13 @@ HTML réellement publié sur GitHub Pages, pas seulement à un aperçu JavaScrip
   à 100 %. Le bouton de téléchargement propose le PDF déjà validé, indépendamment
   des paramètres du dialogue d'impression. Les CSS et liens PDF sont versionnés
   par `build-cv.mjs` pour éviter de mélanger un ancien style et un nouveau contenu.
+- Dans l'en-tête, afficher « 25 ans » et « Permis B · Non véhiculé », sans doubler
+  le QR code par l'adresse écrite du portfolio. Conserver son lien cliquable.
+  Le logo original Layer Data accompagne l'expérience : ses couleurs de marque
+  sont autorisées comme celles de la photo, tandis que le texte reste noir et bleu.
+  Décrire le rapport Power BI comme un rapport Supply Chain pour un client
+  agroalimentaire anonyme. R est confirmé parmi les langages utilisés ; ne pas
+  présenter de nouvelles bibliothèques comme maîtrisées sans confirmation.
 - Après toute modification du contenu, des styles ou des métadonnées du CV,
   régénérer le PDF avec `python3 scripts/generate-cv.py` (Playwright 1.62.0,
   Chromium et pypdf 6.10.0). Inclure le PDF et son manifeste de construction dans

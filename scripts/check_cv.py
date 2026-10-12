@@ -29,9 +29,9 @@ def inspect_pdf(path):
     assert all("/ToUnicode" in font.get_object() for font in page["/Resources"]["/Font"].values()), "Fonts must support text extraction"
     text = normalise(page.extract_text())
     for phrase in ["Samy HOUCHAT", "10 semaines", "1er avril 2027", "07 46 15 66 57", "samyhctpro@gmail.com",
-                   "hctsamyuct.github.io", "BUT Science des données (SD)", "Parcours Exploration et Modélisation Statistique",
+                   "25 ans", "Permis B · Non véhiculé", "BUT Science des données (SD)", "Parcours Exploration et Modélisation Statistique",
                    "Formation actuellement en cours", "BTS Informatique", "option Bases de données", "Major de promotion",
-                   "Layer Data", "Power BI", "Python", "SQL", "ETL", "AVDA Auto", "Anglais", "B2"]:
+                   "Layer Data", "rapport Supply Chain sous Power BI", "client agroalimentaire", "Python", "R, SQL", "ETL", "AVDA Auto", "Anglais", "B2"]:
         assert phrase in text, f"PDF extraction lost {phrase}"
     positions = [text.index(heading) for heading in HEADINGS]
     assert positions == sorted(positions), "PDF reading order must match section order"
@@ -42,7 +42,8 @@ def inspect_pdf(path):
         if operator in {b"rg", b"RG"}:
             colors.add(tuple(round(float(channel), 4) for channel in operands))
     assert colors <= INKS and {(0.0, 0.0, 0.0), (0.1176, 0.251, 0.6863)} <= colors, f"Unexpected ink colors: {colors}"
-    assert len(page.images) >= 1, "Portrait missing from PDF"
+    assert len(page.images) >= 2, "Portrait or company logo missing from PDF"
+    assert "hctsamyuct.github.io" not in text, "Written portfolio URL must not duplicate the QR code"
     links = {str(ref.get_object().get("/A", {}).get("/URI", "")) for ref in page.get("/Annots", [])}
     assert {"mailto:samyhctpro@gmail.com", "https://hctsamyuct.github.io/", "https://www.linkedin.com/in/samyhouchat"} <= links
     return text
@@ -50,7 +51,7 @@ def inspect_pdf(path):
 
 manifest = json.loads((ROOT / "assets/cv/CV_Samy_Houchat.build.json").read_text())
 assert set(manifest["sources"]) == {"templates/cv.html", "css/cv.css", "cv_samy_houchat.html",
-                                   "assets/img/photo_opt.jpg", "assets/img/qr-portfolio-cv.svg"}
+                                   "assets/img/photo_opt.jpg", "assets/img/qr-portfolio-cv.svg", "assets/img/layer_data_logo_opt.png"}
 for name, digest in manifest["sources"].items():
     assert hashlib.sha256((ROOT / name).read_bytes()).hexdigest() == digest, "CV sources changed: regenerate the PDF"
 assert hashlib.sha256(PDF.read_bytes()).hexdigest() == manifest["pdf_sha256"]
@@ -76,6 +77,7 @@ try:
             assert page.goto(base + "/cv_samy_houchat.html", wait_until="networkidle").status == 200
             assert normalise(page.locator("#cv-content").inner_text()) == exported_text
             assert page.locator(".cv-photo").is_visible()
+            assert page.locator(".cv-employer-logo").is_visible()
             assert page.locator(".cv-qr img").is_visible()
             assert page.locator(".cv-qr").get_attribute("href") == "https://hctsamyuct.github.io/"
             for image in page.locator("#cv-content img").all():
@@ -85,7 +87,7 @@ try:
             assert set(colors) <= {"rgb(0, 0, 0)", "rgb(30, 64, 175)"}, colors
             assert page.locator("#cv-content").evaluate("el => [...el.querySelectorAll('p, li, a, h1, h2, h3')].every(node => parseFloat(getComputedStyle(node).fontSize) >= 12)")
             bold = page.locator("#cv-content strong").all_text_contents()
-            for word in ["Power BI", "Python", "SQL", "Major de promotion"]:
+            for word in ["Power BI", "Python", "R", "SQL", "Major de promotion"]:
                 assert word in bold
             download = page.locator("#cv-download-pdf").get_attribute("href")
             assert download.startswith("/assets/cv/CV_Samy_Houchat.pdf?v=")
