@@ -157,7 +157,7 @@ for id in ["stats-grid", "featured-project-container", "other-projects-grid", "s
     block = source.split(f"<!-- seo:{id}:start -->", 1)[1].split(f"<!-- seo:{id}:end -->", 1)[0]
     require(bool(block.strip()), f"Missing crawlable content: {id}")
 visible = " ".join(pages["index.html"].text)
-for term in ["Power BI", "Python", "SQL", "Layer Data", "AVDA", "FacturaPro"]:
+for term in ["Power BI", "Python", "SQL", "Layer Data", "AVDA"]:
     require(term in visible, f"Content requires JavaScript: {term}")
 require("data:image" not in source, "Avoid duplicated embedded images in index.html")
 

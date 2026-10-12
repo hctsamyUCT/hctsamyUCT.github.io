@@ -818,10 +818,10 @@ ul {
 
 @media (min-width: 960px) {
   .featured-grid {
-    grid-template-columns: 1.15fr 0.85fr;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
     padding: 2.5rem;
     gap: 2.25rem;
-    align-items: stretch;
+    align-items: center;
   }
 }
 
@@ -1019,9 +1019,26 @@ ul {
 }
 
 .featured-content-column {
+  order: -1;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+
+.featured-overview {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.featured-preview-column {
+  min-width: 0;
+}
+
+.projects-grid:has(> .project-card:only-child) {
+  grid-template-columns: minmax(0, 760px);
 }
 
 /* Ligne de méta-badges */
@@ -3181,7 +3198,7 @@ ul {
                 <span class="proof-tab-num">3</span>
                 <div class="proof-tab-text">
                   <span class="proof-tab-title">3. Modèle de Données</span>
-                  <span class="proof-tab-sub">Schéma en étoile & table de pont</span>
+                  <span class="proof-tab-sub">Schéma en étoile</span>
                 </div>
               </button>
 
@@ -3196,11 +3213,12 @@ ul {
 
           <h3 class="featured-title-compact">Business Intelligence Dashboard — Supply Chain Analytics</h3>
           <p class="featured-desc-compact">Architecture décisionnelle end-to-end pour l'industrie agroalimentaire</p>
+          <p class="featured-overview">Conception d'une chaîne décisionnelle complète pour le pilotage de la logistique industrielle et commerciale : automatisation des flux via des pipelines ETL Python, modélisation relationnelle en schéma en étoile, et tableaux de bord Power BI interactifs axés sur le taux de service client (OTIF).</p>
 
           <ul class="featured-points-list">
             <li>Pipelines ETL Python · Architecture Bronze → Gold</li>
-            <li>Modélisation en étoile · Table de pont BRIDGE</li>
-            <li>Dashboards Power BI · KPI OTIF temps réel</li>
+            <li>Modélisation des données en étoile</li>
+            <li>Tableaux de bord interactifs Power BI</li>
           </ul>
 
           <div class="featured-tags-compact">
@@ -3215,7 +3233,7 @@ ul {
     </section>
 
     <!-- =======================================================================
-         4. AUTRES PROJETS (AVDA AUTO & FACTURAPRO DZ)
+         4. APPLICATION MÉTIER (AVDA AUTO)
          ======================================================================= -->
     <section class="section-padding" style="padding-top: 0;">
       <div class="container">
@@ -3223,7 +3241,7 @@ ul {
           <span class="section-label">Ingénierie Logicielle</span>
           <h2 class="section-title">Applications &amp; Systèmes Métiers</h2>
           <p class="section-description">
-            Solutions desktop complètes conçues en architecture offline-first avec bases de données SQLite intégrées.
+            Application desktop conçue en architecture offline-first avec une base de données SQLite intégrée.
           </p>
         </div>
 
@@ -3259,36 +3277,6 @@ ul {
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
             <span>GitHub</span>
           </a>
-
-        </div>
-      </div>
-    </article>
-
-    <article class="project-card" data-project-id="facturapro-dz">
-      <div class="project-thumbnail-wrapper" role="button" tabindex="0" data-project-idx="1" aria-label="Agrandir la capture de FacturaPro DZ — Facturation Conforme Algérie">
-        <img src="assets/img/facturapro-preview.svg" alt="FacturaPro DZ — Facturation Conforme Algérie" class="project-thumbnail-img" loading="lazy" width="600" height="375">
-        <span class="project-badge-float">En cours de finalisation</span>
-        <div class="preview-overlay-hint">
-          <span>1 capture</span>
-        </div>
-      </div>
-
-      <div class="project-body">
-        <span class="stat-badge" style="margin-bottom:0.5rem;">Application Desktop · Facturation & Fiscalité</span>
-        <h3 class="project-title">FacturaPro DZ — Facturation Conforme Algérie</h3>
-        <p class="project-subtitle">Logiciel desktop offline-first respectant la réglementation fiscale algérienne</p>
-        <p class="project-summary">Solution desktop ergonomique conçue pour simplifier la facturation des entreprises et commerces avec calcul automatisé de la TVA, du timbre fiscal et édition PDF.</p>
-
-        <div class="tags-list">
-          <span class="tag-badge">Electron</span><span class="tag-badge">React</span><span class="tag-badge">TypeScript</span><span class="tag-badge">SQLite</span><span class="tag-badge">IPC sécurisé</span>
-        </div>
-
-        <div class="project-footer">
-          <button type="button" class="btn btn-secondary btn-detail-trigger" data-project-idx="1">
-            <span>Voir le détail</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
-          </button>
-
 
         </div>
       </div>
@@ -3549,17 +3537,6 @@ ul {
   <!-- =========================================================================
        9. PIED DE PAGE DISCRET
        ========================================================================= -->
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div>
-        <p><strong>Samy Houchat</strong> · Étudiant en BUT Science des données</p>
-        <p class="footer-privacy-note">📍 Aurillac, France · Aucune donnée de traçage ou cookie tiers utilisé.</p>
-      </div>
-      <div>
-        <p style="font-size:0.85rem;">Conçu pour être scanné sur smartphone via QR Code CV · 2026-2027</p>
-      </div>
-    </div>
-  </footer>
 
   <!-- =========================================================================
        MODALE DE PROJET DÉTAILLÉ
@@ -3674,16 +3651,16 @@ const siteConfig = {
     subtitle: "Architecture décisionnelle end-to-end pour l'industrie agroalimentaire",
     clientKey: "agrana",
     clientDetail: "Projet BI réalisé dans le secteur agroalimentaire",
-    summary: "Conception d'une chaîne décisionnelle complète pour le pilotage de la logistique industrielle et commerciale : automatisation des flux via des pipelines ETL Python, modélisation relationnelle en schéma en étoile avec table de pont, et tableaux de bord Power BI interactifs axés sur le taux de service client (OTIF).",
+    summary: "Conception d'une chaîne décisionnelle complète pour le pilotage de la logistique industrielle et commerciale : automatisation des flux via des pipelines ETL Python, modélisation relationnelle en schéma en étoile, et tableaux de bord Power BI interactifs axés sur le taux de service client (OTIF).",
     confidentialityNote: "Projet réalisé dans un contexte professionnel. Les données, noms d'entités et structures présentés ici ont été entièrement synthétisés et anonymisés à des fins de portfolio.",
     objective: "Automatiser le flux de données de la source au reporting, suivre en temps réel la conformité des livraisons (OTIF), analyser les écarts Prévisions vs Commandes et sécuriser la satisfaction client.",
-    tags: ["Power BI", "DAX Avancé", "Python (ETL)", "Data Warehouse", "Star Schema (MPD)", "Table de Pont (Bridge)", "KPI OTIF"],
+    tags: ["Power BI", "DAX Avancé", "Python (ETL)", "Data Warehouse", "Star Schema (MPD)", "KPI OTIF"],
     tools: [
       "Python (Pipelines ETL & nettoyage)",
       "Architecture Bronze & Gold",
       "Power BI & Power Query",
       "DAX Avancé (Mesures & KPIs)",
-      "Schéma en étoile & Table de pont (BRIDGE_ORDER_DELIVERY)"
+      "Schéma en étoile"
     ],
     highlights: [
       {
@@ -3695,8 +3672,8 @@ const siteConfig = {
         desc: "Comparatif dynamique entre prévisions commerciales et livraisons effectives, détection des tendances de consommation et recalibrage des besoins d'approvisionnement."
       },
       {
-        title: "Preuve 3 — Modèle de données & Table de pont BRIDGE",
-        desc: "Architecture relationnelle en étoile multi-faits reliant FACT_ORDER, FACT_DELIVERY et FACT_FORECAST via une table de pont BRIDGE_ORDER_DELIVERY et des dimensions unifiées (DIM_CUSTOMER, DIM_PRODUCT, DIM_DATE, DIM_WAREHOUSE), évitant toute relation ambiguë."
+        title: "Preuve 3 — Modèle de données",
+        desc: "Architecture relationnelle en étoile multi-faits reliant FACT_ORDER, FACT_DELIVERY et FACT_FORECAST et des dimensions unifiées (DIM_CUSTOMER, DIM_PRODUCT, DIM_DATE, DIM_WAREHOUSE), évitant toute relation ambiguë."
       },
       {
         title: "Ingestion & transformation ETL en Python",
@@ -3726,9 +3703,9 @@ const siteConfig = {
         id: "modele",
         src: "assets/img/bi-modele-donnees.png",
         title: "3. Modèle de Données",
-        subtitle: "Schéma en étoile & table de pont",
-        alt: "Architecture Modèle de Données Power BI & Table de Pont",
-        caption: "Preuve 3 : Architecture relationnelle Power BI — Modèle en étoile (DIM_CUSTOMER, DIM_PRODUCT, FACT_ORDER, FACT_DELIVERY) avec table de pont BRIDGE_ORDER_DELIVERY"
+        subtitle: "Schéma en étoile",
+        alt: "Architecture Modèle de Données Power BI",
+        caption: "Preuve 3 : Architecture relationnelle Power BI — Modèle en étoile (DIM_CUSTOMER, DIM_PRODUCT, FACT_ORDER, FACT_DELIVERY)"
       }
     ],
     githubUrl: null // Projet d'entreprise confidentiel
@@ -3772,32 +3749,6 @@ const siteConfig = {
       ],
       githubPersonal: "https://github.com/HouchatSamy?tab=repositories",
       githubOrg: "https://github.com/AVDAdz/avdaAuto"
-    },
-    {
-      id: "facturapro-dz",
-      tag: "Application Desktop · Facturation & Fiscalité",
-      title: "FacturaPro DZ — Facturation Conforme Algérie",
-      subtitle: "Logiciel desktop offline-first respectant la réglementation fiscale algérienne",
-      summary: "Solution desktop ergonomique conçue pour simplifier la facturation des entreprises et commerces avec calcul automatisé de la TVA, du timbre fiscal et édition PDF.",
-      status: "En cours de finalisation",
-      stack: ["Electron", "React", "TypeScript", "SQLite", "IPC sécurisé", "i18n", "CSS Glassmorphism"],
-      objective: "Simplifier et digitaliser la facturation des entreprises et commerces algériens en conformité stricte avec les règles fiscales locales.",
-      highlights: [
-        "Moteur fiscal algérien : automatisation des 3 taux de TVA (19%, 9%, 0%), calcul dynamique du timbre fiscal (1% plafonné entre 5 DA et 2 500 DA) et numérotation séquentielle légale.",
-        "Gestion commerciale & tiers : répertoire clients intégrant NIF, RC, NIS et Article d'Imposition, catalogue produits/services avec suivi de stocks.",
-        "Édition dynamique & Export : aperçu avant impression, personnalisation des entêtes d'entreprise et génération de factures aux normes au format PDF.",
-        "Dashboard analytique temps réel : suivi des ventes journalières et mensuelles, volumétrie de facturation et historique récent.",
-        "Internationalisation complète : interface bilingue Français / Arabe avec support ergonomique complet Right-to-Left (RTL)."
-      ],
-      result: "Production rapide de factures parfaitement conformes aux normes fiscales algériennes avec suivi de l'activité commerciale.",
-      thumbnail: "assets/img/facturapro-preview.svg",
-      gallery: [
-        {
-          src: "assets/img/facturapro-preview.svg",
-          alt: "FacturaPro DZ - Dashboard et facturation conforme",
-          caption: "Dashboard de facturation et conformité fiscale algérienne"
-        }
-      ]
     }
   ],
 
@@ -4100,11 +4051,12 @@ function renderFeaturedProject() {
 
           <h3 class="featured-title-compact">${fp.title}</h3>
           <p class="featured-desc-compact">${fp.subtitle}</p>
+          <p class="featured-overview">${fp.summary}</p>
 
           <ul class="featured-points-list">
             <li>Pipelines ETL Python · Architecture Bronze → Gold</li>
-            <li>Modélisation en étoile · Table de pont BRIDGE</li>
-            <li>Dashboards Power BI · KPI OTIF temps réel</li>
+            <li>Modélisation des données en étoile</li>
+            <li>Tableaux de bord interactifs Power BI</li>
           </ul>
 
           <div class="featured-tags-compact">
@@ -4397,7 +4349,6 @@ function openProjectModal(project) {
         <ul style="font-size:0.84rem; color:var(--text-main); padding-left:1.25rem; line-height:1.6; margin-bottom:0.5rem;">
           <li><strong>Dimensions unifiées (Filtrage) :</strong> <code>DIM_CUSTOMER</code>, <code>DIM_PRODUCT</code>, <code>DIM_CATEGORY</code>, <code>DIM_DATE</code>, <code>DIM_WAREHOUSE</code>, <code>DIM_SALES_REP</code></li>
           <li><strong>Tables de faits (Transactions &amp; Cibles) :</strong> <code>FACT_ORDER</code> (Commandes clients), <code>FACT_DELIVERY</code> (Livraisons réelles), <code>FACT_FORECAST</code> (Prévisions de vente)</li>
-          <li><strong>Table de pont essentielle (<code>BRIDGE_ORDER_DELIVERY</code>) :</strong> Découplage de la relation N-N entre commandes et livraisons fractionnées, garantissant l'exactitude des calculs de retards et reliquats sans relation directe ambiguë.</li>
           <li><strong>Table centralisée des mesures (<code>MEASURES</code>) :</strong> Mesures DAX avancées pour le KPI OTIF (Strict), le taux de service et les alertes de commandes à risque.</li>
         </ul>
         <div style="font-size:0.78rem; color:var(--text-subtle); font-style:italic;">
@@ -4915,26 +4866,6 @@ if (document.readyState === 'loading') {
                 </li>
                 <li>
                   Gérer les clients et produire des devis et des factures.
-                </li>
-              </ul>
-            </article>
-
-            <!-- Projet 2 : FacturaPro DZ -->
-            <article class="entry-card">
-              <div class="entry-header">
-                <span class="entry-role">FacturaPro DZ — Logiciel de facturation</span>
-                <span class="entry-date">2026 · En cours</span>
-              </div>
-              <div class="entry-company-line">
-                <span class="entry-company">Projet personnel</span>
-                <span class="entry-location">En autonomie</span>
-              </div>
-              <ul class="bullet-list">
-                <li>
-                  Créer un logiciel simple pour gérer les ventes et les factures.
-                </li>
-                <li>
-                  Ajouter un tableau de bord pour suivre l'activité et le chiffre d'affaires.
                 </li>
               </ul>
             </article>

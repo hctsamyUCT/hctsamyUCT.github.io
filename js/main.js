@@ -178,11 +178,12 @@ function renderFeaturedProject() {
 
           <h3 class="featured-title-compact">${fp.title}</h3>
           <p class="featured-desc-compact">${fp.subtitle}</p>
+          <p class="featured-overview">${fp.summary}</p>
 
           <ul class="featured-points-list">
             <li>Pipelines ETL Python · Architecture Bronze → Gold</li>
-            <li>Modélisation en étoile · Table de pont BRIDGE</li>
-            <li>Dashboards Power BI · KPI OTIF temps réel</li>
+            <li>Modélisation des données en étoile</li>
+            <li>Tableaux de bord interactifs Power BI</li>
           </ul>
 
           <div class="featured-tags-compact">
@@ -475,7 +476,6 @@ function openProjectModal(project) {
         <ul style="font-size:0.84rem; color:var(--text-main); padding-left:1.25rem; line-height:1.6; margin-bottom:0.5rem;">
           <li><strong>Dimensions unifiées (Filtrage) :</strong> <code>DIM_CUSTOMER</code>, <code>DIM_PRODUCT</code>, <code>DIM_CATEGORY</code>, <code>DIM_DATE</code>, <code>DIM_WAREHOUSE</code>, <code>DIM_SALES_REP</code></li>
           <li><strong>Tables de faits (Transactions &amp; Cibles) :</strong> <code>FACT_ORDER</code> (Commandes clients), <code>FACT_DELIVERY</code> (Livraisons réelles), <code>FACT_FORECAST</code> (Prévisions de vente)</li>
-          <li><strong>Table de pont essentielle (<code>BRIDGE_ORDER_DELIVERY</code>) :</strong> Découplage de la relation N-N entre commandes et livraisons fractionnées, garantissant l'exactitude des calculs de retards et reliquats sans relation directe ambiguë.</li>
           <li><strong>Table centralisée des mesures (<code>MEASURES</code>) :</strong> Mesures DAX avancées pour le KPI OTIF (Strict), le taux de service et les alertes de commandes à risque.</li>
         </ul>
         <div style="font-size:0.78rem; color:var(--text-subtle); font-style:italic;">

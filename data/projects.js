@@ -73,16 +73,16 @@ export const siteConfig = {
     subtitle: "Architecture décisionnelle end-to-end pour l'industrie agroalimentaire",
     clientKey: "agrana",
     clientDetail: "Projet BI réalisé dans le secteur agroalimentaire",
-    summary: "Conception d'une chaîne décisionnelle complète pour le pilotage de la logistique industrielle et commerciale : automatisation des flux via des pipelines ETL Python, modélisation relationnelle en schéma en étoile avec table de pont, et tableaux de bord Power BI interactifs axés sur le taux de service client (OTIF).",
+    summary: "Conception d'une chaîne décisionnelle complète pour le pilotage de la logistique industrielle et commerciale : automatisation des flux via des pipelines ETL Python, modélisation relationnelle en schéma en étoile, et tableaux de bord Power BI interactifs axés sur le taux de service client (OTIF).",
     confidentialityNote: "Projet réalisé dans un contexte professionnel. Les données, noms d'entités et structures présentés ici ont été entièrement synthétisés et anonymisés à des fins de portfolio.",
     objective: "Automatiser le flux de données de la source au reporting, suivre en temps réel la conformité des livraisons (OTIF), analyser les écarts Prévisions vs Commandes et sécuriser la satisfaction client.",
-    tags: ["Power BI", "DAX Avancé", "Python (ETL)", "Data Warehouse", "Star Schema (MPD)", "Table de Pont (Bridge)", "KPI OTIF"],
+    tags: ["Power BI", "DAX Avancé", "Python (ETL)", "Data Warehouse", "Star Schema (MPD)", "KPI OTIF"],
     tools: [
       "Python (Pipelines ETL & nettoyage)",
       "Architecture Bronze & Gold",
       "Power BI & Power Query",
       "DAX Avancé (Mesures & KPIs)",
-      "Schéma en étoile & Table de pont (BRIDGE_ORDER_DELIVERY)"
+      "Schéma en étoile"
     ],
     highlights: [
       {
@@ -94,8 +94,8 @@ export const siteConfig = {
         desc: "Comparatif dynamique entre prévisions commerciales et livraisons effectives, détection des tendances de consommation et recalibrage des besoins d'approvisionnement."
       },
       {
-        title: "Preuve 3 — Modèle de données & Table de pont BRIDGE",
-        desc: "Architecture relationnelle en étoile multi-faits reliant FACT_ORDER, FACT_DELIVERY et FACT_FORECAST via une table de pont BRIDGE_ORDER_DELIVERY et des dimensions unifiées (DIM_CUSTOMER, DIM_PRODUCT, DIM_DATE, DIM_WAREHOUSE), évitant toute relation ambiguë."
+        title: "Preuve 3 — Modèle de données",
+        desc: "Architecture relationnelle en étoile multi-faits reliant FACT_ORDER, FACT_DELIVERY et FACT_FORECAST et des dimensions unifiées (DIM_CUSTOMER, DIM_PRODUCT, DIM_DATE, DIM_WAREHOUSE), évitant toute relation ambiguë."
       },
       {
         title: "Ingestion & transformation ETL en Python",
@@ -125,9 +125,9 @@ export const siteConfig = {
         id: "modele",
         src: "assets/img/bi-modele-donnees.png",
         title: "3. Modèle de Données",
-        subtitle: "Schéma en étoile & table de pont",
-        alt: "Architecture Modèle de Données Power BI & Table de Pont",
-        caption: "Preuve 3 : Architecture relationnelle Power BI — Modèle en étoile (DIM_CUSTOMER, DIM_PRODUCT, FACT_ORDER, FACT_DELIVERY) avec table de pont BRIDGE_ORDER_DELIVERY"
+        subtitle: "Schéma en étoile",
+        alt: "Architecture Modèle de Données Power BI",
+        caption: "Preuve 3 : Architecture relationnelle Power BI — Modèle en étoile (DIM_CUSTOMER, DIM_PRODUCT, FACT_ORDER, FACT_DELIVERY)"
       }
     ],
     githubUrl: null // Projet d'entreprise confidentiel
@@ -171,32 +171,6 @@ export const siteConfig = {
       ],
       githubPersonal: "https://github.com/HouchatSamy?tab=repositories",
       githubOrg: "https://github.com/AVDAdz/avdaAuto"
-    },
-    {
-      id: "facturapro-dz",
-      tag: "Application Desktop · Facturation & Fiscalité",
-      title: "FacturaPro DZ — Facturation Conforme Algérie",
-      subtitle: "Logiciel desktop offline-first respectant la réglementation fiscale algérienne",
-      summary: "Solution desktop ergonomique conçue pour simplifier la facturation des entreprises et commerces avec calcul automatisé de la TVA, du timbre fiscal et édition PDF.",
-      status: "En cours de finalisation",
-      stack: ["Electron", "React", "TypeScript", "SQLite", "IPC sécurisé", "i18n", "CSS Glassmorphism"],
-      objective: "Simplifier et digitaliser la facturation des entreprises et commerces algériens en conformité stricte avec les règles fiscales locales.",
-      highlights: [
-        "Moteur fiscal algérien : automatisation des 3 taux de TVA (19%, 9%, 0%), calcul dynamique du timbre fiscal (1% plafonné entre 5 DA et 2 500 DA) et numérotation séquentielle légale.",
-        "Gestion commerciale & tiers : répertoire clients intégrant NIF, RC, NIS et Article d'Imposition, catalogue produits/services avec suivi de stocks.",
-        "Édition dynamique & Export : aperçu avant impression, personnalisation des entêtes d'entreprise et génération de factures aux normes au format PDF.",
-        "Dashboard analytique temps réel : suivi des ventes journalières et mensuelles, volumétrie de facturation et historique récent.",
-        "Internationalisation complète : interface bilingue Français / Arabe avec support ergonomique complet Right-to-Left (RTL)."
-      ],
-      result: "Production rapide de factures parfaitement conformes aux normes fiscales algériennes avec suivi de l'activité commerciale.",
-      thumbnail: "assets/img/facturapro-preview.svg",
-      gallery: [
-        {
-          src: "assets/img/facturapro-preview.svg",
-          alt: "FacturaPro DZ - Dashboard et facturation conforme",
-          caption: "Dashboard de facturation et conformité fiscale algérienne"
-        }
-      ]
     }
   ],
 
