@@ -9,13 +9,17 @@ résultat chiffré ou outil utilisé en mission n'a été ajouté sans source.
 
 - Noir pour le texte, bleu `#1e40af` pour les titres, sur papier blanc. La photo
   et le QR code du portfolio sont conservés à la demande du propriétaire. Le logo
-  original Layer Data est intégré auprès de l'expérience. Aucun
+  Layer Data est affiché en noir et blanc auprès du nom de l'entreprise. Aucun
   badge jaune ni étoile. La limite de couleurs concerne les encres du texte,
-  pas les couleurs naturelles du portrait ni les couleurs du logo demandé.
+  pas les couleurs naturelles du portrait. Le logo utilise le noir et le blanc
+  pour ne pas ajouter une troisième couleur à la mise en page.
 - Mots-clés en gras : Power BI, Python, R, SQL, ETL, expérience chez Layer Data,
   projet AVDA Auto et major de promotion.
 - Formation remontée pour situer la formation actuelle ; compétences techniques
   regroupées après les missions et le projet.
+- Dates placées avant les intitulés des diplômes, postes et projet. Dans chaque
+  expérience, une seconde ligne présente l'entreprise à gauche et le lieu à
+  droite ; le petit logo Layer Data est placé à côté du nom de l'entreprise.
 - L'option Bases de données figure directement dans le titre du BTS ; le parcours
   Exploration et Modélisation Statistique du BUT SD est mis en gras avec la mention
   explicite de formation actuellement en cours.

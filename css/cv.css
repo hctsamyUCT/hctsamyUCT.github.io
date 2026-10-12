@@ -43,12 +43,12 @@
   break-after: avoid;
 }
 .cv-page h3 { font-size: 10pt; font-weight: 700; color: var(--cv-ink); break-after: avoid; }
-.cv-page .cv-date { font-weight: 400; }
+.cv-page .cv-date { display: inline-block; margin-right: 2mm; color: var(--cv-accent); font-size: 9pt; font-weight: 700; white-space: nowrap; }
 .cv-page .cv-entry + .cv-entry { margin-top: 2mm; }
 .cv-page .cv-entry-context { margin-top: .5mm; margin-bottom: 1mm; }
-.cv-page .cv-employer-header { display: flex; align-items: center; justify-content: space-between; gap: 3mm; break-inside: avoid; }
-.cv-page .cv-employer-header > div { min-width: 0; }
-.cv-page .cv-employer-logo { display: block; width: 18mm; height: auto; flex-shrink: 0; }
+.cv-page .cv-employer-line { display: flex; align-items: center; justify-content: space-between; gap: 3mm; flex-wrap: wrap; break-inside: avoid; }
+.cv-page .cv-employer-name { display: flex; align-items: center; gap: 1.2mm; }
+.cv-page .cv-employer-logo { display: block; width: 7mm; height: auto; flex-shrink: 0; filter: grayscale(1) contrast(4); }
 .cv-page ul { list-style: disc outside; padding-left: 4.5mm; margin-top: 1mm; }
 .cv-page li { padding-left: .3mm; margin-bottom: .5mm; }
 .cv-page .cv-skill-list { list-style: none; padding-left: 0; }
@@ -105,6 +105,7 @@
   .cv-page h3 { font-size: 14px; }
   .cv-page .cv-contact { font-size: 12px; }
   .cv-page .cv-date { display: block; }
+  .cv-page .cv-employer-line { align-items: flex-start; }
   .cv-page .cv-header { grid-template-columns: 75px minmax(0, 1fr) 70px; gap: 10px; }
   .cv-page .cv-photo { width: 75px; height: 98px; }
   .cv-page .cv-qr { width: 70px; }

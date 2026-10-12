@@ -53,8 +53,10 @@ HTML réellement publié sur GitHub Pages, pas seulement à un aperçu JavaScrip
   par `build-cv.mjs` pour éviter de mélanger un ancien style et un nouveau contenu.
 - Dans l'en-tête, afficher « 25 ans » et « Permis B · Non véhiculé », sans doubler
   le QR code par l'adresse écrite du portfolio. Conserver son lien cliquable.
-  Le logo original Layer Data accompagne l'expérience : ses couleurs de marque
-  sont autorisées comme celles de la photo, tandis que le texte reste noir et bleu.
+  Les dates précèdent chaque diplôme, poste et projet daté. Dans l'expérience,
+  placer le logo près du nom Layer Data sur la seconde ligne, avec le lieu à droite.
+  Afficher ce logo en noir et blanc pour respecter les deux encres noir et bleu ;
+  conserver le fichier de marque original et la photo.
   Décrire le rapport Power BI comme un rapport Supply Chain pour un client
   agroalimentaire anonyme. R est confirmé parmi les langages utilisés ; ne pas
   présenter de nouvelles bibliothèques comme maîtrisées sans confirmation.

@@ -35,6 +35,10 @@ def inspect_pdf(path):
         assert phrase in text, f"PDF extraction lost {phrase}"
     positions = [text.index(heading) for heading in HEADINGS]
     assert positions == sorted(positions), "PDF reading order must match section order"
+    for phrase in ["Depuis 09/2026 BUT Science des données", "10/2022 – 01/2026 BTS Informatique",
+                   "2021 Baccalauréat Mathématiques", "02/2026 – 08/2026 Analyste de données / Développeur web",
+                   "09/2025 – 02/2026 Technicien informatique et gérant", "2026 AVDA Auto"]:
+        assert phrase in text, f"Date must precede the entry title: {phrase}"
     for phrase in ["★", "Compétences & qualités", "Pourquoi me choisir", "FacturaPro", "BRIDGE", "AGRANA", "SOGRAL", "Informatique, bases de données et systèmes"]:
         assert phrase not in text, f"Removed or confidential content reappeared: {phrase}"
     colors = set()
@@ -78,6 +82,10 @@ try:
             assert normalise(page.locator("#cv-content").inner_text()) == exported_text
             assert page.locator(".cv-photo").is_visible()
             assert page.locator(".cv-employer-logo").is_visible()
+            assert page.locator(".cv-entry h3").evaluate_all("nodes => nodes.every(node => node.firstElementChild.matches('.cv-date'))"), "Dates must come first"
+            logo = page.locator(".cv-employer-logo")
+            assert logo.evaluate("el => getComputedStyle(el).filter") == "grayscale(1) contrast(4)", "Logo must use black and white"
+            assert logo.locator("..").inner_text().strip() == "Layer Data", "Logo must accompany the company name"
             assert page.locator(".cv-qr img").is_visible()
             assert page.locator(".cv-qr").get_attribute("href") == "https://hctsamyuct.github.io/"
             for image in page.locator("#cv-content img").all():
