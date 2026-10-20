@@ -58,7 +58,10 @@ manifest = json.loads((ROOT / "assets/cv/CV_Samy_Houchat.build.json").read_text(
 assert set(manifest["sources"]) == {"templates/cv.html", "css/cv.css", "cv_samy_houchat.html",
                                    "assets/img/photo_opt.jpg", "assets/img/qr-portfolio-cv.svg", "assets/img/layer_data_logo_opt.png"}
 for name, digest in manifest["sources"].items():
-    assert hashlib.sha256((ROOT / name).read_bytes()).hexdigest() == digest, "CV sources changed: regenerate the PDF"
+    data = (ROOT / name).read_bytes()
+    if name.endswith((".html", ".css")):
+        data = data.replace(b"\r\n", b"\n")
+    assert hashlib.sha256(data).hexdigest() == digest, "CV sources changed: regenerate the PDF"
 assert hashlib.sha256(PDF.read_bytes()).hexdigest() == manifest["pdf_sha256"]
 exported_text = inspect_pdf(PDF)
 

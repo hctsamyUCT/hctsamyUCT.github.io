@@ -4,7 +4,13 @@ import { createHash } from 'node:crypto';
 const root = new URL('../', import.meta.url);
 const content = readFileSync(new URL('templates/cv.html', root), 'utf8').trim();
 const fingerprint = createHash('sha256');
-for (const name of ['templates/cv.html', 'css/cv.css', 'assets/img/photo_opt.jpg', 'assets/img/qr-portfolio-cv.svg', 'assets/img/layer_data_logo_opt.png']) fingerprint.update(readFileSync(new URL(name, root)));
+for (const name of ['templates/cv.html', 'css/cv.css', 'assets/img/photo_opt.jpg', 'assets/img/qr-portfolio-cv.svg', 'assets/img/layer_data_logo_opt.png']) {
+  let buf = readFileSync(new URL(name, root));
+  if (name.endsWith('.html') || name.endsWith('.css')) {
+    buf = Buffer.from(buf.toString('utf8').replace(/\r\n/g, '\n'), 'utf8');
+  }
+  fingerprint.update(buf);
+}
 const version = fingerprint.digest('hex').slice(0, 12);
 const pdfURL = `/assets/cv/CV_Samy_Houchat.pdf?v=${version}`;
 const standalone = new URL('cv_samy_houchat.html', root);
@@ -69,12 +75,14 @@ home = home.slice(0, start) + dialog + home.slice(end);
 const versionPDF = source => source.replace(/(assets\/cv\/CV_Samy_Houchat\.pdf)(?:\?v=[a-f0-9]+)?(?=["'])/g, `$1?v=${version}`);
 const modular = new URL('data/projects.js', root);
 const modularContent = versionPDF(readFileSync(modular, 'utf8'));
+const normalizeNL = str => str.replace(/\r\n/g, '\n');
 for (const [path, output] of [[standalone, cv], [portfolio, versionPDF(home)], [modular, modularContent]]) {
+  const normalizedOutput = normalizeNL(output);
   if (process.argv.includes('--check')) {
-    if (readFileSync(path, 'utf8') !== output) {
+    if (normalizeNL(readFileSync(path, 'utf8')) !== normalizedOutput) {
       console.error('Shared CV content is stale. Run: node scripts/build-cv.mjs');
       process.exitCode = 1;
     }
-  } else writeFileSync(path, output);
+  } else writeFileSync(path, normalizedOutput);
 }
 if (!process.exitCode) console.log(process.argv.includes('--check') ? 'PASS: web CV and dialog match their shared template.' : 'Updated web CV and portfolio dialog.');

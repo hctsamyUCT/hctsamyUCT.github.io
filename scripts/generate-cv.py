@@ -47,7 +47,12 @@ try:
         (ROOT / "assets/cv/CV_Samy_Houchat_Stage_Data_Analyst_BI.pdf").write_bytes(pdf.read_bytes())
         sources = ["templates/cv.html", "css/cv.css", "cv_samy_houchat.html",
                    "assets/img/photo_opt.jpg", "assets/img/qr-portfolio-cv.svg", "assets/img/layer_data_logo_opt.png"]
-        manifest = {"sources": {name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest() for name in sources},
+        def get_source_bytes(name):
+            data = (ROOT / name).read_bytes()
+            if name.endswith((".html", ".css")):
+                data = data.replace(b"\r\n", b"\n")
+            return data
+        manifest = {"sources": {name: hashlib.sha256(get_source_bytes(name)).hexdigest() for name in sources},
                     "pdf_sha256": hashlib.sha256(target.read_bytes()).hexdigest()}
         (ROOT / "assets/cv/CV_Samy_Houchat.build.json").write_text(json.dumps(manifest, indent=2) + "\n")
         print(f"PASS: exported 1 tagged A4 page with selectable text ({target.stat().st_size} bytes).")
