@@ -1,6 +1,6 @@
 # CV pour la recherche de stage
 
-Le CV vise un stage Data Analyst / Business Intelligence de **10 semaines à
+Le CV vise un stage en Science des Données (Data, Statistiques & BI) de **10 semaines à
 partir du 1er avril 2027**, avec mobilité France entière. Les compétences et dates
 proviennent du parcours déjà décrit dans le dépôt ; aucun diplôme terminé,
 résultat chiffré ou outil utilisé en mission n'a été ajouté sans source.
