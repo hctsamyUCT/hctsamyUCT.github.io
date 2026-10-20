@@ -59,7 +59,7 @@ assert set(manifest["sources"]) == {"templates/cv.html", "css/cv.css", "cv_samy_
                                    "assets/img/photo_opt.jpg", "assets/img/qr-portfolio-cv.svg", "assets/img/layer_data_logo_opt.png"}
 for name, digest in manifest["sources"].items():
     data = (ROOT / name).read_bytes()
-    if name.endswith((".html", ".css")):
+    if name.endswith((".html", ".css", ".svg")):
         data = data.replace(b"\r\n", b"\n")
     assert hashlib.sha256(data).hexdigest() == digest, "CV sources changed: regenerate the PDF"
 assert hashlib.sha256(PDF.read_bytes()).hexdigest() == manifest["pdf_sha256"]

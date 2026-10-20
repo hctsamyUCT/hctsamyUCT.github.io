@@ -49,7 +49,7 @@ try:
                    "assets/img/photo_opt.jpg", "assets/img/qr-portfolio-cv.svg", "assets/img/layer_data_logo_opt.png"]
         def get_source_bytes(name):
             data = (ROOT / name).read_bytes()
-            if name.endswith((".html", ".css")):
+            if name.endswith((".html", ".css", ".svg")):
                 data = data.replace(b"\r\n", b"\n")
             return data
         manifest = {"sources": {name: hashlib.sha256(get_source_bytes(name)).hexdigest() for name in sources},

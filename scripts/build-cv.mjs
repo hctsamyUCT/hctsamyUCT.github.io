@@ -6,7 +6,7 @@ const content = readFileSync(new URL('templates/cv.html', root), 'utf8').trim();
 const fingerprint = createHash('sha256');
 for (const name of ['templates/cv.html', 'css/cv.css', 'assets/img/photo_opt.jpg', 'assets/img/qr-portfolio-cv.svg', 'assets/img/layer_data_logo_opt.png']) {
   let buf = readFileSync(new URL(name, root));
-  if (name.endsWith('.html') || name.endsWith('.css')) {
+  if (name.endsWith('.html') || name.endsWith('.css') || name.endsWith('.svg')) {
     buf = Buffer.from(buf.toString('utf8').replace(/\r\n/g, '\n'), 'utf8');
   }
   fingerprint.update(buf);
