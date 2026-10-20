@@ -18,15 +18,17 @@
 .cv-page p, .cv-page h1, .cv-page h2, .cv-page h3, .cv-page ul { margin: 0; }
 .cv-page a { color: var(--cv-ink); text-decoration: none; overflow-wrap: anywhere; }
 .cv-page strong { color: inherit; font-weight: 700; }
-.cv-page .cv-header { display: grid; grid-template-columns: 22mm minmax(0, 1fr) 18mm; gap: 3mm; align-items: center; padding-bottom: 3mm; border-bottom: 2px solid var(--cv-accent); }
+.cv-page .cv-nowrap { white-space: nowrap; }
+.cv-page .cv-header { display: grid; grid-template-columns: 22mm minmax(0, 1fr) 28mm; gap: 3mm; align-items: center; padding-bottom: 3mm; border-bottom: 2px solid var(--cv-accent); }
 .cv-page .cv-identity { min-width: 0; }
 .cv-page .cv-photo { display: block; width: 22mm; height: 28mm; object-fit: cover; object-position: center top; border: 1px solid var(--cv-accent); border-radius: 2mm; }
-.cv-page .cv-qr { display: flex; flex-direction: column; align-items: center; gap: 1mm; font-size: 9pt; text-decoration: none; }
-.cv-page .cv-qr img { display: block; width: 18mm; height: 18mm; }
+.cv-page .cv-qr { display: flex; flex-direction: column; align-items: center; gap: .5mm; font-size: 9pt; text-decoration: none; text-align: center; }
+.cv-page .cv-qr img { display: block; width: 17mm; height: 17mm; }
+.cv-page .cv-qr-url { font-size: 6.8pt; color: var(--cv-accent); font-weight: 700; line-height: 1.1; white-space: nowrap; }
 .cv-page .cv-name { font-size: 22pt; line-height: 1.1; font-weight: 700; color: var(--cv-ink); letter-spacing: -.02em; }
 .cv-page .cv-target { margin-top: 1.2mm; font-size: 11pt; font-weight: 700; color: var(--cv-accent); }
 .cv-page .cv-objective { margin-top: 1.5mm; border: 1px solid var(--cv-accent); border-radius: 1mm; padding: 1mm 1.5mm; font-size: 9pt; }
-.cv-page .cv-contact { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1mm 3mm; margin-top: 2mm; font-size: 9pt; font-style: normal; line-height: 1.3; }
+.cv-page .cv-contact { display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); gap: 1mm 4mm; margin-top: 2mm; font-size: 9pt; font-style: normal; line-height: 1.3; }
 .cv-page .cv-contact-item { display: flex; align-items: center; gap: 1.2mm; min-width: 0; }
 .cv-page .cv-contact-item svg { display: block; flex: 0 0 3mm; width: 3mm; height: 3mm; fill: var(--cv-accent); color: var(--cv-accent); }
 .cv-page .cv-contact-item a, .cv-page .cv-contact-item span { min-width: 0; }
@@ -49,8 +51,11 @@
 .cv-page .cv-employer-line { display: flex; align-items: center; justify-content: space-between; gap: 3mm; flex-wrap: wrap; break-inside: avoid; }
 .cv-page .cv-employer-name { display: flex; align-items: center; gap: 2mm; }
 .cv-page .cv-employer-logo { display: block; width: 14mm; height: auto; flex-shrink: 0; filter: grayscale(1) contrast(4); }
+.cv-page .cv-employer-place { color: var(--cv-ink); }
 .cv-page ul { list-style: disc outside; padding-left: 4.5mm; margin-top: 1mm; }
 .cv-page li { padding-left: .3mm; margin-bottom: .5mm; }
+.cv-page .cv-bullet-list { list-style: none; padding-left: 0; margin-top: 1mm; }
+.cv-page .cv-bullet-list li { padding-left: 3.5mm; text-indent: -3.5mm; margin-bottom: .5mm; }
 .cv-page .cv-skill-list { list-style: none; padding-left: 0; }
 .cv-page .cv-skill-list li { padding-left: 0; }
 

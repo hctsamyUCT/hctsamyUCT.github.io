@@ -51,8 +51,10 @@ HTML réellement publié sur GitHub Pages, pas seulement à un aperçu JavaScrip
   à 100 %. Le bouton de téléchargement propose le PDF déjà validé, indépendamment
   des paramètres du dialogue d'impression. Les CSS et liens PDF sont versionnés
   par `build-cv.mjs` pour éviter de mélanger un ancien style et un nouveau contenu.
-- Dans l'en-tête, afficher « 25 ans » et « Permis B · Non véhiculé », sans doubler
-  le QR code par l'adresse écrite du portfolio. Conserver son lien cliquable.
+- Dans l'en-tête, afficher « 25 ans » et « Permis B · Non véhiculé », ainsi que
+  l'adresse courte hctsamyuct.github.io sous le QR code pour la couche texte des ATS.
+  Conserver son lien cliquable. Le bouton de téléchargement propose le fichier sous le nom
+  `CV_Samy_Houchat_Stage_Data_Analyst_BI.pdf`.
   Les dates précèdent chaque diplôme, poste et projet daté. Dans l'expérience,
   placer le logo près du nom Layer Data sur la seconde ligne, avec le lieu à droite.
   Afficher ce logo en noir et blanc pour respecter les deux encres noir et bleu ;

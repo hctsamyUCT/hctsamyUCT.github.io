@@ -23,7 +23,7 @@ const cv = `<!DOCTYPE html>
     <span>CV — Samy Houchat</span>
     <div class="cv-toolbar-actions">
       <a href="/">Retour au portfolio</a>
-      <a href="${pdfURL}" download="CV_Samy_Houchat.pdf" class="cv-download" id="cv-download-pdf">Télécharger le PDF — 1 page A4</a>
+      <a href="${pdfURL}" download="CV_Samy_Houchat_Stage_Data_Analyst_BI.pdf" class="cv-download" id="cv-download-pdf">Télécharger le PDF — 1 page A4</a>
       <button type="button" onclick="window.print()" id="btn-print-cv">Imprimer</button>
     </div>
   </aside>
@@ -53,7 +53,7 @@ const dialog = `  <div class="cv-overlay-backdrop" id="cv-modal-overlay" role="d
       <span id="cv-dialog-title">CV — Samy Houchat</span>
       <div class="cv-toolbar-actions">
         <button type="button" id="btn-close-cv">Retour au portfolio</button>
-        <a href="${pdfURL}" download="CV_Samy_Houchat.pdf" class="cv-download" id="cv-download-pdf">Télécharger le PDF — 1 page A4</a>
+        <a href="${pdfURL}" download="CV_Samy_Houchat_Stage_Data_Analyst_BI.pdf" class="cv-download" id="cv-download-pdf">Télécharger le PDF — 1 page A4</a>
         <button type="button" onclick="window.print()" id="btn-print-cv">Imprimer</button>
       </div>
     </aside>

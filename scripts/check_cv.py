@@ -28,10 +28,11 @@ def inspect_pdf(path):
     assert "/StructTreeRoot" in reader.trailer["/Root"], "PDF must retain semantic tags"
     assert all("/ToUnicode" in font.get_object() for font in page["/Resources"]["/Font"].values()), "Fonts must support text extraction"
     text = normalise(page.extract_text())
-    for phrase in ["Samy HOUCHAT", "10 semaines", "1er avril 2027", "07 46 15 66 57", "samyhctpro@gmail.com",
+    for phrase in ["Samy HOUCHAT", "10 semaines", "1er avril 2027", "+33 7 46 15 66 57", "samyhctpro@gmail.com",
                    "25 ans", "Permis B · Non véhiculé", "BUT Science des données (SD)", "Parcours Exploration et Modélisation Statistique",
                    "Formation actuellement en cours", "BTS Informatique", "option Bases de données", "Major de promotion",
-                   "Layer Data", "rapport Supply Chain sous Power BI", "client agroalimentaire", "Python", "R, SQL", "ETL", "AVDA Auto", "Anglais", "B2"]:
+                   "Layer Data", "rapport Supply Chain sous Power BI", "client agroalimentaire", "Python", "SQL", "Langage R (RStudio)", "ETL",
+                   "KPI", "reporting", "data visualisation", "DAX", "Power Query", "AVDA Auto", "Anglais", "B2"]:
         assert phrase in text, f"PDF extraction lost {phrase}"
     positions = [text.index(heading) for heading in HEADINGS]
     assert positions == sorted(positions), "PDF reading order must match section order"
@@ -47,7 +48,7 @@ def inspect_pdf(path):
             colors.add(tuple(round(float(channel), 4) for channel in operands))
     assert colors <= INKS and {(0.0, 0.0, 0.0), (0.1176, 0.251, 0.6863)} <= colors, f"Unexpected ink colors: {colors}"
     assert len(page.images) >= 2, "Portrait or company logo missing from PDF"
-    assert "hctsamyuct.github.io" not in text, "Written portfolio URL must not duplicate the QR code"
+    assert "hctsamyuct.github.io" in text, "Written portfolio URL must accompany the QR code for ATS"
     links = {str(ref.get_object().get("/A", {}).get("/URI", "")) for ref in page.get("/Annots", [])}
     assert {"mailto:samyhctpro@gmail.com", "https://hctsamyuct.github.io/", "https://www.linkedin.com/in/samyhouchat"} <= links
     return text
@@ -99,6 +100,7 @@ try:
                 assert word in bold
             download = page.locator("#cv-download-pdf").get_attribute("href")
             assert download.startswith("/assets/cv/CV_Samy_Houchat.pdf?v=")
+            assert page.locator("#cv-download-pdf").get_attribute("download") == "CV_Samy_Houchat_Stage_Data_Analyst_BI.pdf"
             response = page.request.get(base + download)
             assert response.status == 200 and response.body() == PDF.read_bytes()
             settings = [
