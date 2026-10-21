@@ -24,15 +24,16 @@ HTML réellement publié sur GitHub Pages, pas seulement à un aperçu JavaScrip
   réciproques et les deux URL dans le sitemap. Ne pas rediriger automatiquement
   les visiteurs selon leur navigateur. Mettre à jour `data/en-translations.json`
   dès qu'un texte français évolue ; ne pas éditer `en/index.html` directement.
-  Le CV et son PDF restent en français, avec des liens explicitement étiquetés
-  sur la version anglaise. Ne pas traduire approximativement un diplôme en un
-  diplôme étranger différent, ni présenter une formation en cours comme terminée.
+  Le portfolio propose le CV et son PDF en français sur `/` et en anglais
+  sur `/en/`. Ne pas traduire approximativement un diplôme en un diplôme étranger
+  différent, ni présenter une formation en cours comme terminée.
 - Le script intégré à `index.html` est celui actuellement exécuté par le site.
   Les fichiers `data/projects.js` et `js/main.js` sont des sources modulaires
   historiques ; les modifier seuls ne modifie pas le portfolio publié.
-- Le CV a une seule source de contenu : `templates/cv.html`. Modifier ce fichier,
-  puis exécuter `node scripts/build-cv.mjs` pour synchroniser le CV web et la
-  fenêtre intégrée. Les styles sont dans `css/cv.css`, limités au CV. Conserver
+- Les sources du CV sont `templates/cv.html` (FR) et `templates/cv-en.html` (EN).
+  Modifier ces fichiers, puis exécuter `node scripts/build-cv.mjs` pour synchroniser
+  les CV web (`cv_samy_houchat.html` et `cv_samy_houchat_en.html`) et les fenêtres
+  intégrées. Les styles sont dans `css/cv.css`, limités au CV. Conserver
   une lecture sur une colonne, deux encres (noir et bleu de titres) sur papier
   blanc, le texte sélectionnable et des mots-clés en gras. La formation précède
   l'expérience et les compétences techniques. Ne pas réintroduire les étoiles,

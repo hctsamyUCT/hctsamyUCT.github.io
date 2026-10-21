@@ -95,13 +95,21 @@ try:
                     assert page.locator("html").get_attribute("data-theme") != previous_theme
                     page.wait_for_timeout(600)  # Wait for the theme's CSS color transitions to settle.
                     check_contrast(page)
-                    if language == "fr":
-                        page.locator("#hero-cv-view-btn").click()
-                        assert page.locator("#cv-modal-overlay").get_attribute("aria-hidden") == "false"
-                        expect(page.locator("#cv-content")).to_be_visible()
-                        page.keyboard.press("Escape")
+                    page.locator("#hero-cv-view-btn").click()
+                    assert page.locator("#cv-modal-overlay").get_attribute("aria-hidden") == "false"
+                    expect(page.locator("#cv-content")).to_be_visible()
+                    if language == "en":
+                        assert "Profile" in page.locator("#cv-content").inner_text()
                     else:
-                        assert page.locator("#hero-cv-fr-link").get_attribute("href") == "/cv_samy_houchat.html"
+                        assert "Profil" in page.locator("#cv-content").inner_text()
+                    page.keyboard.press("Escape")
+                cv_btn = page.locator("#hero-cv-btn")
+                if language == "en":
+                    assert "CV_Samy_Houchat_EN.pdf" in cv_btn.get_attribute("href")
+                    assert cv_btn.get_attribute("download") == "CV_Samy_Houchat_Internship_Data_Analyst_BI.pdf"
+                else:
+                    assert "CV_Samy_Houchat.pdf" in cv_btn.get_attribute("href")
+                    assert cv_btn.get_attribute("download") == "CV_Samy_Houchat_Stage_Data_Analyst_BI.pdf"
                 assert not errors, errors
                 assert not bad_responses, bad_responses
                 # Verify a real language navigation works, including without JS.

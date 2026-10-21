@@ -9,13 +9,23 @@
   </url>
   <url>
     <loc>https://hctsamyuct.github.io/en/</loc>
-    <lastmod>2026-10-12</lastmod>
+    <lastmod>2026-10-21</lastmod>
     <xhtml:link rel="alternate" hreflang="fr" href="https://hctsamyuct.github.io/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://hctsamyuct.github.io/en/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://hctsamyuct.github.io/" />
   </url>
   <url>
     <loc>https://hctsamyuct.github.io/cv_samy_houchat.html</loc>
-    <lastmod>2026-10-12</lastmod>
+    <lastmod>2026-10-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://hctsamyuct.github.io/cv_samy_houchat.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://hctsamyuct.github.io/cv_samy_houchat_en.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hctsamyuct.github.io/cv_samy_houchat.html" />
+  </url>
+  <url>
+    <loc>https://hctsamyuct.github.io/cv_samy_houchat_en.html</loc>
+    <lastmod>2026-10-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://hctsamyuct.github.io/cv_samy_houchat.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://hctsamyuct.github.io/cv_samy_houchat_en.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hctsamyuct.github.io/cv_samy_houchat.html" />
   </url>
 </urlset>

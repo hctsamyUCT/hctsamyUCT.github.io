@@ -57,18 +57,18 @@ l'annonce et adapter les mots-clés aux compétences réellement détenues.
 
 ## Maintenir les versions
 
-1. Modifier `templates/cv.html` et/ou `css/cv.css`.
+1. Modifier `templates/cv.html`, `templates/cv-en.html` et/ou `css/cv.css`.
 2. Exécuter `node scripts/build-cv.mjs`, `node scripts/render-seo.mjs`, puis
    `node scripts/build-en.mjs`.
 3. Installer au besoin `playwright==1.62.0` et `pypdf==6.10.0`, ainsi que Chromium
    avec `python3 -m playwright install chromium`.
 4. Exécuter `python3 scripts/generate-cv.py`, puis `python3 scripts/check_cv.py`.
-5. Inclure le PDF et `assets/cv/CV_Samy_Houchat.build.json` dans la modification.
+5. Inclure les PDFs générés (FR et EN) et `assets/cv/CV_Samy_Houchat.build.json` dans la modification.
 
 La génération ne coupe jamais le texte pour respecter une page : elle échoue si
-le contenu déborde. Le manifeste permet de détecter un PDF qui n'a pas été mis
-à jour après une modification de ses sources. La CI contrôle le CV web, le PDF
-distribué et une impression de la fenêtre intégrée au portfolio.
+le contenu déborde. Le manifeste permet de détecter des PDFs qui n'ont pas été mis
+à jour après une modification de leurs sources. La CI contrôle le CV web (FR et EN),
+les PDFs distribués et l'impression de la fenêtre intégrée au portfolio.
 
 L'impression A4 à 100 % est également testée à deux largeurs de navigateur,
 avec les réglages par défaut, des marges de 15 et 20 mm et des en-têtes/pieds de

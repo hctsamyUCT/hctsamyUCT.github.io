@@ -1,10 +1,11 @@
-// One shared content template for the standalone CV and the portfolio's CV dialog.
+// One shared content template for the standalone CV and the portfolio's CV dialog (FR and EN).
 import { readFileSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 const root = new URL('../', import.meta.url);
 const content = readFileSync(new URL('templates/cv.html', root), 'utf8').trim();
+const contentEN = readFileSync(new URL('templates/cv-en.html', root), 'utf8').trim();
 const fingerprint = createHash('sha256');
-for (const name of ['templates/cv.html', 'css/cv.css', 'assets/img/photo_opt.jpg', 'assets/img/qr-portfolio-cv.svg', 'assets/img/layer_data_logo_opt.png']) {
+for (const name of ['templates/cv.html', 'templates/cv-en.html', 'css/cv.css', 'assets/img/photo_opt.jpg', 'assets/img/qr-portfolio-cv.svg', 'assets/img/layer_data_logo_opt.png']) {
   let buf = readFileSync(new URL(name, root));
   if (name.endsWith('.html') || name.endsWith('.css') || name.endsWith('.svg')) {
     buf = Buffer.from(buf.toString('utf8').replace(/\r\n/g, '\n'), 'utf8');
@@ -13,14 +14,25 @@ for (const name of ['templates/cv.html', 'css/cv.css', 'assets/img/photo_opt.jpg
 }
 const version = fingerprint.digest('hex').slice(0, 12);
 const pdfURL = `/assets/cv/CV_Samy_Houchat.pdf?v=${version}`;
+const pdfURLEn = `/assets/cv/CV_Samy_Houchat_EN.pdf?v=${version}`;
 const standalone = new URL('cv_samy_houchat.html', root);
+const standaloneEN = new URL('cv_samy_houchat_en.html', root);
 const portfolio = new URL('index.html', root);
+
 let head = readFileSync(standalone, 'utf8').match(/<head>([\s\S]*?)<\/head>/)[1];
 head = head.replace(/\s*<style>[\s\S]*?<\/style>/g, '');
 head = head.replace(/\s*<link[^>]*(?:fonts\.googleapis|fonts\.gstatic)[^>]*>/g, '');
 head = head.replace(/\s*<!-- Google Fonts[^>]*-->/g, '');
 head = head.replace(/\s*<link rel="stylesheet" href="\/css\/cv.css(?:\?v=[^"]+)?">/g, '');
 head = head.trimEnd() + `\n  <link rel="stylesheet" href="/css/cv.css?v=${version}">\n`;
+
+let headEN = readFileSync(standaloneEN, 'utf8').match(/<head>([\s\S]*?)<\/head>/)[1];
+headEN = headEN.replace(/\s*<style>[\s\S]*?<\/style>/g, '');
+headEN = headEN.replace(/\s*<link[^>]*(?:fonts\.googleapis|fonts\.gstatic)[^>]*>/g, '');
+headEN = headEN.replace(/\s*<!-- Google Fonts[^>]*-->/g, '');
+headEN = headEN.replace(/\s*<link rel="stylesheet" href="\/css\/cv.css(?:\?v=[^"]+)?">/g, '');
+headEN = headEN.trimEnd() + `\n  <link rel="stylesheet" href="/css/cv.css?v=${version}">\n`;
+
 const cv = `<!DOCTYPE html>
 <html lang="fr">
 <head>${head}</head>
@@ -41,6 +53,28 @@ ${content}
 </body>
 </html>
 `;
+
+const cvEN = `<!DOCTYPE html>
+<html lang="en">
+<head>${headEN}</head>
+<body class="cv-document">
+  <aside class="cv-toolbar" aria-label="CV Actions">
+    <span>CV — Samy Houchat</span>
+    <div class="cv-toolbar-actions">
+      <a href="/en/">Back to portfolio</a>
+      <a href="${pdfURLEn}" download="CV_Samy_Houchat_Internship_Data_Analyst_BI.pdf" class="cv-download" id="cv-download-pdf">Download PDF — 1 A4 page</a>
+      <button type="button" onclick="window.print()" id="btn-print-cv">Print</button>
+    </div>
+  </aside>
+  <div class="cv-page-wrapper">
+    <main class="cv-page" id="cv-content">
+${contentEN}
+    </main>
+  </div>
+</body>
+</html>
+`;
+
 let home = readFileSync(portfolio, 'utf8');
 const legacyCSS = home.indexOf('   CV OVERLAY PLEIN ÉCRAN');
 if (legacyCSS >= 0) {
@@ -76,13 +110,13 @@ const versionPDF = source => source.replace(/(assets\/cv\/CV_Samy_Houchat\.pdf)(
 const modular = new URL('data/projects.js', root);
 const modularContent = versionPDF(readFileSync(modular, 'utf8'));
 const normalizeNL = str => str.replace(/\r\n/g, '\n');
-for (const [path, output] of [[standalone, cv], [portfolio, versionPDF(home)], [modular, modularContent]]) {
+for (const [path, output] of [[standalone, cv], [standaloneEN, cvEN], [portfolio, versionPDF(home)], [modular, modularContent]]) {
   const normalizedOutput = normalizeNL(output);
   if (process.argv.includes('--check')) {
     if (normalizeNL(readFileSync(path, 'utf8')) !== normalizedOutput) {
-      console.error('Shared CV content is stale. Run: node scripts/build-cv.mjs');
+      console.error(`Shared CV content is stale. Run: node scripts/build-cv.mjs`);
       process.exitCode = 1;
     }
   } else writeFileSync(path, normalizedOutput);
 }
-if (!process.exitCode) console.log(process.argv.includes('--check') ? 'PASS: web CV and dialog match their shared template.' : 'Updated web CV and portfolio dialog.');
+if (!process.exitCode) console.log(process.argv.includes('--check') ? 'PASS: web CV and dialog match their shared template.' : 'Updated web CV (FR/EN) and portfolio dialog.');

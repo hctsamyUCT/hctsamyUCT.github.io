@@ -12,7 +12,8 @@ import xml.etree.ElementTree as ET
 ROOT = Path(__file__).resolve().parents[1]
 BASE = "https://hctsamyuct.github.io/"
 INDEXABLE = {"index.html": BASE, "en/index.html": BASE + "en/",
-             "cv_samy_houchat.html": BASE + "cv_samy_houchat.html"}
+             "cv_samy_houchat.html": BASE + "cv_samy_houchat.html",
+             "cv_samy_houchat_en.html": BASE + "cv_samy_houchat_en.html"}
 
 
 def require(condition, message):
@@ -105,7 +106,7 @@ class Page(HTMLParser):
 pages = {name: Page(ROOT / name) for name in [*INDEXABLE, "404.html"]}
 for name, url in INDEXABLE.items():
     p = pages[name]
-    expected_lang = "en" if name.startswith("en/") else "fr"
+    expected_lang = "en" if (name.startswith("en/") or "_en." in name) else "fr"
     require(p.lang == expected_lang, f"{name}: incorrect page language")
     require(p.h1 == 1 and p.mains == 1, f"{name}: expected one H1 and one main landmark")
     require("Samy Houchat" in p.title, f"{name}: missing name in title")
@@ -143,10 +144,16 @@ for name, url in INDEXABLE.items():
     if name in {"index.html", "en/index.html"}:
         require(p.alternates == {"fr": BASE, "en": BASE + "en/", "x-default": BASE},
                 f"{name}: missing reciprocal language alternates")
+    if name in {"cv_samy_houchat.html", "cv_samy_houchat_en.html"}:
+        require(p.alternates == {"fr": BASE + "cv_samy_houchat.html",
+                                 "en": BASE + "cv_samy_houchat_en.html",
+                                 "x-default": BASE + "cv_samy_houchat.html"},
+                f"{name}: missing reciprocal language alternates")
 
-require(pages["index.html"].title != pages["cv_samy_houchat.html"].title, "Page titles must be distinct")
-require(pages["index.html"].meta["description"] != pages["cv_samy_houchat.html"].meta["description"],
-        "Page descriptions must be distinct")
+titles = [pages[name].title for name in INDEXABLE]
+require(len(set(titles)) == len(titles), "Page titles must be distinct")
+descriptions = [pages[name].meta["description"] for name in INDEXABLE]
+require(len(set(descriptions)) == len(descriptions), "Page descriptions must be distinct")
 require("noindex" in pages["404.html"].meta.get("robots", ""), "404 must be noindex")
 
 for name, p in pages.items():
