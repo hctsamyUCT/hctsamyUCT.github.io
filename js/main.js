@@ -436,7 +436,7 @@ function renderContactSection() {
   const descEl = document.getElementById('contact-search-desc');
   if (descEl) {
     descEl.innerHTML = `
-      Je suis activement à la recherche d'un stage de <strong>${s.duration}</strong> débutant le <strong>${s.startDate}</strong> dans le domaine <strong>${s.domain}</strong>. Basé à Aurillac avec mobilité France entière.
+      Je suis activement à la recherche d'un stage de <strong>${s.duration}</strong> débutant le <strong>${s.startDate}</strong> dans le domaine <strong>${s.domain}</strong>. Basé à Aurillac avec mobilité : France, Luxembourg, Suisse, Canada, Allemagne.
     `;
   }
 

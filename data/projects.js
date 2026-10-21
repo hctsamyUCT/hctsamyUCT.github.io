@@ -13,7 +13,7 @@ export const siteConfig = {
     title: "Étudiant en science des données · Stage Data / BI",
     headline: "Des données brutes aux outils de décision : Python, SQL, Power BI et développement d'applications métiers. Avec une expérience Data et web chez Layer Data, je recherche un stage pour contribuer aux projets de votre équipe.",
     availabilityBadge: "Stage Data / BI · 10 semaines · dès le 1er avril 2027",
-    location: "Tout le territoire français",
+    location: "France, Luxembourg, Suisse, Canada, Allemagne",
     email: "samyhctpro@gmail.com",
     linkedin: "https://www.linkedin.com/in/samyhouchat",
     githubUser: "https://github.com/HouchatSamy?tab=repositories",
@@ -285,7 +285,7 @@ export const siteConfig = {
     duration: "10 semaines",
     startDate: "1er avril 2027",
     domain: "Analyse de données & Business Intelligence (Power BI, SQL, Python)",
-    locationScope: "Aurillac / Mobilité France entière (Titulaire du Permis B)",
+    locationScope: "Aurillac / Mobilité : France, Luxembourg, Suisse, Canada, Allemagne (Titulaire du Permis B)",
     callToAction: "Disponible pour échanger sur vos projets data et convenir d'un entretien."
   }
 };
