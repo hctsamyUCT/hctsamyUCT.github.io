@@ -43,7 +43,7 @@ try:
         if len(reader_fr.pages) != 1:
             raise RuntimeError(f"French CV renders to {len(reader_fr.pages)} pages; adjust content/layout without clipping it.")
         text_fr = reader_fr.pages[0].extract_text()
-        for keyword in ["Samy", "HOUCHAT", "1er avril 2027", "Formation", "Layer Data", "Power BI", "SQL", "Anglais"]:
+        for keyword in ["Samy", "HOUCHAT", "avril 2027", "Formation", "Layer Data", "Power BI", "SQL", "Anglais"]:
             assert keyword in text_fr, f"French PDF export lost text: {keyword}"
         target_fr = ROOT / "assets/cv/CV_Samy_Houchat.pdf"
         target_fr.write_bytes(pdf_path_fr.read_bytes())
@@ -61,7 +61,7 @@ try:
         if len(reader_en.pages) != 1:
             raise RuntimeError(f"English CV renders to {len(reader_en.pages)} pages; adjust content/layout without clipping it.")
         text_en = reader_en.pages[0].extract_text()
-        for keyword in ["Samy", "HOUCHAT", "1 April 2027", "Education", "Layer Data", "Power BI", "SQL", "English"]:
+        for keyword in ["Samy", "HOUCHAT", "April 2027", "Education", "Layer Data", "Power BI", "SQL", "English"]:
             assert keyword in text_en, f"English PDF export lost text: {keyword}"
         target_en = ROOT / "assets/cv/CV_Samy_Houchat_EN.pdf"
         target_en.write_bytes(pdf_path_en.read_bytes())

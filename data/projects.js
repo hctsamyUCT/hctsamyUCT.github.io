@@ -11,14 +11,14 @@ export const siteConfig = {
   profile: {
     name: "Samy Houchat",
     title: "Étudiant en science des données · Stage Data / BI",
-    headline: "Des données brutes aux outils de décision : Python, SQL, Power BI et développement d'applications métiers. Avec une expérience Data et web chez Layer Data, je recherche un stage pour contribuer aux projets de votre équipe.",
-    availabilityBadge: "Stage Data / BI · 10 semaines · dès le 1er avril 2027",
+    headline: "Je suis votre futur collaborateur data. En 2e année de BUT Science des données (expérience BI chez Layer Data), je mets ma double compétence en bases de données (BTS) et en Business Intelligence au service de la performance de vos équipes. Impliqué, je transforme vos données en solutions utiles pour vos métiers : SQL, Python/ETL, analyse statistique et Power BI (DAX). Ce que je recherche ? Un stage d'au moins 12 semaines en analyse de données et statistiques dès avril 2027. Et si nous prenions rendez-vous pour en discuter ?",
+    availabilityBadge: "Stage Data / BI · 10 à 12 semaines · dès avril 2027",
     location: "France, Luxembourg, Suisse, Canada, Allemagne",
     email: "samyhctpro@gmail.com",
     linkedin: "https://www.linkedin.com/in/samyhouchat",
     githubUser: "https://github.com/HouchatSamy?tab=repositories",
     githubOrg: "https://github.com/AVDAdz/avdaAuto",
-    cvPdfPath: "assets/cv/CV_Samy_Houchat.pdf?v=f4c048631fea",
+    cvPdfPath: "assets/cv/CV_Samy_Houchat.pdf?v=0a2514074e5d",
     photoPath: "assets/img/photo.png"
   },
 
@@ -135,6 +135,43 @@ export const siteConfig = {
 
   otherProjects: [
     {
+      id: "powerbi-sales-supplychain",
+      tag: "Projet Décisionnel · Supply Chain Analytics",
+      title: "Power BI — Sales & Supply Chain Analytics (OTIF)",
+      subtitle: "Pilotage de la performance commerciale et de l'efficacité logistique",
+      summary: "Projet décisionnel complet sous Power BI (cas NOVA COMMERCE) permettant de piloter simultanément la performance commerciale (13 M€ CA), l'analyse client et l'efficacité logistique Supply Chain via l'indicateur international OTIF (On-Time In-Full).",
+      status: "Production / Portfolio",
+      category: "Data & BI",
+      period: "2026",
+      stack: ["Power BI", "DAX", "Power Query", "Star Schema", "Supply Chain (OTIF)", "Analyse ABC / Pareto", "What-If Simulation"],
+      objective: "Piloter simultanément la performance commerciale (13 M€ CA), l'analyse client et l'efficacité logistique Supply Chain via l'indicateur international OTIF (On-Time In-Full).",
+      highlights: [
+        "Architecture en étoile multi-faits : 3 tables de faits (Ventes, Livraisons, Objectifs), 5 dimensions et paramètre de simulation What-If (sensibilité aux remises)",
+        "Mesures DAX avancées structurées en 7 Display Folders : CALCULATE, USERELATIONSHIP, Time Intelligence (YTD, YoY), analyse ABC/Pareto et rangs dynamiques",
+        "Pilotage Supply Chain & Qualité de service : suivi des taux OTIF, On-Time, In-Full, Fill Rate, retard moyen et diagnostic des anomalies logistiques"
+      ],
+      result: "Tableau de bord unifié permettant d'isoler les causes racines de non-qualité logistique et d'optimiser le taux de service client.",
+      thumbnail: "assets/img/bi-dashboard-commandes.png",
+      gallery: [
+        {
+          src: "assets/img/bi-dashboard-commandes.png",
+          alt: "Power BI Sales & Supply Chain Analytics — Tableau de bord OTIF",
+          caption: "Tableau de bord de pilotage du taux de service OTIF, retards et anomalies de livraison"
+        },
+        {
+          src: "assets/img/bi-dashboard-previsions.png",
+          alt: "Power BI — Analyse des ventes et prévisions",
+          caption: "Analyse comparative Ventes vs Objectifs et simulation What-If"
+        },
+        {
+          src: "assets/img/bi-modele-donnees.png",
+          alt: "Power BI — Modèle relationnel en constellation multi-faits",
+          caption: "Architecture en étoile multi-faits (FactVentes, FactLivraisons, FactObjectifs et 5 dimensions)"
+        }
+      ],
+      githubPersonal: "https://github.com/HouchatSamy/powerbi-sales-supplychain-analytics"
+    },
+    {
       id: "avda-auto",
       tag: "Application Desktop · Gestion Commerciale",
       title: "AVDA Auto — Gestion de Showroom Automobile",
@@ -205,7 +242,7 @@ export const siteConfig = {
   experiences: [
     {
       period: "24/02/2026 – 05/08/2026",
-      role: "Analyste de données & développeur web",
+      role: "Analyste de données & BI",
       company: "Layer Data",
       companySubtitle: "when humans meet Data",
       location: "Akbou, Algérie",
@@ -282,8 +319,8 @@ export const siteConfig = {
   ],
 
   internshipSearch: {
-    duration: "10 semaines",
-    startDate: "1er avril 2027",
+    duration: "10 à 12 semaines",
+    startDate: "Avril 2027",
     domain: "Analyse de données & Business Intelligence (Power BI, SQL, Python)",
     locationScope: "Aurillac / Mobilité : France, Luxembourg, Suisse, Canada, Allemagne (Titulaire du Permis B)",
     callToAction: "Disponible pour échanger sur vos projets data et convenir d'un entretien."
