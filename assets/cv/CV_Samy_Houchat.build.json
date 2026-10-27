@@ -1,14 +1,14 @@
 {
   "sources": {
-    "templates/cv.html": "dae360947fbd5fc2fdd065458e53535e61f0aa4a572ec2042a836cb65fda949b",
-    "templates/cv-en.html": "8ad29e97656dd329a4f238420ac9f633dc51cf68057b6253cf9e1a7b5a57fc14",
+    "templates/cv.html": "b57d5dd8860f913525f93cbe3bd41b04e14e3358b0621d1d795ccd48627de706",
+    "templates/cv-en.html": "0332addfd5487db79498ab6f75ef9f620bf89a8fab8e43b669d565dbade444ac",
     "css/cv.css": "4d26d7e0c7892bcf0e7c8b6ff37e6cea5fdbfc2a7eacdc3f7479efa9a03e1b83",
-    "cv_samy_houchat.html": "9e64e68d8fbe49cffbe1b1ae39cf8c71eef24b2693623d9b03284e81015a8537",
-    "cv_samy_houchat_en.html": "f10898f3ba65406ed1b38f5ed5c875a606bca245991c503fe9f97d678496a815",
+    "cv_samy_houchat.html": "7f0643f3791cbfceb175870154a38de57cdb694dabf54ac747e8edb7d56d0d2d",
+    "cv_samy_houchat_en.html": "55b27cad90d86a10993d1f74a3c4e9a8c3f6ba55a21e5267b1a9b97abc7b188b",
     "assets/img/photo_opt.jpg": "46c21402adf685dc2b30185e60ae9c09b3d291ec6cbc08b1ca4476ce48531ad0",
     "assets/img/qr-portfolio-cv.svg": "95389ba53f85fb190f2e8ce4390caf48d863d3f69381b43f7d7fb4e455450f99",
     "assets/img/layer_data_logo_opt.png": "bcae6e0437824a268057c79018b075b4ee5463323da73b88fa243c9b5e8722b1"
   },
-  "pdf_sha256": "11dd048e638b2fdfc8a34b2fc990980502e76c82cf6a3ff08231f772d5bae36b",
-  "pdf_en_sha256": "18290c5a186025d799c208325e3b0a7c728d05fd7940727b970f2b302d4720de"
+  "pdf_sha256": "3188c89acd6b48bbbc2e18e2d4feea1f7ad41bdcb019347c7cad0eac2e66bd52",
+  "pdf_en_sha256": "9de7a84d3c99562e315e243b10130c6d32c10c69c56a7a6533379381c06ff777"
 }
