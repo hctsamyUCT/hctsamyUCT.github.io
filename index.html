@@ -2259,12 +2259,72 @@ ul {
   .brand-name { font-size: .9rem; }
 }
 
-/* ---- VALUE CARDS ---- */
+/* ---- HERO CANVAS & MOTION IDENTITY (INSPIRED BY PAULHASENEYER.FR) ---- */
+.section-hero {
+  position: relative;
+  overflow: hidden;
+}
+.hero-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.55;
+}
+.hero-grid {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---- SCROLL REVEAL MOTION DESIGN (SEO-SAFE PROGRESSIVE ENHANCEMENT) ---- */
+@media (prefers-reduced-motion: no-preference) {
+  body.js-reveal-active [data-reveal] {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+  }
+  body.js-reveal-active [data-reveal].is-revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  body.js-reveal-active [data-reveal-delay="1"] { transition-delay: 0.08s; }
+  body.js-reveal-active [data-reveal-delay="2"] { transition-delay: 0.16s; }
+  body.js-reveal-active [data-reveal-delay="3"] { transition-delay: 0.24s; }
+  body.js-reveal-active [data-reveal-delay="4"] { transition-delay: 0.32s; }
+}
+
+/* ---- INTERACTIVE SPOTLIGHT CARD HOVER GLOW ---- */
+.value-card, .project-card, .skill-category-card, .featured-card {
+  position: relative;
+}
+.value-card::after, .project-card::after, .skill-category-card::after, .featured-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: radial-gradient(420px circle at var(--mouse-x, -999px) var(--mouse-y, -999px), rgba(129, 140, 248, 0.22), transparent 55%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+.value-card:hover::after, .project-card:hover::after, .skill-category-card:hover::after, .featured-card:hover::after {
+  opacity: 1;
+}
+
+/* ---- VALUE CARDS (BUSINESS IMPACT & DELIVERABLES - ZERO REPETITION) ---- */
 .value-cards-row {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.1rem;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
 }
 @media (max-width: 860px) {
   .value-cards-row { grid-template-columns: minmax(0, 1fr); }
@@ -2279,7 +2339,7 @@ ul {
   gap: 0.8rem;
   position: relative;
   overflow: hidden;
-  transition: transform 0.22s cubic-bezier(0.16,1,0.3,1), box-shadow 0.22s ease, border-color 0.22s ease;
+  transition: transform 0.24s cubic-bezier(0.16,1,0.3,1), box-shadow 0.24s ease, border-color 0.24s ease;
   cursor: default;
 }
 .value-card::before {
@@ -2327,20 +2387,30 @@ ul {
   margin: 0;
   flex-grow: 1;
 }
-.vc-tags {
+.vc-deliverable {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem;
+  align-items: flex-start;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  padding: 0.65rem 0.8rem;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: var(--text-main);
   margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
 }
-.vc-tag {
-  font-size: 0.72rem;
-  font-weight: 700;
-  padding: 0.2rem 0.55rem;
-  border-radius: var(--radius-full);
-  background: rgba(99,102,241,0.1);
-  color: var(--accent-primary);
-  border: 1px solid rgba(99,102,241,0.2);
+.vc-deliv-icon {
+  color: var(--vc-color, var(--accent-primary));
+  font-weight: 800;
+  font-size: 0.9rem;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.vc-deliv-text strong {
+  color: var(--vc-color, var(--accent-primary));
 }
 .vc-link {
   font-size: 0.82rem;
@@ -2354,6 +2424,54 @@ ul {
   transition: gap 0.15s ease;
 }
 .vc-link:hover { gap: 0.55rem; }
+
+/* ---- SKILLS SUBHEADING (CLEAR SEPARATION) ---- */
+.skills-subheading-wrap {
+  margin-top: 1.75rem;
+  margin-bottom: 1.25rem;
+  text-align: left;
+}
+.skills-subheading {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-top: 0.25rem;
+}
+
+/* ---- PROJECT QUICK-FILTERS (EASY TO USE & INTERACTIVE) ---- */
+.projects-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.75rem;
+  padding-bottom: 0.25rem;
+}
+.filter-pill-btn {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  border-radius: var(--radius-full);
+  padding: 0.45rem 1rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.filter-pill-btn:hover {
+  color: var(--text-main);
+  border-color: var(--border-strong);
+  transform: translateY(-1px);
+}
+.filter-pill-btn.active {
+  background: var(--accent-fill, #4f46e5);
+  border-color: var(--accent-primary, #6366f1);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
+}
+.project-card.filter-hidden {
+  display: none !important;
+}
+
 /* Recruiter simulator CSS (kept for SEO/existing logic) */
 .recruiter-simulator-card { display: none !important; }
 </style>
@@ -2414,6 +2532,7 @@ ul {
          1. HERO SECTION (RECRUTEUR FIRST)
          ======================================================================= -->
     <section class="section-hero" id="hero">
+      <canvas class="hero-canvas" id="hero-canvas" aria-hidden="true"></canvas>
       <div class="container hero-grid">
 
         <!-- Photo de profil avec badge statut -->
@@ -2437,7 +2556,7 @@ ul {
 
           <h1 class="hero-name" id="hero-name">Samy Houchat</h1>
           <p class="hero-title" id="hero-title">Étudiant en science des données · Stage Data / BI</p>
-          <p class="hero-headline" id="hero-headline">Chaque entreprise accumule des données, mais rares sont celles qui en tirent tout le potentiel : c'est là que j'interviens. Je transforme vos flux d'activité en tableaux de bord BI clairs pour piloter vos objectifs en temps réel, et j'applique la modélisation statistique pour anticiper vos tendances futures. Mon objectif ? Vous apporter de la clarté grâce à un stage opérationnel de 10 à 12 semaines dès avril 2027.</p>
+          <p class="hero-headline" id="hero-headline">Vos données dorment, vos KPI vous échappent, vos prévisions manquent de rigueur ? Je transforme vos données en tableaux de bord Power BI actionnables et en modèles statistiques fiables — en stage de 10 à 12 semaines dès avril 2027.</p>
 
           <!-- Métadonnées géographiques et contact rapide -->
           <div class="hero-meta-items">
@@ -2635,6 +2754,13 @@ ul {
           </p>
         </div>
 
+        <div class="projects-filter-bar" role="tablist" aria-label="Filtrer les réalisations">
+          <button type="button" class="filter-pill-btn active" data-filter="all" role="tab" aria-selected="true">Tous les projets (3)</button>
+          <button type="button" class="filter-pill-btn" data-filter="powerbi-sales-supplychain" role="tab" aria-selected="false">Business Intelligence (Power BI)</button>
+          <button type="button" class="filter-pill-btn" data-filter="sae-series-temporelles" role="tab" aria-selected="false">Statistiques &amp; Prévisions (R &amp; Python)</button>
+          <button type="button" class="filter-pill-btn" data-filter="avda-auto" role="tab" aria-selected="false">Application Desktop (SQLite &amp; React)</button>
+        </div>
+
         <div class="projects-grid" id="other-projects-grid">
 <!-- seo:other-projects-grid:start -->
     <article class="project-card" data-project-id="powerbi-sales-supplychain">
@@ -2759,53 +2885,53 @@ ul {
           </p>
         </div>
 
-        <!-- Valeur ajoutée — 3 cartes clés pour le recruteur -->
+        <!-- Valeur ajoutée — 3 piliers concrets pour le recruteur (sans répétition) -->
         <div class="value-cards-row" id="recruiter-simulator" aria-label="Ce que j'apporte concrètement">
 
           <!-- Carte 1 : BI & Reporting -->
-          <div class="value-card" style="--vc-accent: linear-gradient(135deg,#c4b5fd,#818cf8); --vc-color:#c4b5fd; --vc-icon-bg:rgba(196,181,253,0.12);">
+          <div class="value-card" data-reveal data-reveal-delay="1" style="--vc-accent: linear-gradient(135deg,#c4b5fd,#818cf8); --vc-color:#c4b5fd; --vc-icon-bg:rgba(196,181,253,0.12);">
             <div class="vc-icon-wrap">📊</div>
             <span class="vc-label">Tableaux de bord &amp; Reporting</span>
             <h3 class="vc-title">Piloter vos KPI en temps réel</h3>
             <p class="vc-desc">Je construis des tableaux de bord Power BI interactifs qui remplacent vos fichiers Excel éparpillés : ventes, marges, livraisons, taux de service OTIF — tout visualisé, rien de manuel.</p>
-            <div class="vc-tags">
-              <span class="vc-tag">Power BI</span>
-              <span class="vc-tag">DAX Avancé</span>
-              <span class="vc-tag">Power Query</span>
-              <span class="vc-tag">KPIs OTIF</span>
+            <div class="vc-deliverable">
+              <span class="vc-deliv-icon">✦</span>
+              <span class="vc-deliv-text"><strong>Livrable :</strong> Modèle en étoile relationnel &amp; Dashboard de direction (13 M€ CA pilotés)</span>
             </div>
             <a href="#projets" class="vc-link">Voir le projet BI concret <span aria-hidden="true">→</span></a>
           </div>
 
           <!-- Carte 2 : Prévisions statistiques -->
-          <div class="value-card" style="--vc-accent: linear-gradient(135deg,#67e8f9,#34d399); --vc-color:#67e8f9; --vc-icon-bg:rgba(103,232,249,0.1);">
+          <div class="value-card" data-reveal data-reveal-delay="2" style="--vc-accent: linear-gradient(135deg,#67e8f9,#34d399); --vc-color:#67e8f9; --vc-icon-bg:rgba(103,232,249,0.1);">
             <div class="vc-icon-wrap">📈</div>
             <span class="vc-label">Modélisation &amp; Prévisions</span>
             <h3 class="vc-title">Anticiper vos volumes futurs</h3>
             <p class="vc-desc">Je conçois des modèles statistiques (Holt-Winters, décomposition STL, régression harmonique) pour transformer vos historiques en prévisions fiables avec intervalles de confiance rigoureux.</p>
-            <div class="vc-tags">
-              <span class="vc-tag">Séries temporelles</span>
-              <span class="vc-tag">Python & R</span>
-              <span class="vc-tag">Décomposition STL</span>
+            <div class="vc-deliverable">
+              <span class="vc-deliv-icon">✦</span>
+              <span class="vc-deliv-text"><strong>Livrable :</strong> Analyse sur 96 mois &amp; Prévisions calibrées à 80% et 95%</span>
             </div>
-            <a href="#projets" class="vc-link">Explorer les projets Data <span aria-hidden="true">→</span></a>
+            <a href="#projets" class="vc-link">Explorer l'étude statistique <span aria-hidden="true">→</span></a>
           </div>
 
           <!-- Carte 3 : Bases de données -->
-          <div class="value-card" style="--vc-accent: linear-gradient(135deg,#f59e0b,#f97316); --vc-color:#f59e0b; --vc-icon-bg:rgba(245,158,11,0.1);">
+          <div class="value-card" data-reveal data-reveal-delay="3" style="--vc-accent: linear-gradient(135deg,#f59e0b,#f97316); --vc-color:#f59e0b; --vc-icon-bg:rgba(245,158,11,0.1);">
             <div class="vc-icon-wrap">🗄️</div>
             <span class="vc-label">Bases de données &amp; SQL</span>
             <h3 class="vc-title">Des données saines à la source</h3>
             <p class="vc-desc">Major de promotion en DBA : je modélise vos bases relationnelles (MCD/MLD, 3FN), j'optimise vos requêtes SQL et je fiabilise l'ingestion via des pipelines ETL robustes sans perte d'information.</p>
-            <div class="vc-tags">
-              <span class="vc-tag">SQL Avancé</span>
-              <span class="vc-tag">PostgreSQL</span>
-              <span class="vc-tag">ETL Pipelines</span>
-              <span class="vc-tag">Major 🥇</span>
+            <div class="vc-deliverable">
+              <span class="vc-deliv-icon">✦</span>
+              <span class="vc-deliv-text"><strong>Livrable :</strong> Schémas relationnels normalisés 3FN, requêtes optimisées &amp; Ingestion ETL</span>
             </div>
             <a href="#formation" class="vc-link">Voir mon socle DBA <span aria-hidden="true">→</span></a>
           </div>
 
+        </div>
+
+        <div class="skills-subheading-wrap" data-reveal>
+          <span class="section-label">Technologies &amp; Boîte à Outils</span>
+          <h3 class="skills-subheading">Compétences Techniques &amp; Environnements Maîtrisés</h3>
         </div>
 
         <div class="skills-categories-grid" id="skills-categories-grid">
@@ -2888,7 +3014,7 @@ ul {
           <span class="section-label">Parcours Professionnel</span>
           <h2 class="section-title">Expérience en Entreprise</h2>
           <p class="section-description">
-            Missions concrètes menées en entreprise : traitement de données, modélisation relationnelle, développement web et support technique.
+            Missions concrètes menées en entreprise : préparation et modélisation de données, Business Intelligence et support technique.
           </p>
         </div>
 
@@ -2902,21 +3028,14 @@ ul {
             <h3 class="timeline-role">Analyste de données & BI</h3>
             <p class="timeline-company">Layer Data · <em>when humans meet Data</em> — 📍 Akbou, Algérie</p>
           </div>
-          <span class="timeline-period">24/02/2026 – 05/08/2026</span>
+          <span class="timeline-period">02/2026 – 08/2026</span>
         </div>
 
 
             <div class="timeline-mission-block">
               <h4 class="timeline-mission-title">Mission Data & BI — Client : Client industriel agroalimentaire</h4>
               <ul class="timeline-bullets">
-                <li class="timeline-bullet">Pipeline ETL & Data Warehouse : scripts Python pour l'ingestion, le nettoyage et la transformation des données brutes vers l'architecture Data Warehouse (couches Bronze et Gold).</li><li class="timeline-bullet">Modélisation MPD dans Power BI : conception et implémentation du schéma relationnel en étoile reliant dimensions et tables de faits (relations 1-N).</li><li class="timeline-bullet">Rapport Supply Chain sous Power BI pour un client agroalimentaire : suivi des commandes, livraisons, prévisions de vente et reliquats.</li><li class="timeline-bullet">KPIs métiers clés : calcul et monitoring du taux de service OTIF (On-Time In-Full), analyse des commandes à risque et retards de livraison par client/produit.</li>
-              </ul>
-            </div>
-
-            <div class="timeline-mission-block">
-              <h4 class="timeline-mission-title">Mission Développement Web — Client : Société de gestion des gares routières</h4>
-              <ul class="timeline-bullets">
-                <li class="timeline-bullet">Conception et mise en ligne du module « Catalogue des Locaux Disponibles » pour la commercialisation des espaces commerciaux dans les gares routières nationales.</li><li class="timeline-bullet">Interface d'administration pour la mise à jour des offres par les gestionnaires de gares routières et fiches détaillées en temps réel.</li><li class="timeline-bullet">Maintenance corrective et évolutive du site web.</li>
+                <li class="timeline-bullet">Préparation, nettoyage et transformation des données avec Python (Pandas) et SQL pour alimenter un Data Warehouse (ETL).</li><li class="timeline-bullet">Modélisation de données sous Power BI (Power Query, DAX, modélisation en étoile reliant dimensions et tables de faits).</li><li class="timeline-bullet">Conception d'un tableau de bord de reporting et data visualisation (rapport Supply Chain sous Power BI) pour le suivi des KPI (commandes, livraisons) et modèles de prévision des ventes d'un client agroalimentaire.</li>
               </ul>
             </div>
 
@@ -2931,14 +3050,14 @@ ul {
             <h3 class="timeline-role">Technicien informatique & gérant</h3>
             <p class="timeline-company">Cyber Café Khatri Khelaf  — 📍 El Kseur, Algérie</p>
           </div>
-          <span class="timeline-period">01/09/2025 – 23/02/2026</span>
+          <span class="timeline-period">09/2025 – 02/2026</span>
         </div>
 
 
             <div class="timeline-mission-block">
               <h4 class="timeline-mission-title">Gestion opérationnelle & maintenance</h4>
               <ul class="timeline-bullets">
-                <li class="timeline-bullet">Maintenance, assistance et dépannage informatique (postes de travail, OS et logiciels).</li><li class="timeline-bullet">Gestion administrative et financière : suivi des factures, états comptables et rapports sous Excel.</li><li class="timeline-bullet">Rédaction de documents professionnels et supports de présentation (Word, PowerPoint).</li><li class="timeline-bullet">Gestion de la relation client et coordination avec les fournisseurs.</li>
+                <li class="timeline-bullet">Assistance aux utilisateurs et maintenance des postes et des logiciels.</li><li class="timeline-bullet">Suivi administratif et financier : factures et tableaux de suivi sous Excel.</li>
               </ul>
             </div>
 
@@ -3089,7 +3208,7 @@ const siteConfig = {
   profile: {
     name: "Samy Houchat",
     title: "Étudiant en science des données · Stage Data / BI",
-    headline: "Chaque entreprise accumule des données, mais rares sont celles qui en tirent tout le potentiel : c'est là que j'interviens. Je transforme vos flux d'activité en tableaux de bord BI clairs pour piloter vos objectifs en temps réel, et j'applique la modélisation statistique pour anticiper vos tendances futures. Mon objectif ? Vous apporter de la clarté grâce à un stage opérationnel de 10 à 12 semaines dès avril 2027.",
+    headline: "Vos données dorment, vos KPI vous échappent, vos prévisions manquent de rigueur ? Je transforme vos données en tableaux de bord Power BI actionnables et en modèles statistiques fiables — en stage de 10 à 12 semaines dès avril 2027.",
     availabilityBadge: "Stage Data / BI · 10 à 12 semaines · dès avril 2027",
     location: "France, Luxembourg, Suisse, Canada, Allemagne",
     email: "samyhctpro@gmail.com",
@@ -3374,7 +3493,7 @@ const siteConfig = {
 
   experiences: [
     {
-      period: "24/02/2026 – 05/08/2026",
+      period: "02/2026 – 08/2026",
       role: "Analyste de données & BI",
       company: "Layer Data",
       companySubtitle: "when humans meet Data",
@@ -3383,24 +3502,15 @@ const siteConfig = {
         {
           title: "Mission Data & BI — Client : {agrana}",
           bullets: [
-            "Pipeline ETL & Data Warehouse : scripts Python pour l'ingestion, le nettoyage et la transformation des données brutes vers l'architecture Data Warehouse (couches Bronze et Gold).",
-            "Modélisation MPD dans Power BI : conception et implémentation du schéma relationnel en étoile reliant dimensions et tables de faits (relations 1-N).",
-            "Rapport Supply Chain sous Power BI pour un client agroalimentaire : suivi des commandes, livraisons, prévisions de vente et reliquats.",
-            "KPIs métiers clés : calcul et monitoring du taux de service OTIF (On-Time In-Full), analyse des commandes à risque et retards de livraison par client/produit.",
-          ]
-        },
-        {
-          title: "Mission Développement Web — Client : {sogral}",
-          bullets: [
-            "Conception et mise en ligne du module « Catalogue des Locaux Disponibles » pour la commercialisation des espaces commerciaux dans les gares routières nationales.",
-            "Interface d'administration pour la mise à jour des offres par les gestionnaires de gares routières et fiches détaillées en temps réel.",
-            "Maintenance corrective et évolutive du site web."
+            "Préparation, nettoyage et transformation des données avec Python (Pandas) et SQL pour alimenter un Data Warehouse (ETL).",
+            "Modélisation de données sous Power BI (Power Query, DAX, modélisation en étoile reliant dimensions et tables de faits).",
+            "Conception d'un tableau de bord de reporting et data visualisation (rapport Supply Chain sous Power BI) pour le suivi des KPI (commandes, livraisons) et modèles de prévision des ventes d'un client agroalimentaire."
           ]
         }
       ]
     },
     {
-      period: "01/09/2025 – 23/02/2026",
+      period: "09/2025 – 02/2026",
       role: "Technicien informatique & gérant",
       company: "Cyber Café Khatri Khelaf",
       location: "El Kseur, Algérie",
@@ -3408,10 +3518,8 @@ const siteConfig = {
         {
           title: "Gestion opérationnelle & maintenance",
           bullets: [
-            "Maintenance, assistance et dépannage informatique (postes de travail, OS et logiciels).",
-            "Gestion administrative et financière : suivi des factures, états comptables et rapports sous Excel.",
-            "Rédaction de documents professionnels et supports de présentation (Word, PowerPoint).",
-            "Gestion de la relation client et coordination avec les fournisseurs."
+            "Assistance aux utilisateurs et maintenance des postes et des logiciels.",
+            "Suivi administratif et financier : factures et tableaux de suivi sous Excel."
           ]
         }
       ]
@@ -4347,6 +4455,223 @@ function initRecruiterSimulator() {
 }
 
 /* --------------------------------------------------------------------------
+   7b. MOTION DESIGN & IDENTITÉ INTERACTIVE (CANVAS, SPOTLIGHT, REVEAL, FILTRES)
+   -------------------------------------------------------------------------- */
+function initHeroCanvas() {
+  if (typeof window === 'undefined' || typeof document === 'undefined') return;
+  const canvas = document.getElementById('hero-canvas');
+  if (!canvas || !canvas.getContext) return;
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return;
+
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    return;
+  }
+
+  let width = 0;
+  let height = 0;
+  let animId = null;
+  let isVisible = true;
+  const mouse = { x: -1000, y: -1000, targetX: -1000, targetY: -1000, active: false };
+  const numPoints = 42;
+  const points = [];
+
+  function resize() {
+    const rect = canvas.getBoundingClientRect();
+    width = rect.width;
+    height = rect.height;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = width * dpr;
+    canvas.height = height * dpr;
+    ctx.scale(dpr, dpr);
+  }
+
+  function initPoints() {
+    points.length = 0;
+    for (let i = 0; i < numPoints; i++) {
+      points.push({
+        x: Math.random() * (width || 800),
+        y: Math.random() * (height || 400),
+        vx: (Math.random() - 0.5) * 0.35,
+        vy: (Math.random() - 0.5) * 0.35,
+        radius: Math.random() * 1.4 + 1.1
+      });
+    }
+  }
+
+  window.addEventListener('resize', () => {
+    resize();
+  });
+
+  const heroSection = document.getElementById('hero');
+  if (heroSection) {
+    heroSection.addEventListener('mousemove', (e) => {
+      const rect = heroSection.getBoundingClientRect();
+      mouse.targetX = e.clientX - rect.left;
+      mouse.targetY = e.clientY - rect.top;
+      mouse.active = true;
+    });
+    heroSection.addEventListener('mouseleave', () => {
+      mouse.active = false;
+      mouse.targetX = -1000;
+      mouse.targetY = -1000;
+    });
+
+    if ('IntersectionObserver' in window) {
+      const obs = new IntersectionObserver((entries) => {
+        isVisible = entries[0].isIntersecting;
+        if (isVisible && !animId) {
+          animId = requestAnimationFrame(animate);
+        }
+      }, { threshold: 0.05 });
+      obs.observe(heroSection);
+    }
+  }
+
+  function animate() {
+    if (!isVisible) {
+      animId = null;
+      return;
+    }
+
+    ctx.clearRect(0, 0, width, height);
+
+    mouse.x += (mouse.targetX - mouse.x) * 0.1;
+    mouse.y += (mouse.targetY - mouse.y) * 0.1;
+
+    for (let i = 0; i < points.length; i++) {
+      const p1 = points[i];
+      p1.x += p1.vx;
+      p1.y += p1.vy;
+
+      if (p1.x < 0) p1.x = width;
+      else if (p1.x > width) p1.x = 0;
+      if (p1.y < 0) p1.y = height;
+      else if (p1.y > height) p1.y = 0;
+
+      for (let j = i + 1; j < points.length; j++) {
+        const p2 = points[j];
+        const dx = p1.x - p2.x;
+        const dy = p1.y - p2.y;
+        const dist = Math.hypot(dx, dy);
+        if (dist < 115) {
+          const alpha = (1 - dist / 115) * 0.18;
+          ctx.strokeStyle = `rgba(129, 140, 248, ${alpha})`;
+          ctx.lineWidth = 0.8;
+          ctx.beginPath();
+          ctx.moveTo(p1.x, p1.y);
+          ctx.lineTo(p2.x, p2.y);
+          ctx.stroke();
+        }
+      }
+
+      if (mouse.active) {
+        const mdx = p1.x - mouse.x;
+        const mdy = p1.y - mouse.y;
+        const mdist = Math.hypot(mdx, mdy);
+        if (mdist < 140) {
+          const mAlpha = (1 - mdist / 140) * 0.45;
+          ctx.strokeStyle = `rgba(196, 181, 253, ${mAlpha})`;
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(p1.x, p1.y);
+          ctx.lineTo(mouse.x, mouse.y);
+          ctx.stroke();
+
+          p1.x -= mdx * 0.012;
+          p1.y -= mdy * 0.012;
+        }
+      }
+
+      ctx.fillStyle = 'rgba(196, 181, 253, 0.7)';
+      ctx.beginPath();
+      ctx.arc(p1.x, p1.y, p1.radius, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    animId = requestAnimationFrame(animate);
+  }
+
+  resize();
+  initPoints();
+  animId = requestAnimationFrame(animate);
+}
+
+function initSpotlightCards() {
+  if (typeof document === 'undefined') return;
+  const cards = document.querySelectorAll('.value-card, .project-card, .skill-category-card, .featured-card');
+  if (!cards.length) return;
+
+  cards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      card.style.setProperty('--mouse-x', `${x}px`);
+      card.style.setProperty('--mouse-y', `${y}px`);
+    });
+  });
+}
+
+function initScrollReveal() {
+  if (typeof window === 'undefined' || typeof document === 'undefined') return;
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    return;
+  }
+  document.body.classList.add('js-reveal-active');
+  const elements = document.querySelectorAll('[data-reveal]');
+  if (!elements.length || !('IntersectionObserver' in window)) return;
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-revealed');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.06,
+    rootMargin: '0px 0px -30px 0px'
+  });
+
+  elements.forEach(el => observer.observe(el));
+}
+
+function initProjectFilters() {
+  if (typeof document === 'undefined') return;
+  const filterBtns = document.querySelectorAll('.filter-pill-btn');
+  const cards = document.querySelectorAll('#other-projects-grid .project-card');
+  if (!filterBtns.length || !cards.length) return;
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = btn.getAttribute('data-filter');
+      filterBtns.forEach(b => {
+        const active = b === btn;
+        b.classList.toggle('active', active);
+        b.setAttribute('aria-selected', String(active));
+      });
+
+      cards.forEach(card => {
+        const id = card.getAttribute('data-project-id');
+        if (filter === 'all' || id === filter) {
+          card.classList.remove('filter-hidden');
+          card.style.opacity = '0';
+          card.style.transform = 'scale(0.97)';
+          requestAnimationFrame(() => {
+            card.style.transition = 'opacity 0.25s ease, transform 0.25s cubic-bezier(0.16,1,0.3,1)';
+            card.style.opacity = '1';
+            card.style.transform = 'scale(1)';
+          });
+        } else {
+          card.classList.add('filter-hidden');
+        }
+      });
+    });
+  });
+}
+
+/* --------------------------------------------------------------------------
    8. INITIALISATION
    -------------------------------------------------------------------------- */
 document.addEventListener('DOMContentLoaded', () => {
@@ -4354,6 +4679,10 @@ document.addEventListener('DOMContentLoaded', () => {
   renderPortfolio();
   initNavigation();
   initRecruiterSimulator();
+  initHeroCanvas();
+  initSpotlightCards();
+  initScrollReveal();
+  initProjectFilters();
 });
 
 
