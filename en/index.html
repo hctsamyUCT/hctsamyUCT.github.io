@@ -2259,6 +2259,103 @@ ul {
   .brand-name { font-size: .9rem; }
 }
 
+/* ---- VALUE CARDS ---- */
+.value-cards-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.1rem;
+  margin-bottom: 2.5rem;
+}
+@media (max-width: 860px) {
+  .value-cards-row { grid-template-columns: minmax(0, 1fr); }
+}
+.value-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: 1.6rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.22s cubic-bezier(0.16,1,0.3,1), box-shadow 0.22s ease, border-color 0.22s ease;
+  cursor: default;
+}
+.value-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--vc-accent, var(--gradient-accent));
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+}
+.value-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.45);
+  border-color: var(--border-strong);
+}
+.vc-icon-wrap {
+  width: 46px;
+  height: 46px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--vc-icon-bg, rgba(99,102,241,0.12));
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+.vc-label {
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--vc-color, var(--accent-primary));
+}
+.vc-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1.3;
+  margin: 0;
+}
+.vc-desc {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin: 0;
+  flex-grow: 1;
+}
+.vc-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.2rem;
+}
+.vc-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-full);
+  background: rgba(99,102,241,0.1);
+  color: var(--accent-primary);
+  border: 1px solid rgba(99,102,241,0.2);
+}
+.vc-link {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--vc-color, var(--accent-primary));
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+  transition: gap 0.15s ease;
+}
+.vc-link:hover { gap: 0.55rem; }
+/* Recruiter simulator CSS (kept for SEO/existing logic) */
+.recruiter-simulator-card { display: none !important; }
 </style>
   <link rel="stylesheet" href="/css/cv.css?v=6194d7030709">
 </head>
@@ -2340,7 +2437,7 @@ ul {
 
           <h1 class="hero-name" id="hero-name">Samy Houchat</h1>
           <p class="hero-title" id="hero-title">Data science student · Data / BI internship</p>
-          <p class="hero-headline" id="hero-headline">Every company accumulates data, but few unlock its full potential: that is where I come in. I turn business workflows into clear BI dashboards to steer targets in real time, and apply statistical modelling to forecast future trends. My goal? Bringing actionable clarity through a 10-to-12-week internship starting April 2027.</p>
+          <p class="hero-headline" id="hero-headline">Chaque entreprise accumule des données, mais rares sont celles qui en tirent tout le potentiel : c'est là que j'interviens. Je transforme vos flux d'activité en tableaux de bord BI clairs pour piloter vos objectifs en temps réel, et j'applique la modélisation statistique pour anticiper vos tendances futures. Mon objectif ? Vous apporter de la clarté grâce à un stage opérationnel de 10 to 12 weeks starting April 2027.</p>
 
           <!-- Métadonnées géographiques et contact rapide -->
           <div class="hero-meta-items">
@@ -2662,65 +2759,53 @@ ul {
           </p>
         </div>
 
-        <!-- Simulateur interactif de mission recruteur -->
-        <div class="recruiter-simulator-card" id="recruiter-simulator">
-          <div class="simulator-header">
-            <div class="simulator-badge">
-              <span class="simulator-badge-dot"></span>
-              <span>Recruiter Mode · Data Challenge</span>
+        <!-- Valeur ajoutée — 3 cartes clés pour le recruteur -->
+        <div class="value-cards-row" id="recruiter-simulator" aria-label="What I concretely deliver">
+
+          <!-- Carte 1 : BI & Reporting -->
+          <div class="value-card" style="--vc-accent: linear-gradient(135deg,#c4b5fd,#818cf8); --vc-color:#c4b5fd; --vc-icon-bg:rgba(196,181,253,0.12);">
+            <div class="vc-icon-wrap">📊</div>
+            <span class="vc-label">Dashboards &amp; Reporting</span>
+            <h3 class="vc-title">Track your KPIs in real time</h3>
+            <p class="vc-desc">I build interactive Power BI dashboards that replace your scattered Excel files: sales, margins, deliveries, OTIF service rate — all visualised, nothing manual.</p>
+            <div class="vc-tags">
+              <span class="vc-tag">Power BI</span>
+              <span class="vc-tag">Advanced DAX</span>
+              <span class="vc-tag">Power Query</span>
+              <span class="vc-tag">KPIs OTIF</span>
             </div>
-            <h3 class="simulator-title">🎯 What is your main Data priority right now?</h3>
-            <p class="simulator-subtitle">Select your business challenge to see what I can concretely deliver for your team during an internship:</p>
+            <a href="#projets" class="vc-link">See the BI project in action <span aria-hidden="true">→</span></a>
           </div>
 
-          <div class="simulator-options" role="tablist" aria-label="Scénarios recruteurs">
-            <button type="button" class="simulator-btn active" data-scenario="bi" id="tab-sim-bi" role="tab" aria-selected="true" aria-controls="sim-content-area">
-              <span class="sim-btn-icon">📊</span>
-              <span class="sim-btn-text">
-                <strong>Track our activity &amp; KPIs</strong>
-                <small>BI Dashboards &amp; Reporting</small>
-              </span>
-            </button>
-            <button type="button" class="simulator-btn" data-scenario="stats" id="tab-sim-stats" role="tab" aria-selected="false" aria-controls="sim-content-area">
-              <span class="sim-btn-icon">📈</span>
-              <span class="sim-btn-text">
-                <strong>Forecast our volumes &amp; trends</strong>
-                <small>Statistical Modelling &amp; Forecasting</small>
-              </span>
-            </button>
-            <button type="button" class="simulator-btn" data-scenario="data" id="tab-sim-data" role="tab" aria-selected="false" aria-controls="sim-content-area">
-              <span class="sim-btn-icon">🗄️</span>
-              <span class="sim-btn-text">
-                <strong>Structure &amp; clean our data</strong>
-                <small>Databases, SQL &amp; Pipelines</small>
-              </span>
-            </button>
+          <!-- Carte 2 : Forecasts statistiques -->
+          <div class="value-card" style="--vc-accent: linear-gradient(135deg,#67e8f9,#34d399); --vc-color:#67e8f9; --vc-icon-bg:rgba(103,232,249,0.1);">
+            <div class="vc-icon-wrap">📈</div>
+            <span class="vc-label">Modelling &amp; Forecasting</span>
+            <h3 class="vc-title">Forecast your future volumes</h3>
+            <p class="vc-desc">I design statistical models (Holt-Winters, STL decomposition, harmonic regression) to turn your historical data into reliable forecasts with rigorous confidence intervals.</p>
+            <div class="vc-tags">
+              <span class="vc-tag">Séries temporelles</span>
+              <span class="vc-tag">Python & R</span>
+              <span class="vc-tag">Décomposition STL</span>
+            </div>
+            <a href="#projets" class="vc-link">Explore the Data projects <span aria-hidden="true">→</span></a>
           </div>
 
-          <div class="simulator-content-box" id="sim-content-area" role="tabpanel" aria-labelledby="tab-sim-bi">
-            <div class="sim-match-header">
-              <span class="sim-match-score">⚡ Mission Match: <strong>100%</strong></span>
-              <span class="sim-match-tag">Immediate business value</span>
+          <!-- Carte 3 : Bases de données -->
+          <div class="value-card" style="--vc-accent: linear-gradient(135deg,#f59e0b,#f97316); --vc-color:#f59e0b; --vc-icon-bg:rgba(245,158,11,0.1);">
+            <div class="vc-icon-wrap">🗄️</div>
+            <span class="vc-label">Databases &amp; SQL</span>
+            <h3 class="vc-title">Clean data at the source</h3>
+            <p class="vc-desc">Top of my DBA class: I design clean relational databases (ERD/MLD, 3NF), optimise your SQL queries, and ensure reliable data ingestion through robust ETL pipelines with no information loss.</p>
+            <div class="vc-tags">
+              <span class="vc-tag">Advanced SQL</span>
+              <span class="vc-tag">PostgreSQL</span>
+              <span class="vc-tag">ETL Pipelines</span>
+              <span class="vc-tag">Major 🥇</span>
             </div>
-            <p class="sim-match-desc" id="sim-desc">
-              No more manual reporting and scattered spreadsheets: I build interactive, automated Power BI dashboards for your teams. Sales, margin, and delivery KPIs are tracked in real time to enable fast, confident decisions.
-            </p>
-            <div class="sim-skills-pills" id="sim-pills">
-              <span class="tag-badge primary">Power BI Desktop</span>
-              <span class="tag-badge primary">Advanced DAX</span>
-              <span class="tag-badge primary">Power Query (ETL)</span>
-              <span class="tag-badge primary">Star schema modelling</span>
-              <span class="tag-badge primary">KPIs Supply Chain (OTIF)</span>
-            </div>
-            <div class="sim-footer-actions">
-              <a href="#projets" class="btn btn-outline" id="sim-proof-btn">
-                <span>🔍 View concrete proof (BI Project)</span>
-              </a>
-              <a href="mailto:samyhctpro@gmail.com?subject=Proposition%20de%20stage%20Data%20%2F%20BI%20%E2%80%94%20Samy%20Houchat" class="btn btn-primary" id="sim-cta-btn">
-                <span>🚀 Discuss this need for my internship</span>
-              </a>
-            </div>
+            <a href="#formation" class="vc-link">See my DBA background <span aria-hidden="true">→</span></a>
           </div>
+
         </div>
 
         <div class="skills-categories-grid" id="skills-categories-grid">
@@ -3004,7 +3089,7 @@ const siteConfig = {
   profile: {
     name: "Samy Houchat",
     title: "Data science student · Data / BI internship",
-    headline: "Every company accumulates data, but few unlock its full potential: that is where I come in. I turn business workflows into clear BI dashboards to steer targets in real time, and apply statistical modelling to forecast future trends. My goal? Bringing actionable clarity through a 10-to-12-week internship starting April 2027.",
+    headline: "Chaque entreprise accumule des données, mais rares sont celles qui en tirent tout le potentiel : c'est là que j'interviens. Je transforme vos flux d'activité en tableaux de bord BI clairs pour piloter vos objectifs en temps réel, et j'applique la modélisation statistique pour anticiper vos tendances futures. Mon objectif ? Vous apporter de la clarté grâce à un stage opérationnel de 10 to 12 weeks starting April 2027.",
     availabilityBadge: "Data / BI internship · 10 to 12 weeks · starting April 2027",
     location: "France, Luxembourg, Switzerland, Canada, Germany",
     email: "samyhctpro@gmail.com",
