@@ -29,7 +29,7 @@ résultat chiffré ou outil utilisé en mission n'a été ajouté sans source.
   repères verticaux bleus pour les rubriques ; le contenu garde une lecture linéaire.
 - « Compétences & qualités », « Pourquoi me choisir ? » et centres d'intérêt
   retirés pour privilégier les réalisations. L'en-tête affiche « 25 ans » et
-  « Permis B · Non véhiculé » à la demande du propriétaire. Le QR code cliquable
+  « Permis B » à la demande du propriétaire. Le QR code cliquable
   remplace l'adresse écrite du portfolio.
 - Clients anonymisés comme dans le portfolio. Les missions restent décrites sans
   les passages dont le retrait a déjà été demandé. Le rapport Supply Chain sous

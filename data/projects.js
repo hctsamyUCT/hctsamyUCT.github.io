@@ -11,14 +11,14 @@ export const siteConfig = {
   profile: {
     name: "Samy Houchat",
     title: "Étudiant en science des données · Stage Data / BI",
-    headline: "Étudiant en 2e année de BUT Science des données, je recherche un stage de 10 à 12 semaines dès avril 2027 en analyse de données et Business Intelligence. Opérationnel en SQL, Python et Power BI, je mets mes compétences au service de vos projets décisionnels et statistiques.",
+    headline: "Chaque entreprise accumule des données, mais rares sont celles qui en tirent tout le potentiel : c'est là que j'interviens. Je transforme vos flux d'activité en tableaux de bord BI clairs pour piloter vos objectifs en temps réel, et j'applique la modélisation statistique pour anticiper vos tendances futures. Mon objectif ? Vous apporter de la clarté grâce à un stage opérationnel de 10 à 12 semaines dès avril 2027.",
     availabilityBadge: "Stage Data / BI · 10 à 12 semaines · dès avril 2027",
     location: "France, Luxembourg, Suisse, Canada, Allemagne",
     email: "samyhctpro@gmail.com",
     linkedin: "https://www.linkedin.com/in/samyhouchat",
     githubUser: "https://github.com/HouchatSamy?tab=repositories",
     githubOrg: "https://github.com/AVDAdz/avdaAuto",
-    cvPdfPath: "assets/cv/CV_Samy_Houchat.pdf?v=7c8b2d641472",
+    cvPdfPath: "assets/cv/CV_Samy_Houchat.pdf?v=6194d7030709",
     photoPath: "assets/img/photo.png"
   },
 
@@ -137,20 +137,21 @@ export const siteConfig = {
     {
       id: "powerbi-sales-supplychain",
       tag: "Projet Décisionnel · Supply Chain Analytics",
-      title: "Power BI — Sales & Supply Chain Analytics (OTIF)",
+      title: "Power BI — Sales & Supply Chain Analytics",
       subtitle: "Pilotage de la performance commerciale et de l'efficacité logistique",
-      summary: "Projet décisionnel complet sous Power BI (cas NOVA COMMERCE) permettant de piloter simultanément la performance commerciale (13 M€ CA), l'analyse client et l'efficacité logistique Supply Chain via l'indicateur international OTIF (On-Time In-Full).",
+      summary: "Projet décisionnel complet sous Microsoft Power BI (cas NOVA COMMERCE) permettant de piloter simultanément la performance commerciale (13 M€ CA), l'analyse client et l'efficacité logistique Supply Chain via l'indicateur international OTIF (On-Time In-Full).",
       status: "Production / Portfolio",
       category: "Data & BI",
-      period: "2026",
-      stack: ["Power BI", "DAX", "Power Query", "Star Schema", "Supply Chain (OTIF)", "Analyse ABC / Pareto", "What-If Simulation"],
-      objective: "Piloter simultanément la performance commerciale (13 M€ CA), l'analyse client et l'efficacité logistique Supply Chain via l'indicateur international OTIF (On-Time In-Full).",
+      period: "2026 – 2027",
+      stack: ["Power BI Desktop", "DAX Avancé", "Power Query (ETL)", "Star Schema", "Supply Chain Analytics (OTIF)", "Time Intelligence", "What-If Simulation"],
+      objective: "Piloter simultanément la performance commerciale (13 M€ CA), la rentabilité financière (marge brute 4 M€ / 30,3%), le suivi des objectifs et l'efficacité logistique Supply Chain (OTIF).",
       highlights: [
-        "Architecture en étoile multi-faits : 3 tables de faits (Ventes, Livraisons, Objectifs), 5 dimensions et paramètre de simulation What-If (sensibilité aux remises)",
-        "Mesures DAX avancées structurées en 7 Display Folders : CALCULATE, USERELATIONSHIP, Time Intelligence (YTD, YoY), analyse ABC/Pareto et rangs dynamiques",
-        "Pilotage Supply Chain & Qualité de service : suivi des taux OTIF, On-Time, In-Full, Fill Rate, retard moyen et diagnostic des anomalies logistiques"
+        "Architecture en étoile multi-faits : 3 tables de faits (Ventes, Livraisons, Objectifs commerciaux), 5 dimensions et paramètre What-If de sensibilité aux remises commerciales",
+        "Mesures DAX avancées structurées en 7 Display Folders : CALCULATE, USERELATIONSHIP, Time Intelligence (YTD, SAMEPERIODLASTYEAR), ratios N vs N-1, rangs dynamiques et analyse ABC/Pareto",
+        "Tableaux de bord d'aide à la décision : 3 vues interactives couvrant la Synthèse Direction (CA, marges, atteinte budgétaire), l'analyse Clients & Commandes (180 clients actifs) et le pilotage des Livraisons",
+        "ETL & Qualité de service : pipeline Power Query (nettoyage, typage, fusion) et suivi rigoureux des taux OTIF (64,8%), On-Time (70%), In-Full (89,3%), Fill Rate (94,9%) et diagnostic des 2 530 retards"
       ],
-      result: "Tableau de bord unifié permettant d'isoler les causes racines de non-qualité logistique et d'optimiser le taux de service client.",
+      result: "Tableau de bord unifié d'aide à la décision permettant d'isoler les causes racines d'anomalies logistiques et d'optimiser le taux de service client tout en sécurisant la rentabilité.",
       thumbnail: "assets/img/bi-dashboard-commandes.png",
       gallery: [
         {
@@ -170,6 +171,60 @@ export const siteConfig = {
         }
       ],
       githubPersonal: "https://github.com/HouchatSamy/powerbi-sales-supplychain-analytics"
+    },
+    {
+      id: "sae-series-temporelles",
+      tag: "Projet Académique · Statistique & Séries Temporelles",
+      title: "SAÉ — Analyse Statistique & Prévision de Séries Temporelles",
+      subtitle: "Modélisation prédictive de la demande mensuelle et quantification d'incertitude",
+      summary: "Étude statistique approfondie menée en 2e année de BUT Science des Données (parcours EMS) : modélisation de la demande mensuelle (2018–2025), comparaison d'approches prédictives (saisonnier naïf, régression harmonique de Fourier, Holt-Winters) et projection 2026 avec bandes d'incertitude empiriques.",
+      status: "Académique / Validé",
+      category: "Statistiques & Data Science",
+      period: "2026 – 2027",
+      stack: ["Python 3.12+", "R 4.3+ (RStudio)", "Séries Temporelles (STL)", "Holt-Winters Additif", "Régression Harmonique", "Tests d'Hypothèses", "Validation Croisée"],
+      objective: "Anticiper la demande mensuelle à horizon 12 mois (exercice 2026) tout en fournissant une quantification rigoureuse de l'incertitude prédictive selon un protocole statistique causal strict (zéro fuite d'information future).",
+      highlights: [
+        "Audit qualité & Imputation causale : assainissement d'une chronique de 96 mois, traitement des doublons et imputation rétrospective (t-12) sanctuarisant le jeu de test final 2025",
+        "Modélisation concurrentielle & Décomposition : décomposition STL robuste (Loess), lissage mobile 12 mois, lissage exponentiel Holt-Winters et régression harmonique paramétrique (Fourier à 2 harmoniques)",
+        "Protocole de validation croisée Rolling-Origin : 3 fenêtres temporelles successives (2022-2024), sélection du modèle optimal (MAE 30.89, RMSE 36.37, sMAPE 2.27%, MASE 0.41 surpassant la référence de 61%)",
+        "Inférence statistique & Diagnostic résiduel : tests ADF (racine unitaire), Wald (saisonnalité conjointe), Ljung-Box (indépendance résiduelle), Shapiro-Wilk et covariance robuste HAC Newey-West",
+        "Quantification du risque & Reproductibilité : bandes d'incertitude empiriques à 80% et 95% validées sur échantillon test (couvertures 83.3% et 91.7%), pipeline Python testé (unittest) et script R autonome"
+      ],
+      result: "Modèle harmonique optimal validé sur le jeu de test 2025 (MAE 32.07, sMAPE 2.12%) et prévisions opérationnelles 2026 livrées avec intervalles de confiance calibrés et code source 100% reproductible.",
+      thumbnail: "assets/img/sae/05_forecast.png",
+      gallery: [
+        {
+          src: "assets/img/sae/05_forecast.png",
+          alt: "Prévision de la demande mensuelle 2026 avec intervalles de confiance",
+          caption: "Prévision opérationnelle 2026 et bandes d'incertitude empiriques à 80% et 95%"
+        },
+        {
+          src: "assets/img/sae/02_decomposition.png",
+          alt: "Décomposition STL de la série temporelle",
+          caption: "Décomposition STL robuste isolant la tendance fondamentale, la saisonnalité et les résidus"
+        },
+        {
+          src: "assets/img/sae/03_comparison.png",
+          alt: "Comparaison des modèles prédictifs en validation croisée",
+          caption: "Benchmark des modèles en rolling-origin : régression harmonique vs Holt-Winters vs référence"
+        },
+        {
+          src: "assets/img/sae/04_test.png",
+          alt: "Évaluation sur l'échantillon test 2025",
+          caption: "Validation impartiale sur l'année de test 2025 sanctuarisée et taux de couverture des bandes"
+        },
+        {
+          src: "assets/img/sae/06_diagnostics.png",
+          alt: "Diagnostics statistiques des résidus",
+          caption: "Diagnostics résiduels : autocorrélation Ljung-Box, normalité Shapiro-Wilk et matrice HAC"
+        },
+        {
+          src: "assets/img/sae/01_overview.png",
+          alt: "Vue d'ensemble de la série brute et nettoyée",
+          caption: "Audit qualité et assainissement causal de la série chronologique 2018–2025"
+        }
+      ],
+      githubPersonal: "https://github.com/HouchatSamy/-Analyse-statistique-pr-vision-de-s-ries-temporelles"
     },
     {
       id: "avda-auto",

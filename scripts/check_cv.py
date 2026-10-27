@@ -34,13 +34,13 @@ def inspect_pdf(path, lang="fr"):
     if lang == "fr":
         headings = HEADINGS_FR
         phrases = ["Samy HOUCHAT", "10 à 12 semaines", "avril 2027", "+33 7 46 15 66 57", "samyhctpro@gmail.com",
-                   "25 ans", "Permis B · Non véhiculé", "BUT Science des données (SD)", "Parcours Exploration et Modélisation Statistique",
+                   "25 ans", "Permis B", "BUT Science des données (SD)", "Parcours Exploration et Modélisation Statistique",
                    "Formation actuellement en cours", "BTS Informatique", "option Bases de données", "Major de promotion",
                    "Layer Data", "rapport Supply Chain sous Power BI", "client agroalimentaire", "Python", "SQL", "Langage R (RStudio)", "ETL",
                    "KPI", "reporting", "data visualisation", "DAX", "Power Query", "OTIF", "SAÉ BUT SD", "AVDA Auto", "Anglais", "B2"]
         date_phrases = ["Depuis 09/2026 BUT Science des données", "10/2022 – 01/2026 BTS Informatique",
                         "2021 Baccalauréat Mathématiques", "02/2026 – 08/2026 Analyste de données & BI",
-                        "09/2025 – 02/2026 Technicien informatique et gérant", "2026 Power BI Sales", "2026 – 2027 SAÉ BUT SD", "2026 AVDA Auto"]
+                        "09/2025 – 02/2026 Technicien informatique et gérant", "2026 – 2027 Power BI Sales", "2026 – 2027 SAÉ BUT SD", "2026 AVDA Auto"]
     else:
         headings = HEADINGS_EN
         phrases = ["Samy HOUCHAT", "10 to 12 weeks", "April 2027", "+33 7 46 15 66 57", "samyhctpro@gmail.com",
@@ -50,7 +50,7 @@ def inspect_pdf(path, lang="fr"):
                    "KPIs", "reporting", "data visualisation", "DAX", "Power Query", "OTIF", "BUT SD SAÉ", "AVDA Auto", "English", "B2"]
         date_phrases = ["Since 09/2026 BUT in Data Science", "10/2022 – 01/2026 BTS in IT",
                         "2021 High School Diploma", "02/2026 – 08/2026 Data Analyst & BI",
-                        "09/2025 – 02/2026 IT Technician and Manager", "2026 Power BI Sales", "2026 – 2027 BUT SD SAÉ", "2026 AVDA Auto"]
+                        "09/2025 – 02/2026 IT Technician and Manager", "2026 – 2027 Power BI Sales", "2026 – 2027 BUT SD SAÉ", "2026 AVDA Auto"]
 
     for phrase in phrases:
         assert phrase in text, f"{lang} PDF extraction lost {phrase}"

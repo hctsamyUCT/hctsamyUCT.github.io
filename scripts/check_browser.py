@@ -58,7 +58,7 @@ try:
                 assert page.locator("h1").count() == 1
                 assert page.locator("main .stat-card").count() == 4
                 assert page.locator("main .languages-card").count() == 0
-                assert page.locator(".project-card").count() == 2
+                assert page.locator(".project-card").count() == 3
                 assert page.locator(".proof-tab-btn").count() == 3
                 assert page.locator(".language-switch a[aria-current='page']").inner_text() == language.upper()
                 assert page.evaluate("document.documentElement.scrollWidth <= innerWidth"), (language, width, "overflow")

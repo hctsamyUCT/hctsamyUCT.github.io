@@ -1286,6 +1286,209 @@ ul {
 }
 
 /* --------------------------------------------------------------------------
+   SIMULATEUR DE MISSION RECRUTEUR (MODE FUN & INTERACTIF)
+   -------------------------------------------------------------------------- */
+.recruiter-simulator-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-xl);
+  padding: 1.75rem;
+  margin-bottom: 2.5rem;
+  box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.recruiter-simulator-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gradient-accent);
+}
+
+.simulator-header {
+  margin-bottom: 1.25rem;
+}
+
+.simulator-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  background: rgba(30, 64, 175, 0.08);
+  border: 1px solid rgba(30, 64, 175, 0.25);
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent-primary);
+  margin-bottom: 0.6rem;
+}
+
+[data-theme="dark"] .simulator-badge {
+  background: rgba(96, 165, 250, 0.12);
+  border-color: rgba(96, 165, 250, 0.3);
+  color: var(--accent-primary);
+}
+
+.simulator-badge-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent-primary);
+  border-radius: 50%;
+  animation: pulse-dot 2s infinite ease-in-out;
+}
+
+.simulator-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text-main);
+  letter-spacing: -0.01em;
+  margin-bottom: 0.35rem;
+}
+
+.simulator-subtitle {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.simulator-options {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .simulator-options {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.simulator-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.9rem 1.1rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  color: var(--text-main);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-align: left;
+  font-family: inherit;
+  font-size: 0.9rem;
+}
+
+.simulator-btn:hover {
+  border-color: var(--accent-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.simulator-btn.active {
+  background: rgba(30, 64, 175, 0.06);
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 2px rgba(30, 64, 175, 0.2);
+}
+
+[data-theme="dark"] .simulator-btn.active {
+  background: rgba(96, 165, 250, 0.12);
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.25);
+}
+
+.sim-btn-icon {
+  font-size: 1.6rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.sim-btn-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.sim-btn-text strong {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.sim-btn-text small {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.simulator-content-box {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.4rem;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.sim-match-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.85rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.sim-match-score {
+  font-size: 0.95rem;
+  color: var(--accent-primary);
+  font-weight: 700;
+}
+
+.sim-match-tag {
+  display: inline-block;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  background: rgba(30, 64, 175, 0.1);
+  color: var(--accent-primary);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+[data-theme="dark"] .sim-match-tag {
+  background: rgba(96, 165, 250, 0.15);
+  color: var(--accent-primary);
+}
+
+.sim-match-desc {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-main);
+  margin-bottom: 1rem;
+}
+
+.sim-skills-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 1.25rem;
+}
+
+.sim-footer-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+/* --------------------------------------------------------------------------
    10. FRISE EXPÉRIENCE CHRONOLOGIQUE
    -------------------------------------------------------------------------- */
 .timeline {
