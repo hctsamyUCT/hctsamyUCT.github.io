@@ -51,7 +51,11 @@ const variants = new Map();
 for (const [french, english] of Object.entries(translations)) {
   variants.set(french, english);
   variants.set(french.replaceAll('&', '&amp;'), english.replaceAll('&', '&amp;'));
-  variants.set(french.replaceAll("'", "\\'"), english.replaceAll("'", "\\'"));
+  // Only add an escaped JS variant when its source actually differs. Otherwise
+  // an English apostrophe would overwrite the HTML translation with a backslash.
+  if (french.includes("'")) {
+    variants.set(french.replaceAll("'", "\\'"), english.replaceAll("'", "\\'"));
+  }
 }
 const escapeRegex = value => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const pattern = new RegExp([...variants.keys()].sort((a, b) => b.length - a.length).map(escapeRegex).join('|'), 'g');

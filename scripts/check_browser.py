@@ -70,6 +70,27 @@ try:
                 assert page.locator("#projets .section-title").evaluate("el => parseFloat(getComputedStyle(el).fontSize) >= 24"), "CV stylesheet overrides portfolio heading"
                 check_contrast(page)
                 if javascript:
+                    # Each step connects a skill to its use; mouse and native keyboard work.
+                    original_x = page.locator('.data-point').nth(1).get_attribute('cx')
+                    for index, panel in enumerate(['lab-preparer', 'lab-analyser', 'lab-transmettre']):
+                        control = page.locator('.lab-step').nth(index)
+                        control.focus()
+                        page.keyboard.press('Enter')
+                        assert control.get_attribute('aria-pressed') == 'true'
+                        expect(page.locator('#' + panel)).to_be_visible()
+                        assert page.locator('.lab-explanation:visible').count() == 1
+                        if index == 0:
+                            assert page.locator('.data-point').nth(1).get_attribute('cx') != original_x
+                    if width < 900:
+                        page.locator('#mobile-menu-btn').click()
+                        assert page.locator('#mobile-drawer').get_attribute('aria-hidden') == 'false'
+                        page.keyboard.press('Escape')
+                        assert page.locator('#mobile-drawer').get_attribute('aria-hidden') == 'true'
+                    page.locator('[data-filter="sae-series-temporelles"]').click()
+                    assert page.locator('.project-card:visible').count() == 1
+                    assert page.locator('.project-card:visible').get_attribute('data-project-id') == 'sae-series-temporelles'
+                    page.locator('[data-filter="all"]').click()
+                    assert page.locator('.project-card:visible').count() == 3
                     first = page.locator(".proof-tab-btn").first
                     first.focus()
                     page.keyboard.press("End")
@@ -80,16 +101,28 @@ try:
                     assert page.locator("#featured-preview-panel").get_attribute("aria-labelledby") == third.get_attribute("id")
                     page.locator("#featured-zoom-trigger").click()
                     assert page.locator("#lightbox-overlay").get_attribute("aria-hidden") == "false"
+                    assert page.locator('#main-content').evaluate('el => el.inert')
                     page.keyboard.press("Escape")
+                    assert page.locator('#featured-zoom-trigger').evaluate('el => el === document.activeElement')
                     page.locator(".btn-detail-trigger").first.click()
                     assert page.locator("#project-modal-overlay").get_attribute("aria-hidden") == "false"
                     expect(page.locator("#project-modal-body")).to_be_visible()
+                    page.keyboard.press('Shift+Tab')
+                    assert page.locator('#project-modal-overlay').evaluate('el => el.contains(document.activeElement)')
+                    # Nested gallery closes back to the project, then back to its invoker.
+                    thumb = page.locator('.modal-gallery-thumb').first
+                    thumb.focus()
+                    page.keyboard.press('Enter')
+                    assert page.locator('#lightbox-overlay').get_attribute('aria-hidden') == 'false'
+                    page.keyboard.press('Escape')
+                    assert thumb.evaluate('el => el === document.activeElement')
                     check_contrast(page)
                     if language == "en":
                         details = page.locator("#project-modal-body").inner_text()
                         assert "Goal:" in details and "Key contributions" in details
                         assert "Objectif" not in details and "Réalisations" not in details
                     page.keyboard.press("Escape")
+                    assert not page.locator('#main-content').evaluate('el => el.inert')
                     previous_theme = page.locator("html").get_attribute("data-theme")
                     page.locator("#theme-toggle-btn").click()
                     assert page.locator("html").get_attribute("data-theme") != previous_theme
@@ -103,6 +136,11 @@ try:
                     else:
                         assert "Profil" in page.locator("#cv-content").inner_text()
                     page.keyboard.press("Escape")
+                    assert not page.locator('#main-content').evaluate('el => el.inert')
+                else:
+                    assert page.locator('.lab-explanation:visible').count() == 3
+                    assert page.locator('.main-nav').is_visible()
+                    assert page.locator('.proof-fallback img').count() == 2
                 cv_btn = page.locator("#hero-cv-btn")
                 if language == "en":
                     assert "CV_Samy_Houchat_EN.pdf" in cv_btn.get_attribute("href")
@@ -120,6 +158,13 @@ try:
                 context.close()
                 checks += 1
                 print(f"PASS: {language}, {width}px, JS={javascript}: content, tabs, layout, links and interactions")
+        # No motion is required to understand or operate the page.
+        reduced = browser.new_page(viewport={'width': 390, 'height': 900}, reduced_motion='reduce')
+        reduced.goto(base, wait_until='networkidle')
+        assert reduced.locator('.chart-line').evaluate("el => getComputedStyle(el).animationName") == 'none'
+        reduced.locator('.lab-step').first.click()
+        expect(reduced.locator('#lab-preparer')).to_be_visible()
+        reduced.close()
         browser.close()
         print(f"PASS: {checks} browser scenarios")
 finally:

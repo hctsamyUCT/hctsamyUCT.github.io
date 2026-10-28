@@ -1,13 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <rect width="64" height="64" rx="16" fill="#0B0F19"/>
-  <rect x="1" y="1" width="62" height="62" rx="15" stroke="url(#paint0_linear)" stroke-width="2"/>
-  <path d="M18 22C18 19.7909 19.7909 18 22 18H28C30.2091 18 32 19.7909 32 22C32 24.2091 30.2091 26 28 26H22V32H28C30.2091 32 32 33.7909 32 36C32 38.2091 30.2091 40 28 40H22C19.7909 40 18 38.2091 18 36" stroke="#6366F1" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M38 18V40M38 29H46M46 18V40" stroke="#06B6D4" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-  <circle cx="46" cy="18" r="3" fill="#10B981"/>
-  <defs>
-    <linearGradient id="paint0_linear" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#6366F1"/>
-      <stop offset="1" stop-color="#06B6D4"/>
-    </linearGradient>
-  </defs>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <title>Samy Houchat — Data, BI et Statistique</title>
+  <rect width="48" height="48" rx="10" fill="#f6f5f0"/>
+  <path d="M9 34L19 22L29 28L39 12" stroke="#244ac2" stroke-width="2.5"/>
+  <g fill="#244ac2"><circle cx="9" cy="34" r="3"/><circle cx="19" cy="22" r="3"/><circle cx="29" cy="28" r="3"/></g>
+  <circle cx="39" cy="12" r="3" fill="#a44224"/>
 </svg>
