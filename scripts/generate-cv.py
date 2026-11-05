@@ -71,7 +71,7 @@ try:
 
         sources = ["templates/cv.html", "templates/cv-en.html", "css/cv.css",
                    "cv_samy_houchat.html", "cv_samy_houchat_en.html",
-                   "assets/img/photo_opt.jpg", "assets/img/qr-portfolio-cv.svg", "assets/img/layer_data_logo_opt.png"]
+                   "assets/img/photo_opt.jpg", "assets/img/qr-portfolio-cv.svg"]
 
         def get_source_bytes(name):
             data = (ROOT / name).read_bytes()

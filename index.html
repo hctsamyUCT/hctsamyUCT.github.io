@@ -108,7 +108,7 @@
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="/css/portfolio.css?v=20261028">
-  <link rel="stylesheet" href="/css/cv.css?v=6194d7030709">
+  <link rel="stylesheet" href="/css/cv.css?v=12c44ef3bca5">
 </head>
 <body>
   <a class="skip-link" href="#main-content">Aller au contenu</a>
@@ -174,7 +174,7 @@
           <p class="hero-headline" id="hero-headline">J’aime comprendre ce qui se cache derrière un chiffre. Avec SQL, Python, R et Power BI, je passe des données brutes à une analyse que votre équipe peut lire, discuter et utiliser.</p>
           <div class="hero-cta-group">
             <a href="#projets" class="btn btn-primary">Découvrir mes projets <span aria-hidden="true">↗</span></a>
-            <a href="assets/cv/CV_Samy_Houchat.pdf?v=6194d7030709" class="btn btn-secondary" id="hero-cv-btn" download="CV_Samy_Houchat_Stage_Data_Analyst_BI.pdf">Télécharger mon CV <span aria-hidden="true">↓</span></a>
+            <a href="assets/cv/CV_Samy_Houchat.pdf?v=12c44ef3bca5" class="btn btn-secondary" id="hero-cv-btn" download="CV_Samy_Houchat_Stage_Data_Analyst_BI.pdf">Télécharger mon CV <span aria-hidden="true">↓</span></a>
             <a href="mailto:samyhctpro@gmail.com" class="btn btn-outline" id="hero-contact-btn">Parlons de votre besoin</a>
           </div>
           <div class="hero-secondary-links">
@@ -608,7 +608,7 @@
             <div class="timeline-mission-block">
               <h4 class="timeline-mission-title">Mission Data & BI — Client : Client industriel agroalimentaire</h4>
               <ul class="timeline-bullets">
-                <li class="timeline-bullet">Préparation, nettoyage et transformation des données avec Python (Pandas) et SQL pour alimenter un Data Warehouse (ETL).</li><li class="timeline-bullet">Modélisation de données sous Power BI (Power Query, DAX, modélisation en étoile reliant dimensions et tables de faits).</li><li class="timeline-bullet">Conception d'un tableau de bord de reporting et data visualisation (rapport Supply Chain sous Power BI) pour le suivi des KPI (commandes, livraisons) et modèles de prévision des ventes d'un client agroalimentaire.</li>
+                <li class="timeline-bullet">Nettoyage et transformation des données avec Python (Pandas) et SQL pour alimenter un Data Warehouse (pipeline ETL).</li><li class="timeline-bullet">Modélisation en étoile sous Power BI : dimensions et tables de faits, transformations Power Query, mesures DAX.</li><li class="timeline-bullet">Création d'un rapport Supply Chain sous Power BI pour un client agroalimentaire : suivi des KPI (commandes, livraisons), data visualisation et prévision des ventes.</li>
               </ul>
             </div>
 
@@ -772,7 +772,7 @@ const siteConfig = {
     linkedin: "https://www.linkedin.com/in/samyhouchat",
     githubUser: "https://github.com/HouchatSamy?tab=repositories",
     githubOrg: "https://github.com/AVDAdz/avdaAuto",
-    cvPdfPath: "assets/cv/CV_Samy_Houchat.pdf?v=6194d7030709",
+    cvPdfPath: "assets/cv/CV_Samy_Houchat.pdf?v=12c44ef3bca5",
     photoPath: "assets/img/photo_opt.jpg"
   },
 
@@ -1051,9 +1051,9 @@ const siteConfig = {
         {
           title: "Mission Data & BI — Client : {agrana}",
           bullets: [
-            "Préparation, nettoyage et transformation des données avec Python (Pandas) et SQL pour alimenter un Data Warehouse (ETL).",
-            "Modélisation de données sous Power BI (Power Query, DAX, modélisation en étoile reliant dimensions et tables de faits).",
-            "Conception d'un tableau de bord de reporting et data visualisation (rapport Supply Chain sous Power BI) pour le suivi des KPI (commandes, livraisons) et modèles de prévision des ventes d'un client agroalimentaire."
+            "Nettoyage et transformation des données avec Python (Pandas) et SQL pour alimenter un Data Warehouse (pipeline ETL).",
+            "Modélisation en étoile sous Power BI : dimensions et tables de faits, transformations Power Query, mesures DAX.",
+            "Création d'un rapport Supply Chain sous Power BI pour un client agroalimentaire : suivi des KPI (commandes, livraisons), data visualisation et prévision des ventes."
           ]
         }
       ]
@@ -2064,7 +2064,7 @@ if (document.readyState === 'loading') {
       <span id="cv-dialog-title">CV — Samy Houchat</span>
       <div class="cv-toolbar-actions">
         <button type="button" id="btn-close-cv">Retour au portfolio</button>
-        <a href="/assets/cv/CV_Samy_Houchat.pdf?v=6194d7030709" download="CV_Samy_Houchat_Stage_Data_Analyst_BI.pdf" class="cv-download" id="cv-download-pdf">Télécharger le PDF — 1 page A4</a>
+        <a href="/assets/cv/CV_Samy_Houchat.pdf?v=12c44ef3bca5" download="CV_Samy_Houchat_Stage_Data_Analyst_BI.pdf" class="cv-download" id="cv-download-pdf">Télécharger le PDF — 1 page A4</a>
         <button type="button" onclick="window.print()" id="btn-print-cv">Imprimer</button>
       </div>
     </aside>
@@ -2120,13 +2120,13 @@ if (document.readyState === 'loading') {
   <article class="cv-entry">
     <h3><span class="cv-date">02/2026 – 08/2026</span> Analyste de données &amp; BI</h3>
     <div class="cv-entry-context cv-employer-line">
-      <p class="cv-employer-name"><img class="cv-employer-logo" src="/assets/img/layer_data_logo_opt.png" alt="Logo Layer Data" width="120" height="74"> <span>Layer Data · <em>when humans meet Data</em></span></p>
+      <p class="cv-employer-name"><span>Layer Data · <em>when humans meet Data</em></span></p>
       <p class="cv-employer-place">— Akbou, Algérie</p>
     </div>
     <ul class="cv-bullet-list">
-      <li>• Préparation, <strong>nettoyage et transformation des données</strong> avec <strong>Python</strong> (Pandas) et <strong>SQL</strong> pour alimenter un <strong>Data Warehouse (ETL)</strong>.</li>
-      <li>• Modélisation de données sous <strong>Power BI</strong> (<strong>Power Query</strong>, <strong>DAX</strong>, <strong>modélisation en étoile</strong> reliant dimensions et tables de faits).</li>
-      <li>• Conception d'un tableau de bord de <strong>reporting</strong> et <strong>data visualisation</strong> (<span class="cv-nowrap"><strong>rapport Supply Chain sous Power BI</strong></span>) pour le <strong>suivi des KPI</strong> (commandes, livraisons) et <strong>modèles de prévision</strong> des ventes d'un <strong>client agroalimentaire</strong>.</li>
+      <li>• <strong>Nettoyage et transformation des données</strong> avec <strong>Python</strong> (Pandas) et <strong>SQL</strong> pour alimenter un <strong>Data Warehouse</strong> (pipeline <strong>ETL</strong>).</li>
+      <li>• <strong>Modélisation en étoile</strong> sous <strong>Power BI</strong> : dimensions et tables de faits, transformations <strong>Power Query</strong>, mesures <strong>DAX</strong>.</li>
+      <li>• Création d'un <span class="cv-nowrap"><strong>rapport Supply Chain sous Power BI</strong></span> pour un <strong>client agroalimentaire</strong> : <strong>suivi des KPI</strong> (commandes, livraisons), <strong>data visualisation</strong> et <strong>prévision</strong> des ventes.</li>
     </ul>
   </article>
   <article class="cv-entry">
@@ -2146,8 +2146,9 @@ if (document.readyState === 'loading') {
   <article class="cv-entry">
     <h3><span class="cv-date">2026 – 2027</span> Power BI Sales &amp; Supply Chain Analytics</h3>
     <ul class="cv-bullet-list">
-      <li>• <strong>Architecture &amp; DAX :</strong> Modélisation en <strong>schéma en étoile multi-faits</strong> (3 faits, 5 dimensions), pipeline <strong>ETL Power Query</strong> et <strong>DAX avancé</strong> structuré en 7 dossiers (CALCULATE, USERELATIONSHIP, Time Intelligence, simulation What-If).</li>
-      <li>• <strong>Tableaux de bord &amp; KPIs :</strong> Pilotage du <strong>CA net (13M €)</strong>, marge (30,3%), portefeuille clients (180 clients, 1 448 commandes) et <strong>taux de service logistique OTIF</strong> (64,8%, On-Time 70%, In-Full 89,3%, diagnostic des retards).</li>
+      <li>• <strong>Architecture :</strong> <strong>schéma en étoile multi-faits</strong> (3 faits, 5 dimensions), pipeline <strong>ETL Power Query</strong>.</li>
+      <li>• <strong>DAX avancé :</strong> mesures organisées en 7 dossiers (CALCULATE, USERELATIONSHIP, Time Intelligence, simulation What-If).</li>
+      <li>• <strong>KPIs :</strong> pilotage du <strong>CA net</strong>, de la marge, du portefeuille clients et du <strong>taux de service OTIF</strong>.</li>
     </ul>
   </article>
   <article class="cv-entry">

@@ -65,7 +65,7 @@ def inspect_pdf(path, lang="fr"):
         if operator in {b"rg", b"RG"}:
             colors.add(tuple(round(float(channel), 4) for channel in operands))
     assert colors <= INKS and {(0.0, 0.0, 0.0), (0.1176, 0.251, 0.6863)} <= colors, f"Unexpected ink colors: {colors}"
-    assert len(page.images) >= 2, f"Portrait or company logo missing from {lang} PDF"
+    assert len(page.images) >= 1, f"Portrait missing from {lang} PDF"
     assert "hctsamyuct.github.io" in text, "Written portfolio URL must accompany the QR code for ATS"
     links = {str(ref.get_object().get("/A", {}).get("/URI", "")) for ref in page.get("/Annots", [])}
     expected_portfolio_link = "https://hctsamyuct.github.io/en/" if lang == "en" else "https://hctsamyuct.github.io/"
@@ -76,7 +76,7 @@ def inspect_pdf(path, lang="fr"):
 manifest = json.loads((ROOT / "assets/cv/CV_Samy_Houchat.build.json").read_text(encoding="utf-8"))
 assert set(manifest["sources"]) == {"templates/cv.html", "templates/cv-en.html", "css/cv.css",
                                    "cv_samy_houchat.html", "cv_samy_houchat_en.html",
-                                   "assets/img/photo_opt.jpg", "assets/img/qr-portfolio-cv.svg", "assets/img/layer_data_logo_opt.png"}
+                                   "assets/img/photo_opt.jpg", "assets/img/qr-portfolio-cv.svg"}
 for name, digest in manifest["sources"].items():
     data = (ROOT / name).read_bytes()
     if name.endswith((".html", ".css", ".svg")):
@@ -112,11 +112,8 @@ try:
                 assert page.goto(base + path, wait_until="networkidle").status == 200
                 assert normalise(page.locator("#cv-content").inner_text()) == exp_text
                 assert page.locator(".cv-photo").is_visible()
-                assert page.locator(".cv-employer-logo").is_visible()
                 assert page.locator(".cv-entry h3").evaluate_all("nodes => nodes.every(node => node.firstElementChild.matches('.cv-date'))"), "Dates must come first"
-                logo = page.locator(".cv-employer-logo")
-                assert logo.evaluate("el => getComputedStyle(el).filter") == "grayscale(1) contrast(4)", "Logo must use black and white"
-                assert "Layer Data" in logo.locator("..").inner_text(), "Logo must accompany the company name"
+                assert "Layer Data" in page.locator(".cv-employer-name").first.inner_text(), "Company name must be visible"
                 assert page.locator(".cv-qr img").is_visible()
                 expected_qr_url = "https://hctsamyuct.github.io/en/" if lang == "en" else "https://hctsamyuct.github.io/"
                 assert page.locator(".cv-qr").get_attribute("href") == expected_qr_url

@@ -11,7 +11,7 @@
   color: var(--cv-ink);
   font-family: Arial, Helvetica, sans-serif;
   font-size: 9.15pt;
-  line-height: 1.2;
+  line-height: 1.32;
   text-align: left;
 }
 .cv-page *, .cv-page *::before, .cv-page *::after { box-sizing: border-box; }
@@ -32,7 +32,7 @@
 .cv-page .cv-contact-item { display: flex; align-items: center; gap: 1.2mm; min-width: 0; }
 .cv-page .cv-contact-item svg { display: block; flex: 0 0 3mm; width: 3mm; height: 3mm; fill: var(--cv-accent); color: var(--cv-accent); }
 .cv-page .cv-contact-item a, .cv-page .cv-contact-item span { min-width: 0; }
-.cv-page .cv-section { margin-top: 1.8mm; }
+.cv-page .cv-section { margin-top: 2.8mm; }
 .cv-page .cv-section h2 {
   font-size: 10.2pt;
   line-height: 1.15;
@@ -41,25 +41,25 @@
   border-bottom: 1px solid var(--cv-accent);
   padding-left: 2mm;
   padding-bottom: 0.3mm;
-  margin-bottom: 0.8mm;
+  margin-bottom: 1.2mm;
   letter-spacing: .02em;
   font-weight: 700;
   break-after: avoid;
 }
 .cv-page h3 { font-size: 9.3pt; font-weight: 700; color: var(--cv-ink); break-after: avoid; }
 .cv-page .cv-date { display: inline-block; margin-right: 2mm; color: var(--cv-accent); font-size: 9pt; font-weight: 700; white-space: nowrap; }
-.cv-page .cv-entry + .cv-entry { margin-top: 1.1mm; }
+.cv-page .cv-entry + .cv-entry { margin-top: 1.8mm; }
 .cv-page .cv-entry-context { margin-top: .2mm; margin-bottom: .4mm; }
 .cv-page .cv-employer-line { display: flex; align-items: center; justify-content: space-between; gap: 3mm; break-inside: avoid; }
 .cv-page .cv-employer-name { display: flex; align-items: center; gap: 2mm; }
 .cv-page .cv-employer-logo { display: block; width: 14mm; height: auto; flex-shrink: 0; filter: grayscale(1) contrast(4); }
 .cv-page .cv-employer-place { color: var(--cv-ink); white-space: nowrap; flex-shrink: 0; }
 .cv-page ul { list-style: disc outside; padding-left: 4.5mm; margin-top: .4mm; }
-.cv-page li { padding-left: .3mm; margin-bottom: .2mm; }
+.cv-page li { padding-left: .3mm; margin-bottom: .5mm; }
 .cv-page .cv-bullet-list { list-style: none; padding-left: 0; margin-top: .4mm; }
-.cv-page .cv-bullet-list li { padding-left: 3.5mm; text-indent: -3.5mm; margin-bottom: .2mm; }
+.cv-page .cv-bullet-list li { padding-left: 3.5mm; text-indent: -3.5mm; margin-bottom: .6mm; }
 .cv-page .cv-skill-list { list-style: none; padding-left: 0; }
-.cv-page .cv-skill-list li { padding-left: 0; margin-bottom: .2mm; }
+.cv-page .cv-skill-list li { padding-left: 0; margin-bottom: .5mm; }
 
 .cv-document { margin: 0; background: #ffffff; color: #000000; }
 .cv-document .cv-page-wrapper { padding: 65px 12px 20px; }

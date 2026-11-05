@@ -1,14 +1,13 @@
 {
   "sources": {
-    "templates/cv.html": "915846cd8573017d1868487ba984474a355fafad936acfe076817c839f2910f9",
-    "templates/cv-en.html": "5c72dee0a53a0ebe994ad39e8ab7b11e7d0735ee840355892f0e7e497367e67c",
-    "css/cv.css": "4051d2d5e430cd09c8692a69ca4473ea7b513f58892a13298cd0f6e2c9d1a0e5",
-    "cv_samy_houchat.html": "81b5608f220a56fe83b1c349ac55a6f0cfc8c87181690f15f0339ae3e954d900",
-    "cv_samy_houchat_en.html": "850028e2d64bbe94df1a036729602d23cc26af727ca8e8168d45ed9c95033c19",
+    "templates/cv.html": "a7d33c63b6f99ac86e670fb32eb39d38c0f9e84a456cc385bebfc1725923bab3",
+    "templates/cv-en.html": "ed87aabe916d9a4d731a09f1ab6215d5e3320011bd5f36c5af18c70055c98f03",
+    "css/cv.css": "5e8b4f7bcaf1ea29b18b2bb8a4c620b31d11952d30bf80781cd69c480e6a7e55",
+    "cv_samy_houchat.html": "e0689032ae4e304558ea61d3aa3ffb750369be1e67dcaa41534dace98fdf36f7",
+    "cv_samy_houchat_en.html": "a5325a58e5be41845596c47f98e5a9e330889de414d9a7ce214546dae9b0f51d",
     "assets/img/photo_opt.jpg": "46c21402adf685dc2b30185e60ae9c09b3d291ec6cbc08b1ca4476ce48531ad0",
-    "assets/img/qr-portfolio-cv.svg": "95389ba53f85fb190f2e8ce4390caf48d863d3f69381b43f7d7fb4e455450f99",
-    "assets/img/layer_data_logo_opt.png": "bcae6e0437824a268057c79018b075b4ee5463323da73b88fa243c9b5e8722b1"
+    "assets/img/qr-portfolio-cv.svg": "95389ba53f85fb190f2e8ce4390caf48d863d3f69381b43f7d7fb4e455450f99"
   },
-  "pdf_sha256": "e6c69df30341c38ae6586a1887b463e0e019228eaee05c67e0f06e410379b329",
-  "pdf_en_sha256": "69f16e3fce287d2d9ef86e044a470331891dcc734d488e462f4fc8ca50e537de"
+  "pdf_sha256": "a10cf24cf002d1c37ccf29aa2eb0d812db0c75933075618027cb0e323398e028",
+  "pdf_en_sha256": "7cdd4091d1e22d9b716492f8a2904e7ec057f7645b8e96f235561472912b89e6"
 }
