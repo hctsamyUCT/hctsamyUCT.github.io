@@ -15,7 +15,17 @@ from pypdf.generic import ContentStream
 ROOT = Path(__file__).resolve().parents[1]
 PDF = ROOT / "assets/cv/CV_Samy_Houchat.pdf"
 PDF_EN = ROOT / "assets/cv/CV_Samy_Houchat_EN.pdf"
-INKS = {(0.0, 0.0, 0.0), (0.1176, 0.251, 0.6863), (1.0, 1.0, 1.0)}
+INKS = {
+    (0.0, 0.0, 0.0),
+    (0.0667, 0.0941, 0.1529),
+    (0.1216, 0.1608, 0.2157),
+    (0.2157, 0.2549, 0.3176),
+    (0.2941, 0.3333, 0.3882),
+    (0.1176, 0.2275, 0.5412),
+    (0.1137, 0.3059, 0.8471),
+    (0.1176, 0.251, 0.6863),
+    (1.0, 1.0, 1.0),
+}
 HEADINGS_FR = ["Profil", "Formation", "Expérience professionnelle", "Projets Data & Informatique", "Compétences techniques", "Langues"]
 HEADINGS_EN = ["Profile", "Education", "Professional Experience", "Data & IT Projects", "Technical Skills", "Languages"]
 normalise = lambda text: " ".join(text.split())
@@ -35,29 +45,39 @@ def inspect_pdf(path, lang="fr"):
         headings = HEADINGS_FR
         phrases = ["Samy HOUCHAT", "10 à 12 semaines", "avril 2027", "+33 7 46 15 66 57", "samyhctpro@gmail.com",
                    "25 ans", "Permis B", "BUT Science des données (SD)", "Parcours Exploration et Modélisation Statistique",
-                   "Formation actuellement en cours", "BTS Informatique", "option Bases de données", "Major de promotion",
-                   "Layer Data", "rapport Supply Chain sous Power BI", "client agroalimentaire", "Python", "SQL", "Langage R (RStudio)", "ETL",
-                   "KPI", "reporting", "data visualisation", "DAX", "Power Query", "OTIF", "SAÉ BUT SD", "AVDA Auto", "Anglais", "B2"]
-        date_phrases = ["Depuis 09/2026 BUT Science des données", "10/2022 – 01/2026 BTS Informatique",
-                        "2021 Baccalauréat Mathématiques", "02/2026 – 08/2026 Analyste de données & BI",
-                        "09/2025 – 02/2026 Technicien informatique et gérant", "2026 – 2027 Power BI Sales", "2026 – 2027 SAÉ BUT SD", "2026 AVDA Auto"]
+                   "Formation en cours", "BTS Informatique", "option Bases de données", "Major de promotion",
+                   "Layer Data", "client agroalimentaire", "Python", "SQL", "Langage R (RStudio)", "ETL",
+                   "KPI", "data visualisation", "DAX", "Power Query", "OTIF", "SAÉ BUT SD", "AVDA Auto", "Anglais", "B2"]
+        date_phrases = ["BUT Science des données (SD) — 2e année (BUT 2) — IUT Clermont Auvergne, Aurillac Depuis 09/2026",
+                        "BTS Informatique — option Bases de données — Institut International de Management, Béjaïa (Major de promotion) 10/2022 – 01/2026",
+                        "Baccalauréat Mathématiques — Béjaïa, Algérie 2021",
+                        "Analyste de données & BI — Layer Data (Akbou, Algérie) 02/2026 – 08/2026",
+                        "Technicien informatique et gérant — Cyber Café Khatri Khelaf (El Kseur, Algérie) 09/2025 – 02/2026",
+                        "Power BI Sales & Supply Chain Analytics 2026 – 2027",
+                        "Analyse statistique & prévision de séries temporelles — SAÉ BUT SD 2026 – 2027",
+                        "AVDA Auto — Application de gestion automobile 2026"]
     else:
         headings = HEADINGS_EN
         phrases = ["Samy HOUCHAT", "10 to 12 weeks", "April 2027", "+33 7 46 15 66 57", "samyhctpro@gmail.com",
                    "25 years old", "Category B licence", "BUT in Data Science (SD)", "Statistical Exploration and Modelling track",
                    "Currently in progress", "BTS in IT", "Database option", "Top of the graduating class",
-                   "Layer Data", "Power BI Supply Chain report", "food industry client", "Python", "SQL", "R language (RStudio)", "ETL",
-                   "KPIs", "reporting", "data visualisation", "DAX", "Power Query", "OTIF", "BUT SD SAÉ", "AVDA Auto", "English", "B2"]
-        date_phrases = ["Since 09/2026 BUT in Data Science", "10/2022 – 01/2026 BTS in IT",
-                        "2021 High School Diploma", "02/2026 – 08/2026 Data Analyst & BI",
-                        "09/2025 – 02/2026 IT Technician and Manager", "2026 – 2027 Power BI Sales", "2026 – 2027 BUT SD SAÉ", "2026 AVDA Auto"]
+                   "Layer Data", "food industry client", "Python", "SQL", "R language (RStudio)", "ETL",
+                   "KPIs", "data visualisation", "DAX", "Power Query", "OTIF", "BUT SD SAÉ", "AVDA Auto", "English", "B2"]
+        date_phrases = ["BUT in Data Science (SD) — 2nd year (BUT 2) — IUT Clermont Auvergne, Aurillac Since 09/2026",
+                        "BTS in IT — Database option — Institut International de Management, Béjaïa (Top of the graduating class) 10/2022 – 01/2026",
+                        "High School Diploma (Baccalauréat) — Mathematics track — Béjaïa, Algeria 2021",
+                        "Data Analyst & BI — Layer Data (Akbou, Algeria) 02/2026 – 08/2026",
+                        "IT Technician and Manager — Cyber Café Khatri Khelaf (El Kseur, Algeria) 09/2025 – 02/2026",
+                        "Power BI Sales & Supply Chain Analytics 2026 – 2027",
+                        "Statistical Analysis & Time Series Forecasting — BUT SD SAÉ 2026 – 2027",
+                        "AVDA Auto — Dealership Management Application 2026"]
 
     for phrase in phrases:
         assert phrase in text, f"{lang} PDF extraction lost {phrase}"
     positions = [text.index(heading) for heading in headings]
     assert positions == sorted(positions), f"{lang} PDF reading order must match section order"
     for phrase in date_phrases:
-        assert phrase in text, f"{lang} date must precede the entry title: {phrase}"
+        assert phrase in text, f"{lang} entry header must contain title and date: {phrase}"
     for phrase in ["★", "Compétences & qualités", "Pourquoi me choisir", "FacturaPro", "BRIDGE", "AGRANA", "SOGRAL", "Informatique, bases de données et systèmes"]:
         assert phrase not in text, f"Removed or confidential content reappeared: {phrase}"
     colors = set()
@@ -112,8 +132,8 @@ try:
                 assert page.goto(base + path, wait_until="networkidle").status == 200
                 assert normalise(page.locator("#cv-content").inner_text()) == exp_text
                 assert page.locator(".cv-photo").is_visible()
-                assert page.locator(".cv-entry h3").evaluate_all("nodes => nodes.every(node => node.firstElementChild.matches('.cv-date'))"), "Dates must come first"
-                assert "Layer Data" in page.locator(".cv-employer-name").first.inner_text(), "Company name must be visible"
+                assert page.locator(".item-header").evaluate_all("nodes => nodes.every(node => node.querySelector('.item-title') && node.querySelector('.item-date'))"), "Each entry must have a title and a date"
+                assert any("Layer Data" in text for text in page.locator(".item-subtitle").all_inner_texts()), "Company name must be visible"
                 assert page.locator(".cv-qr img").is_visible()
                 expected_qr_url = "https://hctsamyuct.github.io/en/" if lang == "en" else "https://hctsamyuct.github.io/"
                 assert page.locator(".cv-qr").get_attribute("href") == expected_qr_url
@@ -121,8 +141,18 @@ try:
                     assert image.evaluate("el => el.complete && el.naturalWidth > 0"), "CV image not loaded"
                 assert page.evaluate("document.documentElement.scrollWidth <= innerWidth")
                 colors = page.locator("#cv-content").evaluate("el => [...new Set([el, ...el.querySelectorAll('*')].map(node => getComputedStyle(node).color))]")
-                assert set(colors) <= {"rgb(0, 0, 0)", "rgb(30, 64, 175)"}, colors
-                assert page.locator("#cv-content").evaluate("el => [...el.querySelectorAll('p, li, a, h1, h2, h3')].every(node => parseFloat(getComputedStyle(node).fontSize) >= 12)")
+                dom_colors = {
+                    "rgb(0, 0, 0)",
+                    "rgb(30, 64, 175)",
+                    "rgb(17, 24, 39)",
+                    "rgb(75, 85, 99)",
+                    "rgb(29, 78, 216)",
+                    "rgb(55, 65, 81)",
+                    "rgb(30, 58, 138)",
+                    "rgb(31, 41, 55)",
+                }
+                assert set(colors) <= dom_colors, colors
+                assert page.locator("#cv-content").evaluate("el => [...el.querySelectorAll('p, li, a, h1, h2, h3, .item-title, .item-subtitle, .item-meta, .skill-category, .skill-list')].every(node => parseFloat(getComputedStyle(node).fontSize) >= 12)")
                 bold = page.locator("#cv-content strong").all_text_contents()
                 for word in ["Power BI", "Python", "SQL"]:
                     assert any(word in b for b in bold), f"Missing bold keyword: {word}"

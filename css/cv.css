@@ -61,6 +61,123 @@
 .cv-page .cv-skill-list { list-style: none; padding-left: 0; }
 .cv-page .cv-skill-list li { padding-left: 0; margin-bottom: .5mm; }
 
+/* Conteneur de chaque élément (Formation, Expérience, Projet) */
+.cv-page .cv-item,
+.cv-item {
+  margin-bottom: 8px;
+}
+
+.cv-page .cv-item:last-child,
+.cv-item:last-child {
+  margin-bottom: 4px;
+}
+
+/* Ligne d'en-tête : Titre + Entreprise/École à gauche | Date à droite */
+.cv-page .item-header,
+.item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 2px;
+}
+
+/* Intitulé du poste, diplôme ou projet */
+.cv-page .item-title,
+.item-title {
+  font-size: 9.8pt;
+  font-weight: 700;
+  color: #111827;
+}
+
+/* Entreprise, établissement et lieu */
+.cv-page .item-subtitle,
+.item-subtitle {
+  font-size: 9.2pt;
+  font-weight: 400;
+  font-style: italic;
+  color: #4b5563;
+}
+
+/* Badge ou mention importante (ex: Major de promotion, Parcours) */
+.cv-page .item-badge,
+.item-badge {
+  font-size: 9.2pt;
+  font-weight: 600;
+  color: #1e3a8a;
+  font-style: normal;
+}
+
+/* Dates alignées à droite */
+.cv-page .item-date,
+.item-date {
+  font-size: 9pt;
+  font-weight: 600;
+  color: #1d4ed8;
+  white-space: nowrap;
+}
+
+/* Sous-ligne d'information (ex: Parcours / École en Formation) */
+.cv-page .item-meta,
+.item-meta {
+  font-size: 9pt;
+  color: #374151;
+  margin-bottom: 2px;
+}
+
+/* Liste des tâches et notions avec retrait à gauche */
+.cv-page .item-bullets,
+.item-bullets {
+  margin: 2px 0 0 0;
+  padding-left: 16px;
+  list-style-type: disc;
+}
+
+.cv-page .item-bullets li,
+.item-bullets li {
+  font-size: 9pt;
+  line-height: 1.32;
+  color: #1f2937;
+  margin-bottom: 1.5px;
+  padding-left: 0;
+}
+
+.cv-page .item-bullets li::marker,
+.item-bullets li::marker {
+  color: #1d4ed8;
+}
+
+.cv-page .item-bullets strong,
+.item-bullets strong {
+  font-weight: 600;
+  color: #111827;
+}
+
+/* Grille pour les Compétences techniques */
+.cv-page .skills-grid,
+.skills-grid {
+  display: grid;
+  grid-template-columns: 215px 1fr;
+  row-gap: 4px;
+  column-gap: 12px;
+  align-items: baseline;
+  margin-top: 4px;
+}
+
+.cv-page .skill-category,
+.skill-category {
+  font-size: 9pt;
+  font-weight: 700;
+  color: #111827;
+}
+
+.cv-page .skill-list,
+.skill-list {
+  font-size: 9pt;
+  line-height: 1.32;
+  color: #1f2937;
+}
+
 .cv-document { margin: 0; background: #ffffff; color: #000000; }
 .cv-document .cv-page-wrapper { padding: 65px 12px 20px; }
 .cv-toolbar {
@@ -114,6 +231,8 @@
   .cv-page .cv-contact { font-size: 12px; }
   .cv-page .cv-date { display: block; }
   .cv-page .cv-employer-line { align-items: flex-start; }
+  .cv-page .item-header, .item-header { flex-wrap: wrap; }
+  .cv-page .skills-grid, .skills-grid { grid-template-columns: 1fr; row-gap: 2px; }
   .cv-page .cv-header { grid-template-columns: 75px minmax(0, 1fr) 70px; gap: 10px; }
   .cv-page .cv-photo { width: 75px; height: 98px; }
   .cv-page .cv-qr { width: 70px; }
@@ -134,8 +253,14 @@
   .cv-toolbar { display: none !important; }
   .cv-document .cv-page-wrapper, .cv-overlay-backdrop .cv-page-wrapper { margin: 0; padding: 0; }
   .cv-page { width: 100%; max-width: none; margin: 0; padding: 0; }
-  .cv-page .cv-entry { break-inside: avoid; }
+  .cv-page .cv-entry, .cv-page .cv-item, .cv-item { break-inside: avoid; }
   .cv-page { font-size: 9.15pt; line-height: 1.2; }
+  .cv-page .item-bullets li, .item-bullets li { line-height: 1.18; margin-bottom: 0.5px; }
+  .cv-page .skill-list, .skill-list { line-height: 1.18; }
+  .cv-page .cv-item, .cv-item { margin-bottom: 4.5px; }
+  .cv-page .cv-item:last-child, .cv-item:last-child { margin-bottom: 0; }
+  .cv-page .cv-section { margin-top: 2.2mm; }
+  .cv-page .skills-grid, .skills-grid { row-gap: 2px; margin-top: 2px; }
   .cv-overlay-backdrop:not(.active) { display: none !important; }
   body:has(.cv-overlay-backdrop.active) > :not(.cv-overlay-backdrop) { display: none !important; }
   .cv-overlay-backdrop.active {
