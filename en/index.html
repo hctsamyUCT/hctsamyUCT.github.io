@@ -108,7 +108,7 @@
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="/css/portfolio.css?v=20261110">
-  <link rel="stylesheet" href="/css/cv.css?v=3e0deef64e1a">
+  <link rel="stylesheet" href="/css/cv.css?v=fc1961e12192">
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -174,7 +174,7 @@
           <p class="hero-headline" id="hero-headline">For my Data / BI internship, I want to help a team prepare its data, build dashboards and analyse its results. My projects show how I turn files into useful indicators.</p>
           <div class="hero-cta-group">
             <a href="mailto:samyhctpro@gmail.com" class="btn btn-primary" id="hero-contact-btn">Contact me for an internship <span aria-hidden="true">↗</span></a>
-            <a href="/assets/cv/CV_Samy_Houchat_EN.pdf?v=5e67ef21941c" class="btn btn-secondary" id="hero-cv-btn" download="CV_Samy_Houchat_Internship_Data_Analyst_BI.pdf">Download my CV <span aria-hidden="true">↓</span></a>
+            <a href="/assets/cv/CV_Samy_Houchat_EN.pdf?v=8782aa0aea29" class="btn btn-secondary" id="hero-cv-btn" download="CV_Samy_Houchat_Internship_Data_Analyst_BI.pdf">Download my CV <span aria-hidden="true">↓</span></a>
             <a href="#projets" class="btn btn-outline">Explore my projects <span aria-hidden="true">↓</span></a>
           </div>
           <div class="hero-secondary-links">
@@ -347,7 +347,7 @@
           </ul>
 
           <div class="featured-tags-compact">
-            <span class="skill-tag">Power BI</span><span class="skill-tag">Python</span><span class="skill-tag">SQL</span><span class="skill-tag">Data modelling</span>
+            <span class="skill-tag">Power BI</span><span class="skill-tag">SAP Business One</span><span class="skill-tag">Python</span><span class="skill-tag">SQL</span><span class="skill-tag">Data modelling</span>
           </div>
 
 
@@ -521,7 +521,7 @@
       </div>
 
       <div class="skills-tags-wrap">
-        <span class="skill-tag">Power BI</span><span class="skill-tag">Advanced DAX</span><span class="skill-tag">ETL pipelines</span><span class="skill-tag">Star schema modelling</span><span class="skill-tag">KPIs & Reporting</span><span class="skill-tag">Data Warehouse</span>
+        <span class="skill-tag">Power BI</span><span class="skill-tag">Advanced DAX</span><span class="skill-tag">ETL pipelines</span><span class="skill-tag">SAP Business One ERP</span><span class="skill-tag">Star schema modelling</span><span class="skill-tag">KPIs & Reporting</span><span class="skill-tag">Data Warehouse</span>
       </div>
     </div>
 
@@ -612,7 +612,7 @@
             <div class="timeline-mission-block">
               <h4 class="timeline-mission-title">Data & BI assignment — Client: Food industry client</h4>
               <ul class="timeline-bullets">
-                <li class="timeline-bullet">Cleaning and transformation of data with Python (Pandas) and SQL to feed a Data Warehouse (ETL pipeline).</li><li class="timeline-bullet">Star schema modelling in Power BI: dimensions and fact tables, Power Query transformations, DAX measures.</li><li class="timeline-bullet">Built a Power BI Supply Chain report for a food industry client: KPI tracking (orders, deliveries), data visualisation and sales forecasting.</li>
+                <li class="timeline-bullet">Extraction and transformation of ERP tables (SAP Business One: orders, deliveries, products) using Python (Pandas) and SQL to feed a Data Warehouse (ETL pipeline).</li><li class="timeline-bullet">Star schema modelling in Power BI: dimensions and fact tables, Power Query transformations, DAX measures.</li><li class="timeline-bullet">Built a Power BI Supply Chain report for a food industry client: KPI tracking (orders, deliveries), data visualisation and sales forecasting.</li>
               </ul>
             </div>
 
@@ -776,7 +776,7 @@ const siteConfig = {
     linkedin: "https://www.linkedin.com/in/samyhouchat",
     githubUser: "https://github.com/HouchatSamy?tab=repositories",
     githubOrg: "https://github.com/AVDAdz/avdaAuto",
-    cvPdfPath: "/assets/cv/CV_Samy_Houchat_EN.pdf?v=5e67ef21941c",
+    cvPdfPath: "/assets/cv/CV_Samy_Houchat_EN.pdf?v=8782aa0aea29",
     photoPath: "/assets/img/photo_opt.jpg"
   },
 
@@ -832,6 +832,7 @@ const siteConfig = {
     objective: "Automate data flows from source to reporting, track delivery compliance (OTIF), compare forecasts against orders and support customer service.",
     tags: ["Power BI", "Advanced DAX", "Python (ETL)", "Data Warehouse", "Star Schema (MPD)", "KPI OTIF"],
     tools: [
+      "SAP Business One ERP (Source tables)",
       "Python (ETL pipelines & data cleaning)",
       "Bronze & Gold architecture",
       "Power BI & Power Query",
@@ -852,8 +853,8 @@ const siteConfig = {
         desc: "A multi-fact star schema linking FACT_ORDER, FACT_DELIVERY and FACT_FORECAST to shared dimensions (DIM_CUSTOMER, DIM_PRODUCT, DIM_DATE, DIM_WAREHOUSE), avoiding ambiguous relationships."
       },
       {
-        title: "Data ingestion & ETL transformation with Python",
-        desc: "Automated processing from raw source data (Bronze layer) to a consolidated warehouse for business analysis (Gold layer)."
+        title: "ETL Ingestion & transformation from SAP Business One",
+        desc: "SQL querying and automated extraction of ERP tables (orders ORDR/RDR1, deliveries ODLN/DLN1, customers OCRD, items OITM) into the consolidated star schema (Gold layer)."
       }
     ],
     result: "An automated data pipeline and indicators to help logistics and sales teams track their operations.",
@@ -1024,7 +1025,7 @@ const siteConfig = {
     {
       name: "Data & Business Intelligence",
       icon: "chart-bar",
-      skills: ["Power BI", "Advanced DAX", "ETL pipelines", "Star schema modelling", "KPIs & Reporting", "Data Warehouse"]
+      skills: ["Power BI", "Advanced DAX", "ETL pipelines", "SAP Business One ERP", "Star schema modelling", "KPIs & Reporting", "Data Warehouse"]
     },
     {
       name: "Databases & DBMS",
@@ -1059,7 +1060,7 @@ const siteConfig = {
         {
           title: "Data & BI assignment — Client: {agrana}",
           bullets: [
-            "Cleaning and transformation of data with Python (Pandas) and SQL to feed a Data Warehouse (ETL pipeline).",
+            "Extraction and transformation of ERP tables (SAP Business One: orders, deliveries, products) using Python (Pandas) and SQL to feed a Data Warehouse (ETL pipeline).",
             "Star schema modelling in Power BI: dimensions and fact tables, Power Query transformations, DAX measures.",
             "Built a Power BI Supply Chain report for a food industry client: KPI tracking (orders, deliveries), data visualisation and sales forecasting."
           ]
@@ -1326,7 +1327,7 @@ function renderFeaturedProject() {
           </ul>
 
           <div class="featured-tags-compact">
-            ${['Power BI', 'Python', 'SQL', 'Data modelling'].map(tech => `<span class="skill-tag">${tech}</span>`).join('')}
+            ${['Power BI', 'SAP Business One', 'Python', 'SQL', 'Data modelling'].map(tech => `<span class="skill-tag">${tech}</span>`).join('')}
           </div>
 
           ${fp.githubUrl ? `
@@ -2073,7 +2074,7 @@ if (document.readyState === 'loading') {
       <span id="cv-dialog-title">CV — Samy Houchat</span>
       <div class="cv-toolbar-actions">
         <button type="button" id="btn-close-cv">Back to portfolio</button>
-        <a href="/assets/cv/CV_Samy_Houchat_EN.pdf?v=5e67ef21941c" download="CV_Samy_Houchat_Internship_Data_Analyst_BI.pdf" class="cv-download" id="cv-download-pdf">Download PDF — 1 A4 page</a>
+        <a href="/assets/cv/CV_Samy_Houchat_EN.pdf?v=8782aa0aea29" download="CV_Samy_Houchat_Internship_Data_Analyst_BI.pdf" class="cv-download" id="cv-download-pdf">Download PDF — 1 A4 page</a>
         <button type="button" onclick="window.print()" id="btn-print-cv">Print</button>
       </div>
     </aside>
@@ -2163,7 +2164,7 @@ if (document.readyState === 'loading') {
       <span class="item-date">02/2026 – 08/2026</span>
     </div>
     <ul class="item-bullets">
-      <li><strong>ETL Pipeline:</strong> Cleaning and transformation of data with Python (Pandas) and SQL to feed a Data Warehouse.</li>
+      <li><strong>ETL &amp; ERP Pipeline:</strong> Querying and extracting ERP tables (SAP Business One) with SQL and Python (Pandas) to feed a Data Warehouse.</li>
       <li><strong>Star Schema Modelling:</strong> Designing dimensions and fact tables in Power BI, Power Query transformations and DAX measures.</li>
       <li><strong>Supply Chain Reporting:</strong> Built a Power BI report for a food industry client (KPI tracking for orders/deliveries, data visualisation and sales forecasting).</li>
     </ul>
@@ -2237,7 +2238,7 @@ if (document.readyState === 'loading') {
     <div class="skill-list">R language (RStudio), Python (SciPy, Statsmodels), time series analysis (smoothing, forecasting), hypothesis testing, linear regression, probabilities, statistical process control.</div>
 
     <div class="skill-category">Data Analysis, ETL &amp; BI :</div>
-    <div class="skill-list">Python (Pandas, NumPy), ETL, data cleaning, Power BI, DAX (Time Intelligence, <span class="cv-nowrap">What-If</span>), Power Query, star schema, Supply Chain KPIs (OTIF, ABC/Pareto).</div>
+    <div class="skill-list">Python (Pandas, NumPy), ETL, ERP (SAP Business One), Power BI, DAX (Time Intelligence, <span class="cv-nowrap">What-If</span>), Power Query, star schema, Supply Chain KPIs (OTIF, ABC/Pareto).</div>
 
     <div class="skill-category">Databases &amp; SQL :</div>
     <div class="skill-list">PostgreSQL, MySQL, SQLite, advanced SQL, relational modelling (Merise), indexing, query optimization.</div>

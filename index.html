@@ -108,7 +108,7 @@
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="/css/portfolio.css?v=20261110">
-  <link rel="stylesheet" href="/css/cv.css?v=3e0deef64e1a">
+  <link rel="stylesheet" href="/css/cv.css?v=fc1961e12192">
 </head>
 <body>
   <a class="skip-link" href="#main-content">Aller au contenu</a>
@@ -174,7 +174,7 @@
           <p class="hero-headline" id="hero-headline">Je souhaite rejoindre une équipe pour préparer ses données, construire des tableaux de bord et analyser ses résultats. Mes projets montrent comment je passe des fichiers aux indicateurs utiles.</p>
           <div class="hero-cta-group">
             <a href="mailto:samyhctpro@gmail.com" class="btn btn-primary" id="hero-contact-btn">Me contacter pour un stage <span aria-hidden="true">↗</span></a>
-            <a href="assets/cv/CV_Samy_Houchat.pdf?v=3e0deef64e1a" class="btn btn-secondary" id="hero-cv-btn" download="CV_Samy_Houchat_Stage_Data_Analyst_BI.pdf">Télécharger mon CV <span aria-hidden="true">↓</span></a>
+            <a href="assets/cv/CV_Samy_Houchat.pdf?v=fc1961e12192" class="btn btn-secondary" id="hero-cv-btn" download="CV_Samy_Houchat_Stage_Data_Analyst_BI.pdf">Télécharger mon CV <span aria-hidden="true">↓</span></a>
             <a href="#projets" class="btn btn-outline">Découvrir mes projets <span aria-hidden="true">↓</span></a>
           </div>
           <div class="hero-secondary-links">
@@ -347,7 +347,7 @@
           </ul>
 
           <div class="featured-tags-compact">
-            <span class="skill-tag">Power BI</span><span class="skill-tag">Python</span><span class="skill-tag">SQL</span><span class="skill-tag">Modélisation des données</span>
+            <span class="skill-tag">Power BI</span><span class="skill-tag">SAP Business One</span><span class="skill-tag">Python</span><span class="skill-tag">SQL</span><span class="skill-tag">Modélisation des données</span>
           </div>
 
 
@@ -521,7 +521,7 @@
       </div>
 
       <div class="skills-tags-wrap">
-        <span class="skill-tag">Power BI</span><span class="skill-tag">DAX Avancé</span><span class="skill-tag">Pipelines ETL</span><span class="skill-tag">Modélisation en Étoile</span><span class="skill-tag">KPIs & Reporting</span><span class="skill-tag">Data Warehouse</span>
+        <span class="skill-tag">Power BI</span><span class="skill-tag">DAX Avancé</span><span class="skill-tag">Pipelines ETL</span><span class="skill-tag">ERP SAP Business One</span><span class="skill-tag">Modélisation en Étoile</span><span class="skill-tag">KPIs & Reporting</span><span class="skill-tag">Data Warehouse</span>
       </div>
     </div>
 
@@ -612,7 +612,7 @@
             <div class="timeline-mission-block">
               <h4 class="timeline-mission-title">Mission Data & BI — Client : Client industriel agroalimentaire</h4>
               <ul class="timeline-bullets">
-                <li class="timeline-bullet">Nettoyage et transformation des données avec Python (Pandas) et SQL pour alimenter un Data Warehouse (pipeline ETL).</li><li class="timeline-bullet">Modélisation en étoile sous Power BI : dimensions et tables de faits, transformations Power Query, mesures DAX.</li><li class="timeline-bullet">Création d'un rapport Supply Chain sous Power BI pour un client agroalimentaire : suivi des KPI (commandes, livraisons), data visualisation et prévision des ventes.</li>
+                <li class="timeline-bullet">Extraction et transformation des tables ERP (SAP Business One : commandes, livraisons, articles) avec Python (Pandas) et SQL pour alimenter un Data Warehouse (pipeline ETL).</li><li class="timeline-bullet">Modélisation en étoile sous Power BI : dimensions et tables de faits, transformations Power Query, mesures DAX.</li><li class="timeline-bullet">Création d'un rapport Supply Chain sous Power BI pour un client agroalimentaire : suivi des KPI (commandes, livraisons), data visualisation et prévision des ventes.</li>
               </ul>
             </div>
 
@@ -776,7 +776,7 @@ const siteConfig = {
     linkedin: "https://www.linkedin.com/in/samyhouchat",
     githubUser: "https://github.com/HouchatSamy?tab=repositories",
     githubOrg: "https://github.com/AVDAdz/avdaAuto",
-    cvPdfPath: "assets/cv/CV_Samy_Houchat.pdf?v=3e0deef64e1a",
+    cvPdfPath: "assets/cv/CV_Samy_Houchat.pdf?v=fc1961e12192",
     photoPath: "assets/img/photo_opt.jpg"
   },
 
@@ -832,6 +832,7 @@ const siteConfig = {
     objective: "Automatiser le flux de données de la source au reporting, suivre en temps réel la conformité des livraisons (OTIF), analyser les écarts Prévisions vs Commandes et sécuriser la satisfaction client.",
     tags: ["Power BI", "DAX Avancé", "Python (ETL)", "Data Warehouse", "Star Schema (MPD)", "KPI OTIF"],
     tools: [
+      "ERP SAP Business One (Tables sources)",
       "Python (Pipelines ETL & nettoyage)",
       "Architecture Bronze & Gold",
       "Power BI & Power Query",
@@ -852,8 +853,8 @@ const siteConfig = {
         desc: "Architecture relationnelle en étoile multi-faits reliant FACT_ORDER, FACT_DELIVERY et FACT_FORECAST et des dimensions unifiées (DIM_CUSTOMER, DIM_PRODUCT, DIM_DATE, DIM_WAREHOUSE), évitant toute relation ambiguë."
       },
       {
-        title: "Ingestion & transformation ETL en Python",
-        desc: "Automatisation du traitement des flux de données sources brutes (couche Bronze) vers l'entrepôt consolidé pour l'analyse décisionnelle (couche Gold)."
+        title: "Ingestion & transformation ETL depuis SAP Business One",
+        desc: "Requêtage SQL et extraction automatisée des tables ERP (commandes ORDR/RDR1, livraisons ODLN/DLN1, clients OCRD, articles OITM) vers l'entrepôt consolidé en étoile (couche Gold)."
       }
     ],
     result: "Une chaîne de traitement automatisée et des indicateurs pour aider les équipes logistiques et commerciales à suivre leur activité.",
@@ -1024,7 +1025,7 @@ const siteConfig = {
     {
       name: "Data & Business Intelligence",
       icon: "chart-bar",
-      skills: ["Power BI", "DAX Avancé", "Pipelines ETL", "Modélisation en Étoile", "KPIs & Reporting", "Data Warehouse"]
+      skills: ["Power BI", "DAX Avancé", "Pipelines ETL", "ERP SAP Business One", "Modélisation en Étoile", "KPIs & Reporting", "Data Warehouse"]
     },
     {
       name: "Bases de données & SGBD",
@@ -1059,7 +1060,7 @@ const siteConfig = {
         {
           title: "Mission Data & BI — Client : {agrana}",
           bullets: [
-            "Nettoyage et transformation des données avec Python (Pandas) et SQL pour alimenter un Data Warehouse (pipeline ETL).",
+            "Extraction et transformation des tables ERP (SAP Business One : commandes, livraisons, articles) avec Python (Pandas) et SQL pour alimenter un Data Warehouse (pipeline ETL).",
             "Modélisation en étoile sous Power BI : dimensions et tables de faits, transformations Power Query, mesures DAX.",
             "Création d'un rapport Supply Chain sous Power BI pour un client agroalimentaire : suivi des KPI (commandes, livraisons), data visualisation et prévision des ventes."
           ]
@@ -1326,7 +1327,7 @@ function renderFeaturedProject() {
           </ul>
 
           <div class="featured-tags-compact">
-            ${['Power BI', 'Python', 'SQL', 'Modélisation des données'].map(tech => `<span class="skill-tag">${tech}</span>`).join('')}
+            ${['Power BI', 'SAP Business One', 'Python', 'SQL', 'Modélisation des données'].map(tech => `<span class="skill-tag">${tech}</span>`).join('')}
           </div>
 
           ${fp.githubUrl ? `
@@ -2073,7 +2074,7 @@ if (document.readyState === 'loading') {
       <span id="cv-dialog-title">CV — Samy Houchat</span>
       <div class="cv-toolbar-actions">
         <button type="button" id="btn-close-cv">Retour au portfolio</button>
-        <a href="/assets/cv/CV_Samy_Houchat.pdf?v=3e0deef64e1a" download="CV_Samy_Houchat_Stage_Data_Analyst_BI.pdf" class="cv-download" id="cv-download-pdf">Télécharger le PDF — 1 page A4</a>
+        <a href="/assets/cv/CV_Samy_Houchat.pdf?v=fc1961e12192" download="CV_Samy_Houchat_Stage_Data_Analyst_BI.pdf" class="cv-download" id="cv-download-pdf">Télécharger le PDF — 1 page A4</a>
         <button type="button" onclick="window.print()" id="btn-print-cv">Imprimer</button>
       </div>
     </aside>
@@ -2163,7 +2164,7 @@ if (document.readyState === 'loading') {
       <span class="item-date">02/2026 – 08/2026</span>
     </div>
     <ul class="item-bullets">
-      <li><strong>Pipeline ETL :</strong> Nettoyage et transformation des données avec Python (Pandas) et SQL pour alimenter un Data Warehouse.</li>
+      <li><strong>Pipeline ETL & ERP :</strong> Requêtage et extraction des tables ERP (SAP Business One) avec SQL et Python (Pandas) pour alimenter un Data Warehouse.</li>
       <li><strong>Modélisation en étoile :</strong> Conception de dimensions et tables de faits sous Power BI, transformations Power Query et mesures DAX.</li>
       <li><strong>Reporting Supply Chain :</strong> Création d'un rapport Power BI pour un client agroalimentaire (suivi des KPI commandes/livraisons, data visualisation et prévision des ventes).</li>
     </ul>
@@ -2237,7 +2238,7 @@ if (document.readyState === 'loading') {
     <div class="skill-list">Langage R (RStudio), Python (SciPy, Statsmodels), séries temporelles (lissage, prévision), tests d'hypothèses, régression linéaire, probabilités, contrôle statistique.</div>
 
     <div class="skill-category">Data Analyse, ETL & BI :</div>
-    <div class="skill-list">Python (Pandas, NumPy), ETL, nettoyage de données, Power BI, DAX (Time Intelligence, What-If), Power Query, schéma en étoile, KPI Supply Chain (OTIF, ABC/Pareto).</div>
+    <div class="skill-list">Python (Pandas, NumPy), ETL, ERP (SAP Business One), Power BI, DAX (Time Intelligence, What-If), Power Query, schéma en étoile, KPI Supply Chain (OTIF, ABC/Pareto).</div>
 
     <div class="skill-category">Bases de données & SQL :</div>
     <div class="skill-list">PostgreSQL, MySQL, SQLite, SQL avancé, modélisation relationnelle (Merise), indexation, optimisation de requêtes.</div>

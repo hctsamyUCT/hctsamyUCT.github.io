@@ -18,7 +18,7 @@ export const siteConfig = {
     linkedin: "https://www.linkedin.com/in/samyhouchat",
     githubUser: "https://github.com/HouchatSamy?tab=repositories",
     githubOrg: "https://github.com/AVDAdz/avdaAuto",
-    cvPdfPath: "assets/cv/CV_Samy_Houchat.pdf?v=3e0deef64e1a",
+    cvPdfPath: "assets/cv/CV_Samy_Houchat.pdf?v=fc1961e12192",
     photoPath: "assets/img/photo_opt.jpg"
   },
 
@@ -78,6 +78,7 @@ export const siteConfig = {
     objective: "Automatiser le flux de données de la source au reporting, suivre en temps réel la conformité des livraisons (OTIF), analyser les écarts Prévisions vs Commandes et sécuriser la satisfaction client.",
     tags: ["Power BI", "DAX Avancé", "Python (ETL)", "Data Warehouse", "Star Schema (MPD)", "KPI OTIF"],
     tools: [
+      "ERP SAP Business One (Tables sources)",
       "Python (Pipelines ETL & nettoyage)",
       "Architecture Bronze & Gold",
       "Power BI & Power Query",
@@ -98,8 +99,8 @@ export const siteConfig = {
         desc: "Architecture relationnelle en étoile multi-faits reliant FACT_ORDER, FACT_DELIVERY et FACT_FORECAST et des dimensions unifiées (DIM_CUSTOMER, DIM_PRODUCT, DIM_DATE, DIM_WAREHOUSE), évitant toute relation ambiguë."
       },
       {
-        title: "Ingestion & transformation ETL en Python",
-        desc: "Automatisation du traitement des flux de données sources brutes (couche Bronze) vers l'entrepôt consolidé pour l'analyse décisionnelle (couche Gold)."
+        title: "Ingestion & transformation ETL depuis SAP Business One",
+        desc: "Requêtage SQL et extraction automatisée des tables ERP (commandes ORDR/RDR1, livraisons ODLN/DLN1, clients OCRD, articles OITM) vers l'entrepôt consolidé en étoile (couche Gold)."
       }
     ],
     result: "Une chaîne de traitement automatisée et des indicateurs pour aider les équipes logistiques et commerciales à suivre leur activité.",
@@ -270,7 +271,7 @@ export const siteConfig = {
     {
       name: "Data & Business Intelligence",
       icon: "chart-bar",
-      skills: ["Power BI", "DAX Avancé", "Pipelines ETL", "Modélisation en Étoile", "KPIs & Reporting", "Data Warehouse"]
+      skills: ["Power BI", "DAX Avancé", "Pipelines ETL", "ERP SAP Business One", "Modélisation en Étoile", "KPIs & Reporting", "Data Warehouse"]
     },
     {
       name: "Bases de données & SGBD",
