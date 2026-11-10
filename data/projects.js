@@ -11,45 +11,45 @@ export const siteConfig = {
   profile: {
     name: "Samy Houchat",
     title: "Étudiant en science des données · Stage Data / BI",
-    headline: "Chaque entreprise accumule des données, mais rares sont celles qui en tirent tout le potentiel : c'est là que j'interviens. Je transforme vos flux d'activité en tableaux de bord BI clairs pour piloter vos objectifs en temps réel, et j'applique la modélisation statistique pour anticiper vos tendances futures. Mon objectif ? Vous apporter de la clarté grâce à un stage opérationnel de 10 à 12 semaines dès avril 2027.",
-    availabilityBadge: "Stage Data / BI · 10 à 12 semaines · dès avril 2027",
+    headline: "En recherche d’un stage de 10 à 12 semaines dès avril 2027. Avec Python, SQL, Power BI et R, je transforme vos données brutes en flux automatisés, tableaux de bord interactifs et analyses utiles à vos décisions.",
+    availabilityBadge: "Stage Data / BI / Statistique · 10 à 12 semaines · avril 2027",
     location: "France, Luxembourg, Suisse, Canada, Allemagne",
     email: "samyhctpro@gmail.com",
     linkedin: "https://www.linkedin.com/in/samyhouchat",
     githubUser: "https://github.com/HouchatSamy?tab=repositories",
     githubOrg: "https://github.com/AVDAdz/avdaAuto",
     cvPdfPath: "assets/cv/CV_Samy_Houchat.pdf?v=3e0deef64e1a",
-    photoPath: "assets/img/photo.png"
+    photoPath: "assets/img/photo_opt.jpg"
   },
 
   keyStats: [
     {
       id: "reliable-data",
-      badge: "Fiabiliser vos données",
-      title: "Python & SQL",
-      subtitle: "Collecter, nettoyer et structurer les données pour limiter les traitements manuels.",
+      badge: "Automatiser & fiabiliser",
+      title: "Pipelines de données & ETL",
+      subtitle: "J’automatise l’ingestion et le nettoyage de vos fichiers avec Python et SQL pour que vos analyses reposent sur des données fiables et prêtes à l’emploi.",
       href: "#projets", action: "Voir le projet Data"
     },
     {
       id: "clear-decisions",
-      badge: "Rendre les chiffres utiles",
+      badge: "Éclairer les décisions",
       title: "Tableaux de bord Power BI",
-      subtitle: "Suivre les commandes, comparer les prévisions et rendre les indicateurs lisibles.",
+      subtitle: "Je conçois des modèles en étoile et des mesures DAX pour repérer les écarts commandes/livraisons et piloter vos indicateurs en temps réel.",
       href: "#projets", action: "Explorer les tableaux de bord"
     },
     {
       id: "real-experience",
-      badge: "Passer de l'idée à l'outil",
-      title: "Expérience Data en entreprise",
-      subtitle: "Des missions Data et web menées en entreprise chez Layer Data, complétées par le développement d'AVDA Auto.",
-      href: "#experience", action: "Découvrir mon expérience"
+      badge: "Anticiper & modéliser",
+      title: "Statistique & Séries temporelles",
+      subtitle: "Avec R et Python, j’analyse vos séries temporelles, teste des hypothèses et modélise les tendances pour appuyer vos prévisions sur des bases solides.",
+      href: "#autres-projets", action: "Voir l’étude statistique"
     },
     {
       id: "dba-foundation",
       badge: "Concevoir des bases solides",
-      title: "Socle DBA (Administrateur BDD)",
-      subtitle: "Modéliser des bases robustes, optimiser le SQL et garantir la qualité de la donnée à la source.",
-      href: "#formation", action: "Découvrir mon socle DBA"
+      title: "Modélisation relationnelle & Données",
+      subtitle: "Ma formation approfondie en bases de données (BTS Major de promotion) me permet de structurer des schémas normalisés (Merise, 3FN) avant toute restitution visuelle.",
+      href: "#formation", action: "Découvrir mon socle BDD"
     }
   ],
 

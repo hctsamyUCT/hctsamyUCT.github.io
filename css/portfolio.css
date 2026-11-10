@@ -55,7 +55,7 @@ button svg, .btn svg { flex-shrink: 0; }
 .mobile-drawer { display: none; }
 .section-hero { position: relative; padding: 68px 0 0; }
 .hero-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 56px; align-items: center; }
-.availability-badge { display: flex; align-items: center; gap: 9px; color: var(--text-muted); font-size: 11px; font-weight: 600; margin-bottom: 25px; }
+.availability-badge { display: inline-flex; align-items: center; gap: 8px; color: var(--text-main); font-size: 11px; font-weight: 600; margin-bottom: 24px; padding: 4px 12px; background: var(--bg-secondary); border: 1px solid var(--border-subtle); border-radius: 9999px; width: fit-content; }
 .pulse-indicator { width: 7px; height: 7px; border-radius: 50%; background: var(--accent-emerald); flex-shrink: 0; }
 .hero-name { font-size: 12px; font-weight: 600; color: var(--text-muted); letter-spacing: .5px; }
 .hero-statement { margin: 13px 0 24px; font-size: clamp(43px, 4.9vw, 72px); line-height: 1.05; font-weight: 600; letter-spacing: -3.4px; }
