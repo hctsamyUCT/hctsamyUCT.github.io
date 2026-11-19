@@ -43,7 +43,7 @@ def inspect_pdf(path, lang="fr"):
 
     if lang == "fr":
         headings = HEADINGS_FR
-        phrases = ["Samy HOUCHAT", "10 à 12 semaines", "avril 2027", "+33 7 46 15 66 57", "samyhctpro@gmail.com",
+        phrases = ["Samy HOUCHAT", "10 semaines et plus", "3 à 6 mois", "avril 2027", "+33 7 46 15 66 57", "samyhctpro@gmail.com",
                    "25 ans", "Permis B", "BUT Science des données (SD)", "Parcours Exploration et Modélisation Statistique",
                    "Formation en cours", "BTS Informatique", "option Bases de données", "Major de promotion",
                    "Layer Data", "client agroalimentaire", "Python", "SQL", "Langage R (RStudio)", "ETL",
@@ -58,7 +58,7 @@ def inspect_pdf(path, lang="fr"):
                         "AVDA Auto — Application de gestion automobile 2026"]
     else:
         headings = HEADINGS_EN
-        phrases = ["Samy HOUCHAT", "10 to 12 weeks", "April 2027", "+33 7 46 15 66 57", "samyhctpro@gmail.com",
+        phrases = ["Samy HOUCHAT", "10 weeks or more", "3 to 6 months", "April 2027", "+33 7 46 15 66 57", "samyhctpro@gmail.com",
                    "25 years old", "Category B licence", "BUT in Data Science (SD)", "Statistical Exploration and Modelling track",
                    "Currently in progress", "BTS in IT", "Database option", "Top of the graduating class",
                    "Layer Data", "food industry client", "Python", "SQL", "R language (RStudio)", "ETL",
